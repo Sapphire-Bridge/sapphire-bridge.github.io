@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sapphire Bridge — Tools for Inner Order</title>
+<meta name="description" content="I build tools to test how AI internally represents meaning-relevant structure — and when those representations genuinely explain behavior.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f0e8;
+    --cream-dark: #ebe4d8;
+    --ink: #2a2520;
+    --ink-soft: #5c554d;
+    --ink-muted: #8a8279;
+    --sapphire: #1e3a5f;
+    --sapphire-light: #2c5282;
+    --sapphire-faint: rgba(30, 58, 95, 0.08);
+    --rule: rgba(42, 37, 32, 0.15);
+    --serif-display: 'Cormorant Garamond', 'Georgia', serif;
+    --serif-body: 'EB Garamond', 'Georgia', serif;
+    --serif-accent: 'Lora', 'Georgia', serif;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    font-size: 18px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    font-family: var(--serif-body);
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(30, 58, 95, 0.02) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(180, 160, 130, 0.04) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  ::selection {
+    background: rgba(30, 58, 95, 0.15);
+    color: var(--ink);
+  }
+
+  .page {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  header {
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.1s forwards;
+  }
+
+  .site-name {
+    font-family: var(--serif-display);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sapphire);
+    margin-bottom: 2.5rem;
+  }
+
+  .tagline {
+    font-family: var(--serif-display);
+    font-size: 1.65rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--ink);
+    max-width: 560px;
+  }
+
+  .orientation-strip {
+    margin-top: 1.25rem;
+    font-family: var(--serif-accent);
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+  }
+
+  .section {
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .section:nth-child(2) { animation-delay: 0.25s; }
+  .section:nth-child(3) { animation-delay: 0.4s; }
+  .section:nth-child(4) { animation-delay: 0.55s; }
+  .section:nth-child(5) { animation-delay: 0.7s; }
+  .section:nth-child(6) { animation-delay: 0.85s; }
+
+  .section-label {
+    font-family: var(--serif-accent);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sapphire);
+    margin-bottom: 1rem;
+  }
+
+  .section p {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+  }
+
+  .section p:last-child {
+    margin-bottom: 0;
+  }
+
+  .emphasis {
+    font-family: var(--serif-display);
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--ink);
+    border-left: 2px solid var(--sapphire);
+    padding-left: 1.25rem;
+    margin: 2rem 0;
+  }
+
+  .divider {
+    width: 3rem;
+    height: 1px;
+    background: var(--rule);
+    margin: 2.5rem 0;
+  }
+
+  .figure {
+    margin: 2.5rem -1rem;
+    padding: 1.5rem 1rem;
+    background: var(--cream-dark);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+  }
+
+  .bridge {
+    background: var(--sapphire-faint);
+    padding: 1.5rem 1.75rem;
+    border-radius: 2px;
+    margin: 2.5rem 0;
+  }
+
+  .bridge p {
+    font-family: var(--serif-display);
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--sapphire);
+    margin: 0;
+  }
+
+  .links-section {
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--rule);
+    margin-top: 3.5rem;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 1s forwards;
+  }
+
+  .links-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
+  }
+
+  .links-row a {
+    font-family: var(--serif-accent);
+    font-size: 0.88rem;
+    color: var(--sapphire);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.25s ease;
+  }
+
+  .links-row a:hover {
+    border-bottom-color: var(--sapphire);
+  }
+
+  footer {
+    padding: 3rem 0 4rem;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 1.15s forwards;
+  }
+
+  footer p {
+    font-family: var(--serif-accent);
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.02em;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 640px) {
+    html { font-size: 16px; }
+    .page { padding: 0 1.25rem; }
+    header { padding: 2.5rem 0 2rem; margin-bottom: 2rem; }
+    .tagline { font-size: 1.4rem; }
+    .links-row { flex-direction: column; gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="site-name">Sapphire Bridge</div>
+    <h1 class="tagline">I build tools to test how AI internally represents meaning-relevant structure — and when those representations genuinely explain behavior.</h1>
+    <div class="orientation-strip"><a href="sufficiency.html" style="color: var(--sapphire); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.25s ease;">For the philosopher (5 min)</a> · <a href="limitation.html" style="color: var(--sapphire); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.25s ease;">For the ML engineer (8 min)</a> · <a href="cv.html" style="color: var(--sapphire); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.25s ease;">CV</a></div>
+  </header>
+
+  <main>
+
+    <!-- 1. Manifesto -->
+    <div class="section">
+      <div class="section-label">Manifesto</div>
+      <p>I come from philosophy and work today as an AI-enabled ML engineer on an old question in a new form: what does it mean for knowledge to appear inside a computing machine?</p>
+      <p>In a Leibnizian spirit, I regard neural networks not merely as instruments of calculation but as systems of distributed inner order — systems in which a defined appearance of meaning may be mediated across mathematically connected layers with differing clarity. That conviction is the widest end of the funnel. The narrow end is a specific empirical method: philosophy of language supplies model-agnostic behavioral targets, causal patching localizes the internal states that control those targets, and matched basis comparisons test whether proposed explanatory substrates actually preserve the behavior they claim to explain.</p>
+      <p>The surprise of large language models is not that they implement explicit formal reason, but that large-scale contextual learning reaches much farther into meaning-sensitive competence than many expected. That shifts the burden of proof — and makes the question of what exactly is going on inside these systems not just philosophically interesting but empirically urgent.</p>
+    </div>
+
+    <!-- 2. Who I am -->
+    <div class="section">
+      <div class="section-label">Who I am</div>
+      <p>I am a philosopher who became an AI-enabled ML engineer. I use the modern computing machine to investigate how computing machines internally organize, compress, and render knowledge causally effective.</p>
+      <div class="emphasis">
+        At root, I am curious about how knowledge works. If you keep asking why, you end up in (meta-)mathematics, (modal) logic, metaphysics, meaning, reasoning, representation, and religion — and today, AI offers a beautiful lens into all of them.
+      </div>
+      <p>I am a philosopher using AI to analyze AI. My job is to hold the context window, keep the conceptual structure coherent, compare evidence across runs, and use AI as a multiplier for synthesis, iteration, and judgment — the context management, research direction, and intelligence amplification that make the work cumulative.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 3. The Leibniz Line (moved before Research Program) -->
+    <div class="section">
+      <div class="section-label">The Leibniz Line</div>
+      <p>Leibniz matters here not mainly as a precursor of symbolic logic, but as a thinker who joined mathematics and metaphysics in a single vision of order. His infinitesimal calculus made intelligible how complex structure can arise from fine-grained variation, while his metaphysics described a world in which what appears with different degrees of clarity remains internally connected. That is the widest question I care about: how inner mathematical order becomes knowledge, judgment, and action.</p>
+      <p>The research program is what happens when you take that question seriously enough to demand reliable answers rather than interpretive gestures. Philosophy of language narrows "inner order" to operational behavioral targets. Causal patching narrows "appears to carry meaning" to "demonstrably controls behavior under intervention." Matched basis comparison narrows "interpretable features" to "features that preserve the behavior they claim to explain." Each step trades breadth for testability.</p>
+
+      <div class="bridge">
+        <p>The task of interpretability, in a Leibnizian sense, is to determine when legibility across layers is causally real — and the contribution of this program is a method for making that determination empirically rather than speculatively.</p>
+      </div>
+
+      <div class="figure">
+        <svg width="100%" viewBox="0 0 680 576" xmlns="http://www.w3.org/2000/svg">
+        <style>
+          .ah-lbl-head { font-family: 'Georgia', serif; font-size: 10px; fill: #8a8279; }
+          .ah-lbl-token { font-family: 'Georgia', serif; font-size: 11px; fill: #2a2520; }
+          .ah-lbl-token-q { font-family: 'Georgia', serif; font-size: 11px; fill: #1e3a5f; font-weight: 500; }
+          .ah-title { font-family: 'Georgia', serif; font-size: 13px; fill: #2a2520; font-weight: 500; }
+          .ah-subtitle { font-family: 'Georgia', serif; font-size: 11px; fill: #8a8279; font-style: italic; }
+          .ah-layer-lbl { font-family: 'Georgia', serif; font-size: 10px; fill: #8a8279; }
+          .ah-caption { font-family: 'Georgia', serif; font-size: 10px; fill: #8a8279; font-style: italic; }
+        </style>
+        <text class="ah-title" x="40" y="32">Schematic attention pattern across tokens</text>
+        <text class="ah-subtitle" x="40" y="50">Darker cells indicate stronger illustrative attention weights in a schematic layer view</text>
+        <text class="ah-lbl-head" x="168" y="82" text-anchor="middle">The</text>
+        <text class="ah-lbl-head" x="236" y="82" text-anchor="middle">bank</text>
+        <text class="ah-lbl-head" x="304" y="82" text-anchor="middle">by</text>
+        <text class="ah-lbl-head" x="372" y="82" text-anchor="middle">the</text>
+        <text class="ah-lbl-head" x="440" y="82" text-anchor="middle">river</text>
+        <text class="ah-lbl-head" x="508" y="82" text-anchor="middle">was</text>
+        <text class="ah-lbl-head" x="576" y="82" text-anchor="middle">steep</text>
+        <text class="ah-lbl-token" x="130" y="114" text-anchor="end">The</text>
+        <text class="ah-lbl-token-q" x="130" y="160" text-anchor="end">bank</text>
+        <text class="ah-lbl-token" x="130" y="206" text-anchor="end">by</text>
+        <text class="ah-lbl-token" x="130" y="252" text-anchor="end">the</text>
+        <text class="ah-lbl-token" x="130" y="298" text-anchor="end">river</text>
+        <text class="ah-lbl-token" x="130" y="344" text-anchor="end">was</text>
+        <text class="ah-lbl-token" x="130" y="390" text-anchor="end">steep</text>
+        <text class="ah-layer-lbl" x="612" y="250" text-anchor="start">Layer 4</text>
+        <text class="ah-layer-lbl" x="612" y="264" text-anchor="start">(early)</text>
+        <rect x="142" y="94" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.55"/>
+        <rect x="210" y="94" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.12"/>
+        <rect x="278" y="94" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.08"/>
+        <rect x="346" y="94" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.06"/>
+        <rect x="414" y="94" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.05"/>
+        <rect x="482" y="94" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.04"/>
+        <rect x="550" y="94" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.04"/>
+        <rect x="142" y="140" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.20"/>
+        <rect x="210" y="140" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.45"/>
+        <rect x="278" y="140" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.10"/>
+        <rect x="346" y="140" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.08"/>
+        <rect x="414" y="140" width="52" height="38" rx="1" fill="#85734e" opacity="0.65"/>
+        <rect x="482" y="140" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.06"/>
+        <rect x="550" y="140" width="52" height="38" rx="1" fill="#85734e" opacity="0.50"/>
+        <rect x="142" y="186" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.08"/>
+        <rect x="210" y="186" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.15"/>
+        <rect x="278" y="186" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.40"/>
+        <rect x="346" y="186" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.12"/>
+        <rect x="414" y="186" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.08"/>
+        <rect x="482" y="186" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.05"/>
+        <rect x="550" y="186" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.04"/>
+        <rect x="142" y="232" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.06"/>
+        <rect x="210" y="232" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.10"/>
+        <rect x="278" y="232" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.18"/>
+        <rect x="346" y="232" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.50"/>
+        <rect x="414" y="232" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.12"/>
+        <rect x="482" y="232" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.05"/>
+        <rect x="550" y="232" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.04"/>
+        <rect x="142" y="278" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.05"/>
+        <rect x="210" y="278" width="52" height="38" rx="1" fill="#85734e" opacity="0.55"/>
+        <rect x="278" y="278" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.15"/>
+        <rect x="346" y="278" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.22"/>
+        <rect x="414" y="278" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.60"/>
+        <rect x="482" y="278" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.06"/>
+        <rect x="550" y="278" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.04"/>
+        <rect x="142" y="324" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.04"/>
+        <rect x="210" y="324" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.10"/>
+        <rect x="278" y="324" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.06"/>
+        <rect x="346" y="324" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.08"/>
+        <rect x="414" y="324" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.15"/>
+        <rect x="482" y="324" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.48"/>
+        <rect x="550" y="324" width="52" height="38" rx="1" fill="#85734e" opacity="0.40"/>
+        <rect x="142" y="370" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.04"/>
+        <rect x="210" y="370" width="52" height="38" rx="1" fill="#85734e" opacity="0.30"/>
+        <rect x="278" y="370" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.05"/>
+        <rect x="346" y="370" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.06"/>
+        <rect x="414" y="370" width="52" height="38" rx="1" fill="#85734e" opacity="0.70"/>
+        <rect x="482" y="370" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.20"/>
+        <rect x="550" y="370" width="52" height="38" rx="1" fill="#1e3a5f" opacity="0.55"/>
+        <line x1="142" y1="94" x2="602" y2="94" stroke="#d3d1c7" stroke-width="0.3"/>
+        <line x1="142" y1="140" x2="602" y2="140" stroke="#d3d1c7" stroke-width="0.3"/>
+        <line x1="142" y1="186" x2="602" y2="186" stroke="#d3d1c7" stroke-width="0.3"/>
+        <line x1="142" y1="232" x2="602" y2="232" stroke="#d3d1c7" stroke-width="0.3"/>
+        <line x1="142" y1="278" x2="602" y2="278" stroke="#d3d1c7" stroke-width="0.3"/>
+        <line x1="142" y1="324" x2="602" y2="324" stroke="#d3d1c7" stroke-width="0.3"/>
+        <line x1="142" y1="370" x2="602" y2="370" stroke="#d3d1c7" stroke-width="0.3"/>
+        <line x1="142" y1="408" x2="602" y2="408" stroke="#d3d1c7" stroke-width="0.3"/>
+        <line x1="142" y1="94" x2="142" y2="408" stroke="#d3d1c7" stroke-width="0.3"/>
+        <line x1="210" y1="94" x2="210" y2="408" stroke="#d3d1c7" stroke-width="0.3"/>
+        <line x1="278" y1="94" x2="278" y2="408" stroke="#d3d1c7" stroke-width="0.3"/>
+        <line x1="346" y1="94" x2="346" y2="408" stroke="#d3d1c7" stroke-width="0.3"/>
+        <line x1="414" y1="94" x2="414" y2="408" stroke="#d3d1c7" stroke-width="0.3"/>
+        <line x1="482" y1="94" x2="482" y2="408" stroke="#d3d1c7" stroke-width="0.3"/>
+        <line x1="550" y1="94" x2="550" y2="408" stroke="#d3d1c7" stroke-width="0.3"/>
+        <line x1="602" y1="94" x2="602" y2="408" stroke="#d3d1c7" stroke-width="0.3"/>
+        <text class="ah-caption" x="40" y="438">One possible disambiguation pattern: contextually relevant tokens such as "river" and "steep"</text>
+        <text class="ah-caption" x="40" y="454">receive stronger weight, helping favor the river-bank sense. Gold cells highlight context-sensitive</text>
+        <text class="ah-caption" x="40" y="470">cross-token links that may contribute to ambiguity resolution.</text>
+        <rect x="142" y="494" width="18" height="12" rx="1" fill="#1e3a5f" opacity="0.15"/><text class="ah-lbl-head" x="166" y="504">Low attention</text>
+        <rect x="260" y="494" width="18" height="12" rx="1" fill="#1e3a5f" opacity="0.45"/><text class="ah-lbl-head" x="284" y="504">Medium</text>
+        <rect x="360" y="494" width="18" height="12" rx="1" fill="#1e3a5f" opacity="0.75"/><text class="ah-lbl-head" x="384" y="504">High</text>
+        <rect x="440" y="494" width="18" height="12" rx="1" fill="#85734e" opacity="0.65"/><text class="ah-lbl-head" x="464" y="504">Disambiguation signal</text>
+        <text class="ah-caption" x="340" y="546" text-anchor="middle">Conceptual illustration for interpretive orientation. Not derived from a specific model run.</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- 4. The Research Program -->
+    <div class="section">
+      <div class="section-label">The Research Program</div>
+      <p>The program has three stages, each narrower and more empirically constrained than the last.</p>
+
+      <p><strong>AoM — The Appearance of Meaning</strong> operationalizes the explanandum. It defines a controlled competence profile — context-sensitive disambiguation, selective sensitivity to meaning-altering edits over shams, and discourse-level constraint tracking — and asks which internal variables causally control it. Sham-controlled activation patching across GPT&#8209;2 and Qwen2.5 shows that contextualized token-in-context states at characteristic depths exert donor-directed causal control over these preference margins. A fixed-depth target-specificity stress test further constrains token-privileged implementation glosses.</p>
+
+      <p><strong>MoM — The Mechanics of Meaning</strong> takes that localized causal control as given and asks: in what representational basis is it organized? Matched raw-residual and SAE-basis interventions on Gemma&nbsp;2&nbsp;2B reveal an early, task-conditional sparse-precision regime on disambiguation that weakens or reverses at later layers and does not generalize uniformly to other AoM components. The conclusion: AoM-relevant control is basis-sensitive, layer-dependent, and task-heterogeneous rather than uniformly sparse.</p>
+
+      <p><strong>The Limitation Result</strong> brings in Gemma&nbsp;3&nbsp;4B and delivers the sharpest evidence. At an early active locus in Gemma&nbsp;3&nbsp;4B, sparse writeback under-recovers the disambiguation effect despite near-perfect reconstruction fidelity (activation cosine 0.997, relMSE 0.007). A fuller layer sweep localizes Gemma&nbsp;3's strongest raw causal effect later, around layers 8–9, so the resulting cross-model comparison should be read as a depth-normalized recovery gap rather than a fully stage-aligned architectural dissociation. A matched-rank PCA control tracks the raw benchmark closely where the SAE does not, while random matched-rank projections fail, implicating sparse decomposition as a candidate pressure point rather than generic compression or intervention fragility. Across three depth-normalized comparison points, Gemma&nbsp;3's sparse basis yields consistently lower causal recovery than Gemma&nbsp;2's, a gap that survives relative-depth matching even though it cannot yet be fully separated from differences in functional processing stage.</p>
+
+      <div class="emphasis">
+        The methodological upshot: high standard reconstruction fidelity does not validate sparse feature-level explanations of causally localized behavior. The question is not only "can we find interpretable features?" but "does the proposed basis preserve the behavior at the locus where it is actually controlled?"
+      </div>
+    </div>
+
+    <!-- 5. What follows -->
+    <div class="section">
+      <div class="section-label">What follows</div>
+      <p>Precisely because these systems are so good at simulating depth, they pose a specific risk: users may attribute understanding or accountability beyond what is actually present. That risk is structurally predictable — and it is exactly the risk that becomes tractable once you can distinguish what is causally real inside the network from what is merely apparent. That is what this research program builds toward.</p>
+      <p>The next steps are concrete. Test the same writeback validation on comparison-class-sensitive gradation and on arithmetic-style lookup circuits. Run rescue sweeps that vary SAE width and sparsity target at active loci. Extend the matched-depth writeback validation to additional architectures and SAE families. If future sparse decompositions pass these checks, feature-level explanations become stronger, not weaker. If they fail, the field learns that feature discovery and feature explanation are not the same achievement.</p>
+
+      <div class="emphasis">
+        The surprise of LLMs is not that they implement explicit formal reason, but that large-scale contextual learning reaches much farther into meaning-sensitive competence than many expected. The question of what is actually going on inside — what is causally real and what is merely legible — is not just philosophically interesting. It is empirically answerable, one locus at a time.
+      </div>
+    </div>
+
+  </main>
+
+  <nav class="links-section">
+    <div class="section-label">Further Reading</div>
+    <div class="links-row">
+      <a href="https://zenodo.org/records/18907020" target="_blank" rel="noopener">AoM Preprint</a>
+      <a href="https://zenodo.org/records/18906800" target="_blank" rel="noopener">MoM Preprint</a>
+      <a href="https://github.com/Sapphire-Bridge" target="_blank" rel="noopener">GitHub</a>
+      <a href="cv.html">CV</a>
+      <a href="mailto:felix@sapphirebridge.de">Contact</a>
+    </div>
+  </nav>
+
+  <footer>
+    <p>© 2026 Sapphire Bridge · Frankfurt am Main</p>
+  </footer>
+
+</div>
+</body>
+</html>

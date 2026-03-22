@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sapphire Bridge — Werkzeuge für innere Ordnung</title>
+<meta name="description" content="Ich baue Werkzeuge, um zu prüfen, wie KI Wissen intern repräsentiert und wann diese Repräsentationen Verhalten wirklich erklären.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f0e8;
+    --cream-dark: #ebe4d8;
+    --ink: #2a2520;
+    --ink-soft: #5c554d;
+    --ink-muted: #8a8279;
+    --sapphire: #1e3a5f;
+    --sapphire-light: #2c5282;
+    --sapphire-faint: rgba(30, 58, 95, 0.08);
+    --rule: rgba(42, 37, 32, 0.15);
+    --serif-display: 'Cormorant Garamond', 'Georgia', serif;
+    --serif-body: 'EB Garamond', 'Georgia', serif;
+    --serif-accent: 'Lora', 'Georgia', serif;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    font-size: 18px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    font-family: var(--serif-body);
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* Subtle paper texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(30, 58, 95, 0.02) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(180, 160, 130, 0.04) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  ::selection {
+    background: rgba(30, 58, 95, 0.15);
+    color: var(--ink);
+  }
+
+  /* Layout */
+  .page {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Header */
+  header {
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.1s forwards;
+  }
+
+  .site-name {
+    font-family: var(--serif-display);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sapphire);
+    margin-bottom: 2.5rem;
+  }
+
+  .tagline {
+    font-family: var(--serif-display);
+    font-size: 1.65rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--ink);
+    max-width: 560px;
+  }
+
+  /* Sections */
+  .section {
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .section:nth-child(2) { animation-delay: 0.25s; }
+  .section:nth-child(3) { animation-delay: 0.4s; }
+  .section:nth-child(4) { animation-delay: 0.55s; }
+  .section:nth-child(5) { animation-delay: 0.7s; }
+
+  .section-label {
+    font-family: var(--serif-accent);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sapphire);
+    margin-bottom: 1rem;
+  }
+
+  .section p {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+  }
+
+  .section p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Emphasis paragraph */
+  .emphasis {
+    font-family: var(--serif-display);
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--ink);
+    border-left: 2px solid var(--sapphire);
+    padding-left: 1.25rem;
+    margin: 2rem 0;
+  }
+
+  /* Divider */
+  .divider {
+    width: 3rem;
+    height: 1px;
+    background: var(--rule);
+    margin: 2.5rem 0;
+  }
+
+  /* Leibniz bridge */
+  .bridge {
+    background: var(--sapphire-faint);
+    padding: 1.5rem 1.75rem;
+    border-radius: 2px;
+    margin: 2.5rem 0;
+  }
+
+  .bridge p {
+    font-family: var(--serif-display);
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--sapphire);
+    margin: 0;
+  }
+
+  /* Links section */
+  .links-section {
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--rule);
+    margin-top: 3.5rem;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.85s forwards;
+  }
+
+  .links-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
+  }
+
+  .links-row a {
+    font-family: var(--serif-accent);
+    font-size: 0.88rem;
+    color: var(--sapphire);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.25s ease;
+  }
+
+  .links-row a:hover {
+    border-bottom-color: var(--sapphire);
+  }
+
+  /* Footer */
+  footer {
+    padding: 3rem 0 4rem;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 1s forwards;
+  }
+
+  footer p {
+    font-family: var(--serif-accent);
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.02em;
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    html { font-size: 16px; }
+    .page { padding: 0 1.25rem; }
+    header { padding: 2.5rem 0 2rem; margin-bottom: 2rem; }
+    .tagline { font-size: 1.4rem; }
+    .links-row { flex-direction: column; gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="site-name">Sapphire Bridge</div>
+    <h1 class="tagline">Ich baue Werkzeuge, um zu prüfen, wie KI Wissen intern repräsentiert — und wann diese Repräsentationen Verhalten wirklich erklären.</h1>
+  </header>
+
+  <main>
+
+    <div class="section">
+      <div class="section-label">Manifest</div>
+      <p>Ich komme aus der Philosophie und arbeite heute als ML Engineer an einer alten Frage in neuer Form: Was heißt es, dass in einer Rechenmaschine Wissen erscheint?</p>
+      <p>Im Geist von Leibniz betrachte ich neuronale Netze nicht nur als Werkzeuge zur Berechnung, sondern als Apparate innerer Ordnung, in denen das Ganze verteilt anwesend ist und in unterschiedlicher Klarheit hervortritt. Ich baue Methoden, um diese Ordnung nicht nur zu deuten, sondern kausal und statistisch zu prüfen: Welche internen Zustände tragen Verhalten tatsächlich, welche nur scheinbar, und wann wird aus guter Rekonstruktion eine echte Erklärung?</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Wer ich bin</div>
+      <p>Ich bin ein Philosoph, der ML Engineer geworden ist, und ich nutze die moderne Rechenmaschine, um zu untersuchen, wie Rechenmaschinen Wissen intern organisieren, verdichten und kausal wirksam machen.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-label">Appearance of Meaning</div>
+      <p>AoM untersucht, welche internen Zustände eines Sprachmodells bedeutungsrelevantes Verhalten unter kontrollierter Intervention kausal tragen, und verbindet damit Leibnizsche Erkenntnistheorie mit statistisch-kausaler Analyse moderner Rechenmaschinen.</p>
+
+      <div class="emphasis">
+        AoM ist der Versuch, sichtbar zu machen, wie Bedeutung in neuronalen Netzen erscheint — nicht nur interpretativ, sondern interventionell, kausal und statistisch überprüfbar.
+      </div>
+
+      <p>AoM fragt in leibnizianischem Geist, wie in einer modernen Rechenmaschine aus verteilter innerer Ordnung bedeutungsähnliches Verhalten hervorgeht und welche Zustände diese Ordnung tatsächlich tragen.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Die Leibniz-Linie</div>
+      <p>Leibniz baute Rechenmaschinen, um Rechnen zu externalisieren; ich benutze heutige Rechenmaschinen, um die innere Form ihres Wissens zu untersuchen.</p>
+      <p>Von Leibniz' machina arithmetica zur modernen KI bleibt dieselbe Frage bestehen: Wie kann innere Ordnung zu Erkenntnis, Urteil und Handlung werden?</p>
+
+      <div class="bridge">
+        <p>In leibnizianischer Perspektive ist ein neuronales Netz kein bloßes Aggregat isolierter Teile, sondern eine verteilte Ordnung, in der globale Struktur lokal in unterschiedlicher Klarheit lesbar wird.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <nav class="links-section">
+    <div class="section-label">Weiterführend</div>
+    <div class="links-row">
+      <a href="https://zenodo.org/records/18907020" target="_blank" rel="noopener">AoM Preprint</a>
+      <a href="https://zenodo.org/records/18906800" target="_blank" rel="noopener">MoM Preprint</a>
+      <a href="https://github.com/Sapphire-Bridge" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:felix@sapphirebridge.de">Kontakt</a>
+    </div>
+  </nav>
+
+  <footer>
+    <p>© 2026 Sapphire Bridge · Frankfurt am Main</p>
+  </footer>
+
+</div>
+</body>
+</html>

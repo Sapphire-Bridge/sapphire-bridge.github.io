@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sapphire Bridge — The Sufficiency Result</title>
+<meta name="description" content="For fifty years, a recurring argument held that distributed statistical computation cannot govern structured language. Causal evidence from transformer internals says otherwise.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f0e8;
+    --cream-dark: #ebe4d8;
+    --ink: #2a2520;
+    --ink-soft: #5c554d;
+    --ink-muted: #8a8279;
+    --sapphire: #1e3a5f;
+    --sapphire-light: #2c5282;
+    --sapphire-faint: rgba(30, 58, 95, 0.08);
+    --rule: rgba(42, 37, 32, 0.15);
+    --serif-display: 'Cormorant Garamond', 'Georgia', serif;
+    --serif-body: 'EB Garamond', 'Georgia', serif;
+    --serif-accent: 'Lora', 'Georgia', serif;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 18px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { font-family: var(--serif-body); color: var(--ink); background: var(--cream); line-height: 1.7; min-height: 100vh; }
+  body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse at 20% 50%, rgba(30,58,95,0.02) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(180,160,130,0.04) 0%, transparent 50%); pointer-events: none; z-index: 0; }
+  ::selection { background: rgba(30,58,95,0.15); color: var(--ink); }
+  .page { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 0 2rem; }
+  header { padding: 4rem 0 3rem; border-bottom: 1px solid var(--rule); margin-bottom: 3rem; opacity: 0; animation: fadeIn 0.8s ease-out 0.1s forwards; }
+  .site-name { font-family: var(--serif-display); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sapphire); margin-bottom: 0.5rem; }
+  .site-name a { color: var(--sapphire); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.25s ease; }
+  .site-name a:hover { border-bottom-color: var(--sapphire); }
+  .paper-label { font-family: var(--serif-accent); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 2rem; }
+  .tagline { font-family: var(--serif-display); font-size: 1.65rem; font-weight: 400; line-height: 1.4; color: var(--ink); max-width: 580px; }
+  .subtitle { font-family: var(--serif-display); font-size: 1.1rem; font-style: italic; line-height: 1.5; color: var(--ink-soft); margin-top: 1.25rem; max-width: 560px; }
+  .byline { margin-top: 1.5rem; font-family: var(--serif-accent); font-size: 0.82rem; color: var(--ink-muted); letter-spacing: 0.02em; }
+  .section { margin-bottom: 3rem; opacity: 0; animation: fadeIn 0.8s ease-out forwards; }
+  .section:nth-child(2) { animation-delay: 0.2s; }
+  .section:nth-child(3) { animation-delay: 0.35s; }
+  .section:nth-child(4) { animation-delay: 0.5s; }
+  .section:nth-child(5) { animation-delay: 0.65s; }
+  .section:nth-child(6) { animation-delay: 0.8s; }
+  .section:nth-child(7) { animation-delay: 0.95s; }
+  .section-label { font-family: var(--serif-accent); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sapphire); margin-bottom: 1rem; }
+  .section p { color: var(--ink-soft); font-size: 1.05rem; margin-bottom: 1rem; }
+  .section p:last-child { margin-bottom: 0; }
+  .emphasis { font-family: var(--serif-display); font-size: 1.2rem; font-style: italic; line-height: 1.55; color: var(--ink); border-left: 2px solid var(--sapphire); padding-left: 1.25rem; margin: 2rem 0; }
+  .divider { width: 3rem; height: 1px; background: var(--rule); margin: 2.5rem auto; }
+  .bridge { background: var(--sapphire-faint); padding: 1.5rem 1.75rem; border-radius: 2px; margin: 2rem 0; }
+  .bridge p { font-family: var(--serif-display); font-size: 1.05rem; font-style: italic; line-height: 1.55; color: var(--sapphire); margin: 0 0 0.75rem 0; }
+  .bridge p:last-child { margin-bottom: 0; }
+  .bridge .formal { font-family: var(--serif-body); font-style: normal; font-size: 0.95rem; color: var(--sapphire-light); line-height: 1.7; }
+  .timeline { display: flex; gap: 2rem; flex-wrap: wrap; margin: 1.5rem 0; }
+  .timeline-item { font-family: var(--serif-accent); font-size: 0.85rem; color: var(--ink-muted); }
+  .timeline-item strong { color: var(--sapphire); font-weight: 500; display: block; font-size: 0.78rem; letter-spacing: 0.04em; }
+  .objection { margin: 1.5rem 0; padding-left: 1.25rem; border-left: 1px solid var(--rule); }
+  .objection-q { font-family: var(--serif-display); font-size: 1.05rem; font-style: italic; color: var(--ink); margin-bottom: 0.5rem; }
+  .objection-a { font-size: 0.98rem; color: var(--ink-soft); }
+  .links-section { padding-top: 2.5rem; border-top: 1px solid var(--rule); margin-top: 3.5rem; opacity: 0; animation: fadeIn 0.8s ease-out 1.1s forwards; }
+  .links-row { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; }
+  .links-row a { font-family: var(--serif-accent); font-size: 0.88rem; color: var(--sapphire); text-decoration: none; letter-spacing: 0.02em; padding: 0.25rem 0; border-bottom: 1px solid transparent; transition: border-color 0.25s ease; }
+  .links-row a:hover { border-bottom-color: var(--sapphire); }
+  footer { padding: 3rem 0 4rem; opacity: 0; animation: fadeIn 0.8s ease-out 1.25s forwards; }
+  footer p { font-family: var(--serif-accent); font-size: 0.78rem; color: var(--ink-muted); letter-spacing: 0.02em; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 640px) { html { font-size: 16px; } .page { padding: 0 1.25rem; } header { padding: 2.5rem 0 2rem; margin-bottom: 2rem; } .tagline { font-size: 1.4rem; } .links-row { flex-direction: column; gap: 0.5rem; } .timeline { flex-direction: column; gap: 0.75rem; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="site-name"><a href="index.html">Sapphire Bridge</a> · Research</div>
+    <div class="paper-label">Mechanistic Interpretability × Philosophy of Language</div>
+    <h1 class="tagline">The Sufficiency Result</h1>
+    <p class="subtitle">For fifty years, a recurring argument held that distributed statistical computation cannot govern structured language. Causal evidence from transformer internals says otherwise.</p>
+    <p class="byline">Felix Borck · sapphirebridge.io · March 2026</p>
+  </header>
+
+  <main>
+
+    <div class="section">
+      <p>Since 1969, a recurring argument in cognitive science, AI, and philosophy of language has held that distributed statistical computation is insufficient — in principle — for genuinely structured, context-sensitive linguistic competence. The specific formulations differ. Minsky and Papert argued combinatorial limits. Fodor insisted on a language of thought. Harnad demanded grounding in perception. Bender and Koller, most recently, argued that form alone cannot yield meaning. But beneath these varied framings lies a recurring family of arguments: that something more than distributional, context-conditioned computation is required for genuinely structured linguistic competence.</p>
+
+      <div class="timeline">
+        <div class="timeline-item"><strong>1969</strong>Minsky &amp; Papert</div>
+        <div class="timeline-item"><strong>1975</strong>Fodor</div>
+        <div class="timeline-item"><strong>1990</strong>Harnad</div>
+        <div class="timeline-item"><strong>2020</strong>Bender &amp; Koller</div>
+      </div>
+
+      <p>Meanwhile, transformer language models have become demonstrably competent language users — passing professional examinations, producing text that native speakers routinely judge as coherent and context-responsive, and exhibiting systematic linguistic competence across scales and domains. This is no longer seriously disputed. What remains contested is what governs this competence and whether it warrants semantic characterization.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-label">Making the question tractable</div>
+      <p>In a paper currently under review at the Journal of Logic, Language and Information, I introduce a framework called appearance of meaning (AoM) — a controlled competence profile that isolates three properties measurable under contextual variation: context-sensitive disambiguation, selective sensitivity to meaning-altering edits over matched shams, and discourse-level constraint tracking beyond length-matched controls.</p>
+      <p>AoM does not define the boundary of transformer competence. It is deliberately small, templated, and designed for causal intervention. The point is to make one specific mechanistic question answerable: with weights held fixed, which internal variables causally control meaning-like preference patterns?</p>
+      <p>The answer, established via sham-controlled activation patching across GPT-2 and Qwen2.5 checkpoints, is that contextualized token-in-context states at characteristic depths exert donor-directed causal control over AoM-relevant preference margins. Sham baselines remain near zero. Depth profiles are structured and reproducible. This is not the trivial architectural observation that transformers compute contextual embeddings. It is the selective empirical finding that specific states at specific depths control the competence profile, while sham no-op controls remain near zero and nearby matched positional controls are weaker under the reported protocol.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">The sufficiency claim</div>
+      <p>The key point is this. These are text-only, next-token-predictive transformers trained on linguistic data. They have no grounding channel, no embodiment, no explicit symbolic rule system, and no reference mechanism. Yet they realize a controlled competence profile exhibiting systematic context-sensitive behavior. And causal intervention identifies the internal variables that govern it.</p>
+
+      <div class="bridge">
+        <p>Sufficiency Claim (AoM-SC)</p>
+        <p>Contextualized token-in-context states — computed by a purely distributional architecture without grounding, embodiment, symbolic rules, or explicit reference mechanisms — are sufficient to causally govern a competence profile exhibiting systematic context-sensitive disambiguation, selective sensitivity to meaning-altering interventions over matched shams, and discourse-level constraint tracking beyond length-matched controls.</p>
+      </div>
+
+      <p>The empirical contribution is not merely that the competence profile is realized without those further properties. It is that activation patching identifies specific contextualized token-in-context states that causally govern that profile under intervention. That is the mechanistic result: we know not only that the competence is present, but which internal variables control it.</p>
+      <p>The philosophical consequence is separate and logically clean. Let M denote the tested competence profile and X any proposed extra requirement — grounding, embodiment, symbolic rules, explicit reference.</p>
+
+      <div class="bridge">
+        <p>Necessity Argument</p>
+        <p class="formal">M ∧ ¬X &nbsp;&nbsp;(the tested competence profile is realized without X)</p>
+        <p class="formal">If X were necessary for M, then M → X</p>
+        <p class="formal">But M ∧ ¬X is a counterexample. &nbsp;∴ ¬(M → X)</p>
+      </div>
+
+      <p>The mechanistic result gives this logical point its force. Without it, M ∧ ¬X would be a bare observation — the competence exists, the extra ingredient is absent. With the causal-governance finding, we know what does govern the profile: specific contextual states at specific depths, identified under controlled intervention. That is what makes the counterexample substantive rather than merely observational.</p>
+      <p>The upshot: grounding, embodiment, symbolic rules, and explicit reference may still contribute to or enrich linguistic competence — but they are not required for the competence established here.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">What this changes</div>
+      <p>This is a controlled empirical counterexample. It does not settle whether transformer competence constitutes meaning proper. It does not show that grounding, reference, or normativity are irrelevant to richer semantic capacities. What it does show is that distributed statistical computation can, in principle, underwrite a controlled profile of structured, context-sensitive linguistic competence of the kind isolated here.</p>
+      <p>An advocate of stronger requirements may still defend them. But that advocate must now concede that grounding, reference, and symbolic structure are not necessary for the controlled competence profile tested here — and must specify what additional competence signatures would distinguish meaning-with-X from meaning-like-competence-without-X in a way that yields detectable empirical consequences. The burden of argument has shifted.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Objections worth handling</div>
+
+      <div class="objection">
+        <p class="objection-q">AoM is too narrow.</p>
+        <p class="objection-a">Yes. Deliberately so. The goal is not to win by definition. It is to isolate a competence profile precise enough for causal intervention. A necessity claim fails if even one genuine counterexample exists for the target competence it is supposed to cover.</p>
+      </div>
+
+      <div class="objection">
+        <p class="objection-q">Patching shows causal control, not semantics.</p>
+        <p class="objection-a">Correct. That is exactly why the claim is restricted. I am not inferring "meaning" from causal control. I am inferring that a meaning-like competence profile is causally governed by internal states in a purely distributional architecture. That is enough to rebut necessity claims about what such architectures cannot do.</p>
+      </div>
+
+      <div class="objection">
+        <p class="objection-q">The model inherits worldly structure from training data.</p>
+        <p class="objection-a">Also correct. But that does not rescue the stronger necessity thesis. The relevant point is architectural: the model has no online grounding channel, no embodiment, no explicit symbolic rule system, and no explicit reference mechanism. Yet the competence profile is realized, and its governing variables can be causally identified. For the restricted competence profile isolated here, that stronger necessity claim fails.</p>
+      </div>
+
+      <div class="objection">
+        <p class="objection-q">This says nothing about broader language competence.</p>
+        <p class="objection-a">Mostly true. The broader extrapolation remains a hypothesis, not a result. Still, parsimony points in an obvious direction: the same forward pass, the same architecture, and the same class of internal variables plausibly support both AoM and wider linguistic competence. That broader claim needs more work — but the controlled case is now established.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">What comes next</div>
+      <p>Parsimony favors extending the same mechanistic explanation more broadly. The same architecture, the same forward pass, and the same class of internal variables plausibly support both AoM performance and the wider range of linguistic abilities that transformers clearly display in practice. But that extension remains an empirical hypothesis rather than a result established here. The paper reports the controlled case. The broader generalization is next.</p>
+
+      <div class="emphasis">
+        This post summarizes an argument from The Appearance of Meaning: Context-Dependence and Semantic Competence in Transformer Architectures, currently under review at the Journal of Logic, Language and Information.
+      </div>
+    </div>
+
+  </main>
+
+  <nav class="links-section">
+    <div class="section-label">References</div>
+    <div class="links-row">
+      <a href="https://zenodo.org/records/18907020" target="_blank" rel="noopener">AoM Preprint</a>
+      <a href="https://github.com/Satori-1618/AoM_CPT" target="_blank" rel="noopener">Code</a>
+      <a href="index.html">← Back to Manifest</a>
+    </div>
+  </nav>
+
+  <footer>
+    <p>© 2026 Sapphire Bridge · Frankfurt am Main</p>
+  </footer>
+
+</div>
+</body>
+</html>

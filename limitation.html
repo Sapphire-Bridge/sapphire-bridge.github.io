@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sapphire Bridge — The Limitation Result</title>
+<meta name="description" content="A sparse autoencoder can reconstruct activations with near-perfect standard fidelity while still significantly under-recovering behavior under causal writeback.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f0e8;
+    --cream-dark: #ebe4d8;
+    --ink: #2a2520;
+    --ink-soft: #5c554d;
+    --ink-muted: #8a8279;
+    --sapphire: #1e3a5f;
+    --sapphire-light: #2c5282;
+    --sapphire-faint: rgba(30, 58, 95, 0.08);
+    --rule: rgba(42, 37, 32, 0.15);
+    --serif-display: 'Cormorant Garamond', 'Georgia', serif;
+    --serif-body: 'EB Garamond', 'Georgia', serif;
+    --serif-accent: 'Lora', 'Georgia', serif;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 18px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { font-family: var(--serif-body); color: var(--ink); background: var(--cream); line-height: 1.7; min-height: 100vh; }
+  body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse at 20% 50%, rgba(30,58,95,0.02) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(180,160,130,0.04) 0%, transparent 50%); pointer-events: none; z-index: 0; }
+  ::selection { background: rgba(30,58,95,0.15); color: var(--ink); }
+  .page { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 0 2rem; }
+  header { padding: 4rem 0 3rem; border-bottom: 1px solid var(--rule); margin-bottom: 3rem; opacity: 0; animation: fadeIn 0.8s ease-out 0.1s forwards; }
+  .site-name { font-family: var(--serif-display); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sapphire); margin-bottom: 0.5rem; }
+  .site-name a { color: var(--sapphire); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.25s ease; }
+  .site-name a:hover { border-bottom-color: var(--sapphire); }
+  .paper-label { font-family: var(--serif-accent); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 2rem; }
+  .tagline { font-family: var(--serif-display); font-size: 1.65rem; font-weight: 400; line-height: 1.4; color: var(--ink); max-width: 580px; }
+  .byline { margin-top: 1.5rem; font-family: var(--serif-accent); font-size: 0.82rem; color: var(--ink-muted); letter-spacing: 0.02em; }
+  .section { margin-bottom: 3rem; opacity: 0; animation: fadeIn 0.8s ease-out forwards; }
+  .section-label { font-family: var(--serif-accent); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sapphire); margin-bottom: 1rem; }
+  .section p { color: var(--ink-soft); font-size: 1.05rem; margin-bottom: 1rem; }
+  .section p:last-child { margin-bottom: 0; }
+  .emphasis { font-family: var(--serif-display); font-size: 1.2rem; font-style: italic; line-height: 1.55; color: var(--ink); border-left: 2px solid var(--sapphire); padding-left: 1.25rem; margin: 2rem 0; }
+  .divider { width: 3rem; height: 1px; background: var(--rule); margin: 2.5rem auto; }
+  .bridge { background: var(--sapphire-faint); padding: 1.5rem 1.75rem; border-radius: 2px; margin: 2rem 0; }
+  .bridge p { font-family: var(--serif-display); font-size: 1.05rem; font-style: italic; line-height: 1.55; color: var(--sapphire); margin: 0 0 0.75rem 0; }
+  .bridge p:last-child { margin-bottom: 0; }
+  .data-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-family: var(--serif-body); font-size: 0.88rem; }
+  .data-table th { font-family: var(--serif-accent); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--sapphire); text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--rule); }
+  .data-table td { color: var(--ink-soft); padding: 0.4rem 0.75rem; border-bottom: 1px solid rgba(42,37,32,0.08); }
+  .data-table tr.highlight td { color: var(--sapphire); font-weight: 500; }
+  .ref-list { margin: 1rem 0; padding: 0; list-style: none; }
+  .ref-list li { font-size: 0.92rem; color: var(--ink-soft); margin-bottom: 0.5rem; padding-left: 1.5rem; text-indent: -1.5rem; }
+  .ref-list a { color: var(--sapphire); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.25s ease; }
+  .ref-list a:hover { border-bottom-color: var(--sapphire); }
+  .links-section { padding-top: 2.5rem; border-top: 1px solid var(--rule); margin-top: 3.5rem; opacity: 0; animation: fadeIn 0.8s ease-out 1.1s forwards; }
+  .links-row { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; }
+  .links-row a { font-family: var(--serif-accent); font-size: 0.88rem; color: var(--sapphire); text-decoration: none; letter-spacing: 0.02em; padding: 0.25rem 0; border-bottom: 1px solid transparent; transition: border-color 0.25s ease; }
+  .links-row a:hover { border-bottom-color: var(--sapphire); }
+  footer { padding: 3rem 0 4rem; opacity: 0; animation: fadeIn 0.8s ease-out 1.25s forwards; }
+  footer p { font-family: var(--serif-accent); font-size: 0.78rem; color: var(--ink-muted); letter-spacing: 0.02em; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 640px) { html { font-size: 16px; } .page { padding: 0 1.25rem; } header { padding: 2.5rem 0 2rem; margin-bottom: 2rem; } .tagline { font-size: 1.4rem; } .links-row { flex-direction: column; gap: 0.5rem; } .data-table { font-size: 0.8rem; } .data-table th, .data-table td { padding: 0.3rem 0.4rem; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="site-name"><a href="index.html">Sapphire Bridge</a> · Research</div>
+    <div class="paper-label">Mechanistic Interpretability × Feature-Level Explanation</div>
+    <h1 class="tagline">The Limitation Result</h1>
+    <p class="byline">Felix Borck · sapphirebridge.io · March 2026</p>
+  </header>
+
+  <main>
+
+    <div class="section">
+      <p>Recent work in mechanistic interpretability has increasingly separated the value of sparse autoencoders as a feature-discovery tool from the stronger claim that an SAE basis is behaviorally or causally adequate. Geiger frames the target as graded faithfulness. Peng et al. separate discovering unknown concepts from acting on known ones. Song et al. argue feature consistency must itself be measured. Anthropic's Biology paper treats its replacement model as approximate and warns about mechanistic unfaithfulness.</p>
+      <p>The present result is a sharp operational demonstration inside that existing cautious trend. For a controlled class of context-sensitive language behavior, a sparse feature basis can look excellent under standard reconstruction metrics and still fail to preserve behavior under causal writeback. The evidence supports a narrower and more useful conclusion than either "sparse features work" or "sparse features fail."</p>
+    </div>
+
+    <div class="section">
+      <p>Operationally, the behavior studied here is measured as a donor-directed shift in a context-sensitive preference margin: donor context is patched into a recipient example, and the question is whether the recipient's interpretation moves in the donor-consistent direction. The claim is not about "meaning" in the abstract. It is about a controlled, intervention-defined behavioral profile.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-label">Making the question tractable</div>
+      <p>The Appearance of Meaning (AoM) made one question answerable under intervention: with weights held fixed, which internal variables causally control a small, controlled profile of meaning-like behavior? The answer was that contextualized token-in-context states at characteristic depths exert donor-directed causal control over AoM-relevant preference margins. The result was not merely that transformers compute contextual states. It was the selective causal finding that specific internal states govern the tested competence profile, while sham controls remain near zero.</p>
+      <p>Mechanics of Meaning (MoM) then asked a narrower validation question. Once the behavior is causally localized, does a sparse learned basis preserve that same behavior when it is used as the intervention substrate? If it does, strong reconstruction quality is relevant evidence for sparse explanatory adequacy. If it does not, reconstruction metrics alone are insufficient for causal adequacy under matched decode-and-writeback.</p>
+      <p>The comparison layers were not chosen after inspecting Gemma 3 outcomes. AoM/MoM first examined the same comparison layer set — 4, 8, and 12 — in Gemma 2 2B, motivated by the earlier localization work. The Gemma 3 4B experiments then evaluated that same layer set, so the layer-4 centerpiece is not a within-model cherry-pick.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">The main claim</div>
+
+      <div class="bridge">
+        <p>Main Claim (MoM-LR)</p>
+        <p>At an active locus for the tested behavior, a sparse autoencoder can reconstruct activations with near-perfect standard fidelity while still significantly under-recovering the behavior under causal writeback.</p>
+        <p>Therefore standard activation reconstruction metrics, by themselves, do not validate sparse feature-level causal adequacy under matched decode-and-writeback for the tested competence profile.</p>
+      </div>
+
+      <p>Here "validate" is used in a specific causal sense. A basis fails causal adequacy at a locus if its writeback produces a reliably smaller behavioral effect than the matched raw-state writeback under the same intervention protocol. On that criterion, writeback is not an auxiliary visualization step. It is the direct test of whether the proposed basis preserves the behaviorally relevant causal structure at the locus where control is exercised.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">The centerpiece evidence</div>
+      <p>The clearest case is Gemma 3 4B at layer 4 with a matched Gemma Scope 16k SAE, evaluated on 52 included pairs. Raw writeback produces a strong donor-directed effect: mean effect 0.821 with 95% CI [0.428, 1.220]. The SAE arm is materially smaller at 0.498 [0.129, 0.837]. The primary comparison is paired: SAE-minus-raw is −0.323 with 95% CI [−0.637, −0.047], below zero. Descriptively, the corresponding CRR is 0.607 [0.230, 0.933]. Yet standard reconstruction metrics are near-perfect: activation cosine is 0.997 and relMSE is 0.007.</p>
+      <p>At layer 8, standard reconstruction quality is similarly high, but the SAE is much closer to the raw benchmark: activation cosine is 0.998, relMSE is 0.007, and CRR is 0.974. This matters because it shows that the under-recovery is not a generic consequence of using a sparse basis at any layer. It is a layer-dependent failure that standard reconstruction metrics do not predict.</p>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>Model</th><th>Layer</th><th>Cosine</th><th>relMSE</th><th>CRR [95% CI]</th></tr>
+        </thead>
+        <tbody>
+          <tr class="highlight"><td>Gemma 3 4B</td><td>L4</td><td>0.997</td><td>0.007</td><td>0.607 [0.230, 0.933]</td></tr>
+          <tr><td>Gemma 3 4B</td><td>L8</td><td>0.998</td><td>0.007</td><td>0.974 [0.749, 1.320]</td></tr>
+          <tr><td>Gemma 3 4B</td><td>L11</td><td>0.999</td><td>0.005</td><td>0.576 [0.285, 0.824]</td></tr>
+          <tr><td>Gemma 3 4B</td><td>L16</td><td>0.998</td><td>0.004</td><td>0.632 [0.325, 0.940]</td></tr>
+          <tr><td>Gemma 2 2B</td><td>L4</td><td>0.861</td><td>0.259</td><td>1.286 [0.843, 3.601]</td></tr>
+          <tr><td>Gemma 2 2B</td><td>L8</td><td>0.798</td><td>0.363</td><td>1.003 [0.520, 2.101]</td></tr>
+          <tr><td>Gemma 2 2B</td><td>L12</td><td>0.890</td><td>0.208</td><td>0.761 [0.389, 1.143]</td></tr>
+        </tbody>
+      </table>
+
+      <p>If poor behavioral recovery were primarily a consequence of poor reconstruction, the best-reconstructed setting should be the one closest to the raw benchmark. The observed direction is the opposite.</p>
+      <p>The matched-rank PCA control sharpens the same point. On Gemma 3 4B L4, PCA writeback has mean effect 0.818 [0.470, 1.177] against raw 0.821 [0.428, 1.220], and the paired PCA-minus-raw difference is −0.003 [−0.206, 0.211]. PCA therefore tracks the raw benchmark closely and does not show the SAE-style under-recovery. The paired PCA-minus-SAE contrast is 0.320 [0.067, 0.583]. A matched-rank random orthogonal control averages only 0.199, confirming that PCA's success is not merely a consequence of any low-rank projection preserving behavior. This suggests that, in this case, sparse decomposition is the pressure point more than low-rank compression as such — though PCA and SAE differ in more than sparsity alone, so this comparison isolates sparse decomposition as a candidate rather than a proven sole cause.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Relative-depth robustness</div>
+      <p>Because Gemma 2 2B and Gemma 3 4B differ in total block count (26 vs. 34), a comparison at matching absolute layer indices could confound architectural differences with differences in relative position within the forward pass. To reduce that confound, Gemma 2 layers 4, 8, and 12 were matched to Gemma 3 layers 5, 11, and 16 by normalized depth, yielding relative positions of approximately 0.16, 0.32, and 0.48 in Gemma 2 versus 0.15, 0.33, and 0.48 in Gemma 3.</p>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>Gemma 2 Layer</th><th>Rel. Depth</th><th>CRR</th><th>Gemma 3 Layer</th><th>Rel. Depth</th><th>CRR</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>L4</td><td>0.16</td><td>1.286</td><td>L5</td><td>0.15</td><td>0.921</td></tr>
+          <tr><td>L8</td><td>0.32</td><td>1.003</td><td>L11</td><td>0.33</td><td>0.576</td></tr>
+          <tr><td>L12</td><td>0.48</td><td>0.761</td><td>L16</td><td>0.48</td><td>0.632</td></tr>
+        </tbody>
+      </table>
+
+      <p>At all three matched-depth pairs, Gemma 3's sparse basis yields lower causal recovery than Gemma 2's. This reduces the absolute-layer confound but does not fully eliminate stage-of-processing differences: raw causal patching in Gemma 3 peaks later, around layers 8–9, so functional processing stages are not necessarily aligned even at matched relative depths. The result should be read as a consistent cross-model recovery gap that survives depth normalization, rather than a fully stage-controlled architecture-level dissociation.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Stress-arm mechanism diagnostic</div>
+      <p>The full Gemma 3 4B L4 stress-arm run clarifies what the under-recovery is and is not. Reconstruction-only writeback (RECON) reproduces the SAE result almost exactly: mean effect 0.498 [0.129, 0.837]. The complementary residual-only arm (RESID) is not inert — it itself carries substantial donor-directed signal at 0.403 [0.102, 0.712]. RECON and RESID are not distinguishable from each other in paired comparison: RESID-minus-RECON is −0.095 [−0.464, 0.278]. At the activation level, the decomposition is exact to numerical precision: the relative additivity error is approximately 9.8×10⁻⁹.</p>
+      <p>The qualitative classification is a structured-residual pattern. Both the sparse reconstruction and its complementary residual carry substantial donor-directed signal, while neither matches raw writeback and the two are not distinguishable from each other. Behaviorally relevant structure remains in the complementary residual despite near-perfect standard reconstruction fidelity.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">What the other checks do and do not show</div>
+      <p>The main result above carries the argumentative weight. The other checks are useful but should not be treated as equally load-bearing.</p>
+      <p>On compactness: in the current split top-k pipeline for Gemma 3 (26 evaluation pairs), small top-k subsets fall well short of full-set recovery. At L4, the top-50 features yield 0.138 [−0.076, 0.403] against a full-set effect of 0.496 [−0.026, 1.001]. This supports the weaker conclusion that ranking a handful of top features is not enough for near-full recovery in the present runs. It does not, by itself, show that no compact explanation is possible in principle.</p>
+      <p>On task heterogeneity: on Gemma 2 2B at layer 4, DISAMB (52 pairs) has CRR 1.286, CF (20 pairs) has 0.922, and COH (80 pairs) has 0.870. This is useful boundary evidence that the same basis does not yield a uniform story across nearby behavior surfaces.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Relation to Biology-style work</div>
+      <p>This result does not refute any specific attribution graph or any specific addition-circuit claim. Attribution-style tracing and sparse-basis writeback answer different questions. Attribution graphs identify candidate influence structure among features. Sparse-basis writeback asks whether the basis itself preserves the target behavior when it is used as the intervention substrate at the relevant locus. The two can agree, or they can diverge.</p>
+      <p>The connection to Biology of LLMs is therefore methodological rather than adversarial. A Biology-style feature explanation becomes stronger if it passes not only interpretive and tracing criteria, but also causal adequacy checks under matched decode-and-writeback of the kind used here. The proposed contribution is a validation layer for feature-level circuit claims, not a dismissal of them.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">What this changes</div>
+      <p>This is not a claim that sparse features are unreal, that circuits are useless, or that feature analysis fails in general. It is a narrower claim about validation standards. Once behavior has been causally localized, a sparse feature basis should not be treated as explanatory merely because it reconstructs activations well and yields appealing feature narratives. For the tested profile, standard fidelity metrics are compatible with clear behavioral insufficiency under intervention.</p>
+
+      <div class="emphasis">
+        The question is no longer just "can we find interpretable features?" It is also "does the proposed basis preserve the behavior at the locus where the behavior is actually being controlled?"
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">What it does not yet show</div>
+      <p>This result does not yet establish the same limitation for comparison-class-sensitive gradation or for arithmetic-style lookup circuits. Those are the next testbeds, not the current target of refutation.</p>
+      <p>One open objection is intervention-substrate artifact: perhaps sparse features are meaningful, but decode-and-writeback is not the right way to intervene on them. That objection should be taken seriously. But it sharpens the result rather than dissolving it. If a sparse basis reaches activation cosine 0.997 and relMSE 0.007 yet still fails to preserve behavior, then standard variance-weighted fidelity metrics are evidently insensitive to some task-weighted structure that matters causally.</p>
+      <p>Another open objection is rescue by basis choice: a wider SAE, a different sparsity target, or a different sparse architecture may improve recovery. That remains an open empirical question. But because the centerpiece SAE already reaches near-saturated standard fidelity, the unresolved issue is whether a different sparse decomposition can improve behavioral adequacy despite already-saturated standard fidelity metrics.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">What comes next</div>
+      <p>The next steps are concrete. Treat paired raw-versus-basis behavior preservation, together with fidelity-versus-recovery, as a required validation check whenever a sparse basis is proposed as a causal explanation of behavior. Run rescue sweeps that vary width, sparsity target, and basis choice at the active locus, rather than assuming that good reconstruction scores already settle the matter. Test the same battery on cleaner benchmark cases, including gradation in this repo and addition-style circuits in Biology-style work.</p>
+
+      <div class="emphasis">
+        If future sparse decompositions pass these checks, feature-level explanations will be stronger, not weaker. If they fail, the field learns that feature discovery and feature explanation are not the same achievement.
+      </div>
+
+      <p>For the controlled meaning-relevant behavior studied here, that distinction is already visible. That is the limitation result.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">References</div>
+      <ol class="ref-list">
+        <li><a href="https://arxiv.org/abs/2506.23845" target="_blank" rel="noopener">Peng et al. (2025)</a>, Use Sparse Autoencoders to Discover Unknown Concepts, Not to Act on Known Concepts</li>
+        <li><a href="https://arxiv.org/abs/2407.10785" target="_blank" rel="noopener">Le et al. (2024)</a>, Learning biologically relevant features in a pathology foundation model using sparse autoencoders</li>
+        <li><a href="https://transformer-circuits.pub/2025/attribution-graphs/biology.html" target="_blank" rel="noopener">Lindsey et al. (2025)</a>, On the Biology of a Large Language Model</li>
+        <li><a href="https://arxiv.org/abs/2505.20254" target="_blank" rel="noopener">Song et al. (2025)</a>, Position: Mechanistic Interpretability Should Prioritize Feature Consistency in SAEs</li>
+        <li><a href="https://www.jmlr.org/papers/v26/23-0058.html" target="_blank" rel="noopener">Geiger et al. (2025)</a>, Causal Abstraction: A Theoretical Foundation for Mechanistic Interpretability</li>
+      </ol>
+    </div>
+
+  </main>
+
+  <nav class="links-section">
+    <div class="section-label">Further Reading</div>
+    <div class="links-row">
+      <a href="https://zenodo.org/records/18906800" target="_blank" rel="noopener">MoM Preprint</a>
+      <a href="https://zenodo.org/records/18907020" target="_blank" rel="noopener">AoM Preprint</a>
+      <a href="https://github.com/Sapphire-Bridge" target="_blank" rel="noopener">GitHub</a>
+      <a href="index.html">← Back to Manifest</a>
+    </div>
+  </nav>
+
+  <footer>
+    <p>© 2026 Sapphire Bridge · Frankfurt am Main</p>
+  </footer>
+
+</div>
+</body>
+</html>

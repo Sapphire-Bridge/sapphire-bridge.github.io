@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sapphire Bridge — Felix Borck</title>
+<meta name="description" content="Felix Borck — philosopher turned ML engineer. Mechanistic interpretability, causal intervention, philosophy of language.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f0e8;
+    --cream-dark: #ebe4d8;
+    --ink: #2a2520;
+    --ink-soft: #5c554d;
+    --ink-muted: #8a8279;
+    --sapphire: #1e3a5f;
+    --sapphire-light: #2c5282;
+    --sapphire-faint: rgba(30, 58, 95, 0.08);
+    --rule: rgba(42, 37, 32, 0.15);
+    --serif-display: 'Cormorant Garamond', 'Georgia', serif;
+    --serif-body: 'EB Garamond', 'Georgia', serif;
+    --serif-accent: 'Lora', 'Georgia', serif;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 18px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { font-family: var(--serif-body); color: var(--ink); background: var(--cream); line-height: 1.7; min-height: 100vh; }
+  body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse at 20% 50%, rgba(30,58,95,0.02) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(180,160,130,0.04) 0%, transparent 50%); pointer-events: none; z-index: 0; }
+  ::selection { background: rgba(30,58,95,0.15); color: var(--ink); }
+  .page { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 0 2rem; }
+
+  header { padding: 4rem 0 3rem; border-bottom: 1px solid var(--rule); margin-bottom: 3rem; opacity: 0; animation: fadeIn 0.8s ease-out 0.1s forwards; }
+  .site-name { font-family: var(--serif-display); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sapphire); margin-bottom: 0.5rem; }
+  .site-name a { color: var(--sapphire); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.25s ease; }
+  .site-name a:hover { border-bottom-color: var(--sapphire); }
+  .name { font-family: var(--serif-display); font-size: 1.65rem; font-weight: 400; line-height: 1.3; color: var(--ink); margin-bottom: 0.75rem; }
+  .contact-line { font-family: var(--serif-accent); font-size: 0.82rem; color: var(--ink-muted); letter-spacing: 0.02em; line-height: 1.6; }
+  .contact-line a { color: var(--sapphire); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.25s ease; }
+  .contact-line a:hover { border-bottom-color: var(--sapphire); }
+
+  .section { margin-bottom: 3rem; opacity: 0; animation: fadeIn 0.8s ease-out forwards; }
+  .section:nth-child(2) { animation-delay: 0.2s; }
+  .section:nth-child(3) { animation-delay: 0.3s; }
+  .section:nth-child(4) { animation-delay: 0.4s; }
+  .section:nth-child(5) { animation-delay: 0.5s; }
+  .section:nth-child(6) { animation-delay: 0.6s; }
+  .section:nth-child(7) { animation-delay: 0.7s; }
+  .section:nth-child(8) { animation-delay: 0.8s; }
+
+  .section-label { font-family: var(--serif-accent); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sapphire); margin-bottom: 1rem; }
+  .section p { color: var(--ink-soft); font-size: 1.05rem; margin-bottom: 1rem; }
+  .section p:last-child { margin-bottom: 0; }
+
+  .entry { margin-bottom: 2rem; }
+  .entry:last-child { margin-bottom: 0; }
+  .entry-title { font-family: var(--serif-display); font-size: 1.15rem; font-weight: 500; color: var(--ink); line-height: 1.35; margin-bottom: 0.25rem; }
+  .entry-date { font-family: var(--serif-accent); font-size: 0.78rem; color: var(--ink-muted); letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+  .entry-body { color: var(--ink-soft); font-size: 0.98rem; line-height: 1.7; }
+  .entry-body p { margin-bottom: 0.5rem; font-size: 0.98rem; }
+  .entry-body p:last-child { margin-bottom: 0; }
+
+  .pub-item { margin-bottom: 1rem; color: var(--ink-soft); font-size: 0.98rem; line-height: 1.6; }
+  .pub-item:last-child { margin-bottom: 0; }
+  .pub-title { font-family: var(--serif-display); font-style: italic; color: var(--ink); }
+  .pub-venue { font-family: var(--serif-accent); font-size: 0.85rem; color: var(--ink-muted); }
+
+  .skills-block { color: var(--ink-soft); font-size: 0.98rem; line-height: 1.7; margin-bottom: 1rem; }
+  .skills-block:last-child { margin-bottom: 0; }
+  .skills-label { font-family: var(--serif-accent); font-size: 0.78rem; font-weight: 500; color: var(--sapphire); letter-spacing: 0.04em; text-transform: uppercase; display: block; margin-bottom: 0.25rem; }
+
+  .divider { width: 3rem; height: 1px; background: var(--rule); margin: 2.5rem 0; }
+
+  .links-section { padding-top: 2.5rem; border-top: 1px solid var(--rule); margin-top: 3.5rem; opacity: 0; animation: fadeIn 0.8s ease-out 0.9s forwards; }
+  .links-row { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; }
+  .links-row a { font-family: var(--serif-accent); font-size: 0.88rem; color: var(--sapphire); text-decoration: none; letter-spacing: 0.02em; padding: 0.25rem 0; border-bottom: 1px solid transparent; transition: border-color 0.25s ease; }
+  .links-row a:hover { border-bottom-color: var(--sapphire); }
+
+  footer { padding: 3rem 0 4rem; opacity: 0; animation: fadeIn 0.8s ease-out 1.05s forwards; }
+  footer p { font-family: var(--serif-accent); font-size: 0.78rem; color: var(--ink-muted); letter-spacing: 0.02em; }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 640px) { html { font-size: 16px; } .page { padding: 0 1.25rem; } header { padding: 2.5rem 0 2rem; margin-bottom: 2rem; } .name { font-size: 1.4rem; } .links-row { flex-direction: column; gap: 0.5rem; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="site-name"><a href="index.html">Sapphire Bridge</a></div>
+    <h1 class="name">Felix Borck</h1>
+    <p class="contact-line">Frankfurt am Main, Germany · <a href="mailto:felix.borck@gmail.com">felix.borck@gmail.com</a></p>
+  </header>
+
+  <main>
+
+    <div class="section">
+      <div class="section-label">Profile</div>
+      <p>I care about how knowledge works — in logic, language, representation, and now in language models. Since 2018, I have pursued that question through philosophy, provability theory, and vagueness. Since late 2025, I have developed it into AI-enabled ML research, using AI itself to generate and test empirical evidence about how meaning-like behavior is governed inside transformers and whether mechanistic explanations of that behavior survive intervention.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Research Experience</div>
+
+      <div class="entry">
+        <div class="entry-title">Independent ML Researcher</div>
+        <div class="entry-date">Late 2025 – present</div>
+        <div class="entry-body">
+          <p>Developed Appearance of Meaning (AoM), a framework for identifying which internal states causally govern controlled meaning-like behavior in transformer language models.</p>
+          <p>Developed Mechanics of Meaning (MoM), a framework for testing whether proposed feature-level explanations preserve that behavior under matched intervention.</p>
+          <p>Established a sufficiency result showing that purely distributional transformer states can causally govern a controlled meaning-like competence profile, and a limitation result showing that strong reconstruction fidelity alone does not validate sparse feature-level causal explanation.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-title">Fundamental Researcher in Knowledge, Language, Mathematics, and Metaphysics</div>
+        <div class="entry-date">2018 – 2025</div>
+        <div class="entry-body">
+          <p>Conducted long-horizon, self-funded independent research in metaphysics, philosophy of language, logic, and formal structure, pursuing foundational questions beyond standard curricular frameworks.</p>
+          <p>Knowledge and provability: studied Gödelian self-reference, Löb's theorem, GL, and Solovay's completeness result in relation to formal provability in Peano Arithmetic.</p>
+          <p>Meaning and its boundaries: in work on vagueness (MA thesis, grade 1.4), critically examined Williamson's epistemic theory by arguing that its instability-based solution blocks Sorites synchronically but generates a diachronic instability that threatens the classical stability it aims to preserve, and extended the analysis to concept boundaries and uncertainty in language models.</p>
+          <p>Structure of representation: investigated foundational conditions under which representational structures — formal, linguistic, conceptual — acquire explanatory power.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-title">Founder and Research Engineer, Sapphire Bridge</div>
+        <div class="entry-date">2024 – present</div>
+        <div class="entry-body">
+          <p>Built a regulation-constrained RAG system for citation-heavy financial reporting.</p>
+          <p>Built and operate Voice Post Pilot, a voice-to-social-media SaaS product, on a solo-built AWS serverless stack (Lambda, CloudFront, Route 53), launched in 16 weeks.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Publications and Manuscripts</div>
+
+      <div class="pub-item">
+        <span class="pub-title">The Appearance of Meaning: Context-Dependence and Semantic Competence in Transformer Architectures.</span>
+        <span class="pub-venue">Under review at the Journal of Logic, Language and Information (2026).</span>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-title">Mechanics of Meaning: Sparse Feature Interventions and the Basis Structure of Contextual Control in Transformers.</span>
+        <span class="pub-venue">Completed manuscript (2026).</span>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-title">Context-Dependent Semantics in Large Language Models: A Case for Transformer Architectures.</span>
+        <span class="pub-venue">ESSLLI 2025 Student Session.</span>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-title">Notwendigkeit als Beweisbarkeit.</span>
+        <span class="pub-venue">Research paper, Goethe University Frankfurt (2019).</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Methods and Areas</div>
+
+      <div class="skills-block">
+        <span class="skills-label">ML</span>
+        Mechanistic interpretability, causal intervention, LLM evaluation, activation patching, causal tracing, SAE workflows, TransformerLens, reproducible experiment pipelines, bootstrap resampling, CUDA / MPS.
+      </div>
+
+      <div class="skills-block">
+        <span class="skills-label">Engineering</span>
+        Python, PyTorch, Hugging Face, AWS Lambda, CloudFront, Route 53, serverless deployment.
+      </div>
+
+      <div class="skills-block">
+        <span class="skills-label">Philosophy / Formal</span>
+        Philosophy of language, metaphysics, logic, vagueness, three-valued logic, provability theory.
+      </div>
+
+      <div class="skills-block">
+        <span class="skills-label">AI-Accelerated Research</span>
+        Heavy use of frontier models for coding, experiment design, debugging, research synthesis, and analysis, with primary ownership of problem selection, methodology, evaluation, and final technical judgment.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Education</div>
+
+      <div class="entry">
+        <div class="entry-title">MA Philosophy, Goethe University Frankfurt</div>
+        <div class="entry-date">2018 – 2025 · Grade: 1.4/1.0 (coursework completed in 12 months)</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-title">BSc Management, Philosophy and Economics, Frankfurt School of Finance &amp; Management</div>
+        <div class="entry-date">2014 – 2018 · Thesis grade: 1.1/1.0</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Earlier Experience</div>
+
+      <div class="entry">
+        <div class="entry-title">Independent Consultant, Climate Risk and Sustainable Finance</div>
+        <div class="entry-date">2018 – 2024</div>
+        <div class="entry-body">
+          <p>Built quantitative climate-risk, scenario-analysis, and reporting tools for financial institutions and SMEs, including physical-risk assessment, sector-level transition-cost models, and EU Taxonomy alignment tools designed for non-technical users under regulatory constraint. Provided advisory and research support at EU and German federal sustainable-finance policy level, and developed professional training materials for sustainable-finance certification and practitioner programmes.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-title">FS-UNEP Collaborating Centre / Frankfurt School, Analyst and Researcher</div>
+        <div class="entry-date">2018 – 2020</div>
+        <div class="entry-body">
+          <p>Authored sector analysis on green and sustainable finance in Germany, including work on TCFD adoption, EU Taxonomy alignment, and climate-related disclosure practices across banking and insurance.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <nav class="links-section">
+    <div class="section-label">Links</div>
+    <div class="links-row">
+      <a href="Felix_Borck_CV.pdf" target="_blank">Download PDF</a>
+      <a href="https://zenodo.org/records/18907020" target="_blank" rel="noopener">AoM Preprint</a>
+      <a href="https://zenodo.org/records/18906800" target="_blank" rel="noopener">MoM Preprint</a>
+      <a href="https://github.com/Sapphire-Bridge" target="_blank" rel="noopener">GitHub</a>
+      <a href="index.html">← Back to Manifest</a>
+    </div>
+  </nav>
+
+  <footer>
+    <p>© 2026 Sapphire Bridge · Frankfurt am Main</p>
+  </footer>
+
+</div>
+</body>
+</html>
