@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research - Felix Borck - Sapphire Bridge</title>
+<meta name="description" content="Five short blocks: Context-Dependent Semantics, AoM, MoM, Limitation, Voice Post Pilot.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+ :root {
+ --cream: #f5f0e8;
+ --ink: #2a2520;
+ --ink-soft: #5c554d;
+ --ink-muted: #8a8279;
+ --sapphire: #1e3a5f;
+ --sapphire-light: #2c5282;
+ --rule: rgba(42, 37, 32, 0.15);
+ --rule-strong: rgba(42, 37, 32, 0.28);
+ --serif-display: 'Cormorant Garamond', 'Georgia', serif;
+ --serif-body: 'EB Garamond', 'Georgia', serif;
+ --serif-accent: 'Lora', 'Georgia', serif;
+ }
+
+ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+ html {
+ font-size: 18px;
+ scroll-behavior: smooth;
+ -webkit-font-smoothing: antialiased;
+ }
+
+ body {
+ font-family: var(--serif-body);
+ color: var(--ink);
+ background: var(--cream);
+ line-height: 1.65;
+ min-height: 100vh;
+ }
+
+ body::before {
+ content: "";
+ position: fixed;
+ inset: 0;
+ background:
+ radial-gradient(ellipse at 20% 35%, rgba(30, 58, 95, 0.03) 0%, transparent 55%),
+ radial-gradient(ellipse at 85% 15%, rgba(180, 160, 130, 0.05) 0%, transparent 45%);
+ pointer-events: none;
+ z-index: 0;
+ }
+
+ ::selection {
+ background: rgba(30, 58, 95, 0.15);
+ color: var(--ink);
+ }
+
+ a {
+ color: var(--sapphire);
+ text-decoration: none;
+ border-bottom: 1px solid transparent;
+ transition: border-color 0.25s ease;
+ }
+
+ a:hover { border-bottom-color: var(--sapphire); }
+
+ .page {
+ position: relative;
+ z-index: 1;
+ max-width: 1040px;
+ margin: 0 auto;
+ padding: 0 2rem 4rem;
+ }
+
+ .topbar {
+ display: flex;
+ justify-content: space-between;
+ align-items: baseline;
+ padding: 1.8rem 0 1.4rem;
+ border-bottom: 1px solid var(--rule);
+ gap: 1rem;
+ flex-wrap: wrap;
+ }
+
+ .site-name {
+ font-family: var(--serif-display);
+ font-size: 0.85rem;
+ font-weight: 500;
+ letter-spacing: 0.15em;
+ text-transform: uppercase;
+ color: var(--sapphire);
+ border-bottom: none;
+ }
+
+ .site-name:hover { border-bottom-color: transparent; opacity: 0.8; }
+
+ .top-nav {
+ display: flex;
+ gap: 1.4rem;
+ flex-wrap: wrap;
+ font-family: var(--serif-accent);
+ font-size: 0.86rem;
+ }
+
+ .top-nav a {
+ color: var(--ink-soft);
+ letter-spacing: 0.02em;
+ }
+
+ .top-nav a:hover { color: var(--sapphire); }
+
+ .top-nav a.current {
+ color: var(--sapphire);
+ border-bottom: 1px solid var(--sapphire);
+ }
+
+ header.hero {
+ padding: 3.2rem 0 1.6rem;
+ max-width: 760px;
+ }
+
+ .eyebrow {
+ font-family: var(--serif-accent);
+ font-size: 0.78rem;
+ font-weight: 500;
+ letter-spacing: 0.14em;
+ text-transform: uppercase;
+ color: var(--sapphire);
+ margin-bottom: 0.85rem;
+ }
+
+ h1.page-title {
+ font-family: var(--serif-display);
+ font-size: 2.05rem;
+ font-weight: 400;
+ line-height: 1.25;
+ color: var(--ink);
+ margin-bottom: 1rem;
+ }
+
+ .lede {
+ font-family: var(--serif-body);
+ font-style: italic;
+ font-size: 1.08rem;
+ color: var(--ink-soft);
+ }
+
+ main {
+ max-width: 760px;
+ margin-top: 2.4rem;
+ }
+
+ .block {
+ padding: 2rem 0 2.1rem;
+ border-top: 1px solid var(--rule);
+ }
+
+ .block:last-child { border-bottom: 1px solid var(--rule); }
+
+ .block-meta {
+ font-family: var(--serif-accent);
+ font-size: 0.72rem;
+ font-weight: 500;
+ letter-spacing: 0.14em;
+ text-transform: uppercase;
+ color: var(--sapphire);
+ margin-bottom: 0.55rem;
+ display: flex;
+ gap: 0.9rem;
+ flex-wrap: wrap;
+ align-items: baseline;
+ }
+
+ .block-meta .index {
+ color: var(--ink-muted);
+ }
+
+ .block h2 {
+ font-family: var(--serif-display);
+ font-size: 1.5rem;
+ font-weight: 500;
+ line-height: 1.25;
+ color: var(--ink);
+ margin-bottom: 0.4rem;
+ }
+
+ .block-tagline {
+ font-family: var(--serif-display);
+ font-style: italic;
+ font-size: 1.08rem;
+ line-height: 1.4;
+ color: var(--sapphire);
+ margin-bottom: 0.55rem;
+ }
+
+ .block .status {
+ font-family: var(--serif-accent);
+ font-size: 0.8rem;
+ color: var(--ink-muted);
+ letter-spacing: 0.01em;
+ margin-bottom: 0.9rem;
+ }
+
+ .block p {
+ font-family: var(--serif-body);
+ font-size: 1.02rem;
+ color: var(--ink-soft);
+ margin-bottom: 0.85rem;
+ }
+
+ .block .key-number {
+ font-family: var(--serif-accent);
+ font-size: 0.86rem;
+ color: var(--ink);
+ padding: 0.55rem 0.9rem;
+ background: rgba(30, 58, 95, 0.04);
+ border-left: 2px solid var(--sapphire);
+ margin: 0.7rem 0 1rem;
+ line-height: 1.5;
+ }
+
+ .block-links {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 0.4rem 1.2rem;
+ font-family: var(--serif-accent);
+ font-size: 0.86rem;
+ }
+
+ footer {
+ margin-top: 3rem;
+ padding-top: 1.6rem;
+ border-top: 1px solid var(--rule);
+ display: flex;
+ justify-content: space-between;
+ align-items: baseline;
+ flex-wrap: wrap;
+ gap: 1rem;
+ font-family: var(--serif-accent);
+ font-size: 0.8rem;
+ color: var(--ink-muted);
+ }
+
+ footer .foot-left,
+ footer .foot-right {
+ display: flex;
+ gap: 1.2rem;
+ flex-wrap: wrap;
+ }
+
+ footer a { color: var(--ink-soft); }
+ footer a:hover { color: var(--sapphire); }
+
+ @media (max-width: 640px) {
+ html { font-size: 16px; }
+ .page { padding: 0 1.25rem 3rem; }
+ .topbar { padding: 1.3rem 0 1rem; }
+ .top-nav { gap: 1rem; }
+ header.hero { padding: 2.2rem 0 1.2rem; }
+ h1.page-title { font-size: 1.58rem; }
+ .block { padding: 1.6rem 0 1.7rem; }
+ .block h2 { font-size: 1.3rem; }
+ footer { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+ }
+</style>
+</head>
+<body>
+<div class="page">
+
+ <div class="topbar">
+ <a class="site-name" href="index.html">Sapphire Bridge</a>
+ <nav class="top-nav">
+ <a href="research.html" class="current">Research</a>
+ <a href="background.html">About</a>
+ <a href="https://github.com/Sapphire-Bridge" target="_blank" rel="noopener">GitHub</a>
+ <a href="Felix_Borck_CV.pdf" target="_blank" rel="noopener">CV</a>
+ <a href="mailto:felix.borck@gmail.com">Contact</a>
+ </nav>
+ </div>
+
+ <header class="hero">
+ <div class="eyebrow">Research</div>
+ <h1 class="page-title">Four papers around meaning and mechanistic interpretability, plus one shipped system.</h1>
+ <p class="lede">A short index of what I've built. The arc moves from a philosophical seed about context-dependent meaning to causal tests on transformer LMs, and to a current limitation result on what SAE reconstruction fidelity actually buys.</p>
+ </header>
+
+ <main>
+
+ <article class="block" id="cds">
+ <div class="block-meta">
+ <span class="index">01</span>
+ <span>Philosophical foundation</span>
+ </div>
+ <h2>Context-Dependent Semantics in Large Language Models</h2>
+ <div class="status">Conceptual paper - philosophical framing.</div>
+ <p>Argues that decoder-only Transformer self-attention operationalizes a relational, context-dependent theory of meaning closer to Braun than to Kaplan. The empirical hook is that GPT-style embeddings exhibit low self-similarity and high anisotropy in deeper layers - the same token's representation shifts substantially with its context.</p>
+ <p>This frames the move from a philosophical claim about meaning to causal tests inside transformer models, which is what the next three papers carry out.</p>
+ <div class="key-number">GPT-2 / GPT-3 embeddings: context dependence increases with depth (Ethayarajh-style self-similarity / anisotropy).</div>
+ <div class="block-links">
+ <a href="https://philpapers.org/archive/GRAPOT-20.pdf#page=181" target="_blank" rel="noopener">PDF in proceedings (p. 181)</a>
+ </div>
+ </article>
+
+ <article class="block" id="aom">
+ <div class="block-meta">
+ <span class="index">02</span>
+ <span>AoM - Paper 2</span>
+ </div>
+ <h2>Appearance of Meaning (AoM)</h2>
+ <div class="block-tagline">Mathematics determines token, not meaning.</div>
+ <div class="status">Under review at JoLLI (Journal of Logic, Language and Information).</div>
+ <p>Identifies internal states in transformer LMs that causally control meaning-like preference margins under context-swap activation patching, validated with sham-controlled comparisons. Across GPT-2 and Qwen2.5 checkpoints, donor-directed effects are structured and depth-localized; matched sham interventions sit near zero.</p>
+ <p>Includes a fixed-depth target-specificity stress test (SDH) showing target-span concentration over nearby matched controls in the canonical artifact for non-GPT-2 models, constraining token-privileged implementation glosses without claiming global token-atomic exclusivity.</p>
+ <div class="key-number">Structured, depth-localized donor-directed effects with near-zero sham baselines across GPT-2 and Qwen2.5.</div>
+ <div class="block-links">
+ <a href="https://zenodo.org/records/18907020" target="_blank" rel="noopener">Preprint (Zenodo)</a>
+ <a href="https://philpapers.org/archive/BORTAO-10.pdf" target="_blank" rel="noopener">PDF (PhilPapers)</a>
+ <a href="https://github.com/Sapphire-Bridge/AoM_CPT" target="_blank" rel="noopener">Code</a>
+ </div>
+ </article>
+
+ <article class="block" id="mom">
+ <div class="block-meta">
+ <span class="index">03</span>
+ <span>MoM - Paper 3</span>
+ </div>
+ <h2>Mechanics of Meaning (MoM)</h2>
+ <div class="block-tagline">Mechanism determines computation, not basis.</div>
+ <div class="status">Completed manuscript.</div>
+ <p>Tests whether already-localized contextual control is better recovered in the raw residual stream or in a sparse learned feature basis. Compares matched raw residual and SAE interventions at shared resid_post sites in Gemma 2 2B across disambiguation, counterfactual-preference, and discourse-coherence tasks.</p>
+ <p>The result is heterogeneous, not uniform: a bounded early sparse-precision advantage shows up on DISAMB, while matched-rank PCA and random orthogonal controls make generic compression or rank-reduction alone insufficient explanations for the early L4 advantage.</p>
+ <div class="key-number">Bounded sparse-precision effect appears only on early disambiguation - layer- and task-dependent, not a universal sparse advantage.</div>
+ <div class="block-links">
+ <a href="https://zenodo.org/records/18906800" target="_blank" rel="noopener">Preprint</a>
+ <a href="https://github.com/Sapphire-Bridge/AoM_mechanism" target="_blank" rel="noopener">Code</a>
+ </div>
+ </article>
+
+ <article class="block" id="limitation">
+ <div class="block-meta">
+ <span class="index">04</span>
+ <span>Limitation - Paper 4 - CRR</span>
+ </div>
+ <h2>Geometric Fidelity Is Not Behavioral Preservation</h2>
+ <div class="block-tagline">Reconstruction fidelity determines geometry, not causality.</div>
+ <div class="status">Draft available on request.</div>
+ <p>Shows that high SAE reconstruction fidelity does not validate sparse feature-level causal explanations of behavior. On Gemma 3 4B, layer 4 and layer 8 reach near-identical reconstruction quality (cosine 0.997 / 0.998, relMSE 0.007 / 0.007) but recover the matched raw-writeback effect very differently.</p>
+ <p>A matched-rank PCA control at L4 essentially recovers the raw effect (PCA effect 0.829 vs raw 0.815) despite having no interpretability claim at all - decoupling behavioral preservation from sparse interpretability.</p>
+ <div class="key-number">L4 SAE causal recovery 0.621 [0.263, 0.954] vs L8 SAE 0.974 [0.749, 1.320], with identical relMSE 0.007. PCA control at L4 ≈ raw.</div>
+ <div class="block-links">
+ <a href="limitation.html">Result page</a>
+ <a href="mailto:felix.borck@gmail.com?subject=Geometric%20Fidelity%20code%20request">Code on request</a>
+ </div>
+ </article>
+
+ <article class="block" id="voice-post-pilot">
+ <div class="block-meta">
+ <span class="index">05</span>
+ <span>Voice Post Pilot - shipped system</span>
+ </div>
+ <h2>Voice Post Pilot</h2>
+ <div class="status">Solo built. Meta verified.</div>
+ <p>A voice-to-social-media SaaS product, solo-designed and built on an AWS Serverless stack (Lambda, CloudFront, Route 53). Built next to the research line as a way to keep shipping engineering muscle while the papers run.</p>
+ <div class="key-number">Solo from concept to launch-ready system in 16 weeks. Python / PyTorch / AWS Lambda / CloudFront / Route 53.</div>
+ <div class="block-links">
+ <a href="Felix_Borck_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+ </div>
+ </article>
+
+ </main>
+
+ <footer>
+ <div class="foot-left">
+ <span>&copy; 2026 Felix Borck</span>
+ <span>Frankfurt am Main</span>
+ </div>
+ <div class="foot-right">
+ <a href="index.html">Home</a>
+ <a href="background.html">About</a>
+ <a href="mailto:felix.borck@gmail.com">felix.borck@gmail.com</a>
+ <a href="https://github.com/Sapphire-Bridge" target="_blank" rel="noopener">GitHub</a>
+ </div>
+ </footer>
+
+</div>
+</body>
+</html>
