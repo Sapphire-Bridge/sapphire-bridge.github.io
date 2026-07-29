@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Research - Felix Borck - Sapphire Bridge</title>
 <meta name="description" content="Five short blocks: Context-Dependent Semantics, AoM, MoM, Limitation, Voice Post Pilot.">
+<link rel="canonical" href="https://sapphire-bridge.github.io/research.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -341,11 +342,11 @@
  <span class="index">04</span>
  <span>Limitation - Paper 4 - CRR</span>
  </div>
- <h2>Geometric Fidelity Is Not Behavioral Preservation</h2>
+ <h2>Geometric Fidelity Does Not Certify Behavioral Preservation</h2>
  <div class="block-tagline">Reconstruction fidelity determines geometry, not causality.</div>
  <div class="status">Draft available on request.</div>
  <p>Shows that high SAE reconstruction fidelity does not validate sparse feature-level causal explanations of behavior. On Gemma 3 4B, layer 4 and layer 8 reach near-identical reconstruction quality (cosine 0.997 / 0.998, relMSE 0.007 / 0.007) but recover the matched raw-writeback effect very differently.</p>
- <p>A matched-rank PCA control at L4 essentially recovers the raw effect (PCA effect 0.829 vs raw 0.815) despite having no interpretability claim at all - decoupling behavioral preservation from sparse interpretability.</p>
+ <p>A matched-rank PCA control at L4 essentially recovers the raw effect (PCA effect 0.829 vs raw 0.815) despite having no interpretability claim at all. The relative point-estimate ordering of SAE and matched-rank PCA reverses across layers; preservation is basis- and layer-dependent.</p>
  <div class="key-number">L4 SAE causal recovery 0.621 [0.263, 0.954] vs L8 SAE 0.974 [0.749, 1.320], with identical relMSE 0.007. PCA control at L4 ≈ raw.</div>
  <div class="block-links">
  <a href="limitation.html">Result page</a>

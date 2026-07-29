@@ -11,6 +11,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Sapphire Bridge">
 <meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://sapphire-bridge.github.io/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -242,6 +243,16 @@
  height: auto;
  max-width: 700px;
  margin: 0 auto;
+ }
+
+ .anchor-note {
+ display: block;
+ font-family: var(--serif-accent);
+ font-size: 0.78rem;
+ font-style: italic;
+ color: var(--ink-muted);
+ text-align: center;
+ margin-top: 0.5rem;
  }
 
  .audiences {
@@ -566,7 +577,7 @@
  <p class="program-line">I use formal semantics to specify the target independently of the intervention result, then test how language models realize it internally.</p>
  <p class="approach">A changed answer shows causal leverage, not yet construct validity or a full account of the computation. Causal interventions do not by themselves establish that the tested contrast captures the claimed concept. My experiments therefore begin with theory-derived contrasts and falsification conditions, then ask which internal variables realize them.</p>
  <p class="approach-more"><a href="approach.html">Read the approach in full</a></p>
- <p class="results-line">Results so far include held-out standard-sensitive shifts in matched pairs and sham-controlled localization of context-sensitive behavior.</p>
+ <p class="results-line">In Gemma-3-4B, a layer-20 rank-5 size subspace transferred bidirectionally across two independently constructed prompt families. <a href="https://github.com/Sapphire-Bridge/gradable-manifold-geometry/blob/main/docs/GRADABLE_MANIFOLD_ONE_PAGER.md" target="_blank" rel="noopener">Public research note and artifacts</a>.</p>
 
  <div class="anchor">
  <p><strong>Same value, different standard.</strong> The same three-centimeter length can count as large for an ant and small for a dog. The matched pairs hold the target degree fixed while changing the comparison class. Falsification controls test whether model responses track the predicted standard shift rather than the value alone.</p>
@@ -606,6 +617,7 @@
  <text class="fig-vd fig-neg" x="565" y="186">small</text>
  <text class="fig-mut" x="350" y="240" text-anchor="middle">The value stays fixed. The comparison class moves the standard.</text>
  </svg>
+ <figcaption class="anchor-note">Design schematic&mdash;not a result plot.</figcaption>
  </figure>
  </div>
 
@@ -615,7 +627,7 @@
  <p class="audience"><strong>For empirical XAI and applied research:</strong> clearer evidence about what an intervention changes—and what that success does not yet establish.</p>
  </div>
 
- <p class="cta"><strong>If this work fits your group, please <a href="mailto:felix.borck@gmail.com">get in touch</a>.</strong></p>
+ <p class="cta"><strong>I am seeking a PhD or research position at the intersection of formal semantics and mechanistic interpretability. If this work fits your group, please <a href="mailto:felix.borck@gmail.com">get in touch</a>.</strong></p>
  <span class="availability-contact">
  <a href="mailto:felix.borck@gmail.com">felix.borck@gmail.com</a> · Frankfurt am Main · open to remote
  </span>
@@ -626,7 +638,8 @@
 
  <main id="research">
 
- <h2 class="section-head">Near-perfect SAE reconstruction under-recovered the causal effect.</h2>
+ <p class="program-line">Once a construct has been specified and causally localized, the next question is whether an interpretable representation preserves the same intervention effect.</p>
+ <h2 class="section-head">At layer 4, near-perfect SAE reconstruction under-recovered the matched writeback effect.</h2>
  <p class="program-line">Gemma 3 4B layer 4: reconstruction cosine 0.997 and relMSE 0.007, but causal recovery only CRR 0.621 [0.263, 0.954]. At layer 8, similarly high reconstruction recovers 0.974 [0.749, 1.320].</p>
 
  <div class="figure-placeholder" aria-label="L4 and L8 SAE recovery plus matched-rank PCA effect controls from reported run numbers">
@@ -651,7 +664,7 @@
  <div class="metric-track"><div class="metric-fill" style="width: 74%"></div></div>
  <span>effect 0.688 vs raw 0.931</span>
  </div>
- <div class="caption">Summary figure from reported run numbers (Gemma 3 4B). SAE rows report CRR relative to matched raw writeback; PCA rows report matched-rank PCA effect against raw at the same layer. The ordering reverses across L4 and L8, decoupling behavioral preservation from sparse interpretability.</div>
+ <div class="caption">Summary figure from reported run numbers (Gemma 3 4B). All bars show recovery relative to matched raw writeback at the same layer: SAE rows as CRR with 95% CI, PCA rows as the point-estimate ratio of the reported effects (bars capped at 1.0). The relative point-estimate ordering of SAE and matched-rank PCA reverses across layers; preservation is basis- and layer-dependent.</div>
  </div>
 
  <div class="cards-label">Four-paper arc</div>
@@ -668,7 +681,7 @@
 
  <article class="card" id="cds">
  <div class="card-tag">Semantics · Paper 1</div>
- <div class="card-name">Context-Dependent Semantics</div>
+ <h3 class="card-name">Context-Dependent Semantics</h3>
  <div class="card-status">Philosophical foundation</div>
  <p class="card-result">Frames transformer context integration as evidence for relational, context-dependent semantics and motivates the move from philosophy to causal tests.</p>
  <div class="card-links">
@@ -678,7 +691,7 @@
 
  <article class="card" id="aom">
  <div class="card-tag">AoM · Paper 2</div>
- <div class="card-name">Appearance of Meaning</div>
+ <h3 class="card-name">Appearance of Meaning</h3>
  <div class="card-tagline">Mathematics determines token, not meaning.</div>
  <div class="card-status">Under review at JoLLI (Journal of Logic, Language and Information)</div>
  <p class="card-result">Identifies internal states in transformer LMs that causally control carefully defined meaning-like behavior, under sham-controlled activation patching.</p>
@@ -690,7 +703,7 @@
 
  <article class="card" id="mom">
  <div class="card-tag">MoM · Paper 3</div>
- <div class="card-name">Mechanics of Meaning</div>
+ <h3 class="card-name">Mechanics of Meaning</h3>
  <div class="card-tagline">Mechanism determines computation, not basis.</div>
  <div class="card-status">Completed manuscript</div>
  <p class="card-result">Tests whether already-localized contextual control is better recovered in the raw residual stream or in a sparse learned feature basis.</p>
@@ -702,7 +715,7 @@
 
  <article class="card limitation" id="limitation">
  <div class="card-tag">Limitation · Paper 4</div>
- <div class="card-name">Geometric Fidelity Is Not Behavioral Preservation</div>
+ <h3 class="card-name">Geometric Fidelity Does Not Certify Behavioral Preservation</h3>
  <div class="card-tagline">Reconstruction fidelity determines geometry, not causality.</div>
  <div class="card-status">Draft available on request.</div>
  <p class="card-result">High reconstruction fidelity alone does not validate sparse feature-level explanations of causally localized behavior. CRR makes the gap measurable.</p>
