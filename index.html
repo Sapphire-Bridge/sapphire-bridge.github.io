@@ -190,6 +190,117 @@
  letter-spacing: 0.01em;
  }
 
+ .approach {
+ font-family: var(--serif-body);
+ font-size: 1.02rem;
+ color: var(--ink);
+ max-width: 790px;
+ margin-bottom: 0.6rem;
+ }
+
+ .approach-more {
+ font-family: var(--serif-accent);
+ font-size: 0.84rem;
+ letter-spacing: 0.02em;
+ margin-bottom: 1.4rem;
+ }
+
+ .results-line {
+ font-family: var(--serif-body);
+ font-style: italic;
+ font-size: 1.02rem;
+ color: var(--ink-soft);
+ max-width: 790px;
+ margin-bottom: 1.7rem;
+ }
+
+ .anchor {
+ background: rgba(30, 58, 95, 0.05);
+ border: 1px solid var(--rule);
+ border-left: 3px solid var(--sapphire);
+ padding: 1.5rem 1.5rem 1.3rem;
+ border-radius: 2px;
+ max-width: 840px;
+ margin-bottom: 1.9rem;
+ }
+
+ .anchor p {
+ font-family: var(--serif-body);
+ font-size: 1rem;
+ color: var(--ink);
+ margin-bottom: 1.2rem;
+ }
+
+ .anchor strong {
+ font-weight: 500;
+ color: var(--sapphire);
+ }
+
+ .anchor-figure svg {
+ display: block;
+ width: 100%;
+ height: auto;
+ max-width: 700px;
+ margin: 0 auto;
+ }
+
+ .audiences {
+ display: grid;
+ grid-template-columns: 1fr;
+ gap: 1rem;
+ max-width: 900px;
+ margin-bottom: 1.9rem;
+ }
+
+ .audience {
+ font-family: var(--serif-body);
+ font-size: 0.95rem;
+ color: var(--ink-soft);
+ border-top: 1px solid var(--rule-strong);
+ padding-top: 0.7rem;
+ }
+
+ .audience strong {
+ display: block;
+ font-family: var(--serif-accent);
+ font-size: 0.8rem;
+ font-weight: 500;
+ letter-spacing: 0.03em;
+ color: var(--sapphire);
+ margin-bottom: 0.3rem;
+ }
+
+ @media (min-width: 720px) {
+ .audiences { grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
+ }
+
+ .cta {
+ font-family: var(--serif-display);
+ font-size: 1.28rem;
+ line-height: 1.35;
+ color: var(--ink);
+ margin-bottom: 0.7rem;
+ }
+
+ .cta strong { font-weight: 500; }
+
+ .cta a {
+ color: var(--sapphire);
+ border-bottom: 1px solid rgba(30, 58, 95, 0.3);
+ }
+
+ .cta ~ .availability-contact { margin-left: 0; }
+
+ .section-head {
+ font-family: var(--serif-display);
+ font-size: 1.5rem;
+ font-weight: 400;
+ line-height: 1.3;
+ color: var(--ink);
+ max-width: 840px;
+ margin-bottom: 0.6rem;
+ }
+
  .figure-placeholder {
  margin: 0 0 2.6rem;
  border: 1px dashed var(--rule-strong);
@@ -429,6 +540,9 @@
  .pull-quote { font-size: 1.02rem; }
  .figure-placeholder { padding: 1.6rem 1rem; margin-bottom: 2rem; }
  .metric-row { grid-template-columns: 1fr; gap: 0.35rem; }
+ .anchor { padding: 1.2rem 1rem 1rem; }
+ .cta { font-size: 1.12rem; }
+ .section-head { font-size: 1.28rem; }
  footer { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
  }
 </style>
@@ -448,12 +562,60 @@
  </div>
 
  <header class="hero">
- <h1 class="promise">Near-perfect SAE reconstruction under-recovered the causal effect.</h1>
- <p class="program-line">Gemma 3 4B layer 4: reconstruction cosine 0.997 and relMSE 0.007, but causal recovery only CRR 0.621 [0.263, 0.954]. At layer 8, similarly high reconstruction recovers 0.974 [0.749, 1.320].</p>
- <blockquote class="pull-quote">
- The point is not that sparse features fail. It is that reconstruction fidelity alone does <em>not</em> validate sparse feature-level causal explanation.
- </blockquote>
- <div class="availability">Looking for mechanistic interpretability research work connected to this approach.</div>
+ <h1 class="promise">From formal theories of meaning to causal tests inside language models.</h1>
+ <p class="program-line">I use formal semantics to specify the target independently of the intervention result, then test how language models realize it internally.</p>
+ <p class="approach">A changed answer shows causal leverage, not yet construct validity or a full account of the computation. Causal interventions do not by themselves establish that the tested contrast captures the claimed concept. My experiments therefore begin with theory-derived contrasts and falsification conditions, then ask which internal variables realize them.</p>
+ <p class="approach-more"><a href="approach.html">Read the approach in full</a></p>
+ <p class="results-line">Results so far include held-out standard-sensitive shifts in matched pairs and sham-controlled localization of context-sensitive behavior.</p>
+
+ <div class="anchor">
+ <p><strong>Same value, different standard.</strong> The same three-centimeter length can count as large for an ant and small for a dog. The matched pairs hold the target degree fixed while changing the comparison class. Falsification controls test whether model responses track the predicted standard shift rather than the value alone.</p>
+ <figure class="anchor-figure">
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 250" role="img" aria-labelledby="anchor-fig-title anchor-fig-desc">
+ <title id="anchor-fig-title">Same value, different standard</title>
+ <desc id="anchor-fig-desc">A fixed length of three centimetres sits above the standard for ants, yielding the judgement large, and below the standard for dogs, yielding the judgement small.</desc>
+ <style>
+ .fig-lbl { font-size: 14px; fill: var(--ink); font-family: var(--serif-body); }
+ .fig-mut { font-size: 11px; fill: var(--ink-muted); font-family: var(--serif-accent); }
+ .fig-val { font-size: 14px; fill: var(--ink); font-family: var(--serif-body); }
+ .fig-vd { font-size: 18px; font-weight: 500; font-family: var(--serif-display); }
+ .fig-ax { stroke: var(--rule-strong); stroke-width: 1.5; }
+ .fig-pos { fill: #0f6e56; }
+ .fig-neg { fill: #993c1d; }
+ @media (max-width: 640px) {
+ .fig-lbl, .fig-val { font-size: 17px; }
+ .fig-mut { font-size: 16px; }
+ .fig-vd { font-size: 24px; }
+ }
+ </style>
+ <line class="fig-ax" x1="170" y1="95" x2="540" y2="95"/>
+ <line class="fig-ax" x1="170" y1="180" x2="540" y2="180"/>
+ <path d="M540 91 L549 95 L540 99 Z" fill="var(--rule-strong)"/>
+ <path d="M540 176 L549 180 L540 184 Z" fill="var(--rule-strong)"/>
+ <line x1="360" y1="48" x2="360" y2="205" stroke="var(--ink)" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
+ <text class="fig-val" x="360" y="38" text-anchor="middle">3 cm</text>
+ <circle cx="360" cy="95" r="5.5" fill="var(--ink)"/>
+ <circle cx="360" cy="180" r="5.5" fill="var(--ink)"/>
+ <path d="M240 112 L246 102 L234 102 Z" fill="var(--ink-muted)"/>
+ <text class="fig-mut" x="240" y="127" text-anchor="middle">standard</text>
+ <path d="M465 197 L471 187 L459 187 Z" fill="var(--ink-muted)"/>
+ <text class="fig-mut" x="465" y="212" text-anchor="middle">standard</text>
+ <text class="fig-lbl" x="155" y="100" text-anchor="end">compared with ants</text>
+ <text class="fig-lbl" x="155" y="185" text-anchor="end">compared with dogs</text>
+ <text class="fig-vd fig-pos" x="565" y="101">large</text>
+ <text class="fig-vd fig-neg" x="565" y="186">small</text>
+ <text class="fig-mut" x="350" y="240" text-anchor="middle">The value stays fixed. The comparison class moves the standard.</text>
+ </svg>
+ </figure>
+ </div>
+
+ <div class="audiences">
+ <p class="audience"><strong>For mechanistic interpretability:</strong> construct specifications and controlled contrasts that strengthen causal experiments.</p>
+ <p class="audience"><strong>For formal semantics and philosophy of language:</strong> a route from theories of meaning to falsifiable experiments inside models.</p>
+ <p class="audience"><strong>For empirical XAI and applied research:</strong> clearer evidence about what an intervention changes—and what that success does not yet establish.</p>
+ </div>
+
+ <p class="cta"><strong>If this work fits your group, please <a href="mailto:felix.borck@gmail.com">get in touch</a>.</strong></p>
  <span class="availability-contact">
  <a href="mailto:felix.borck@gmail.com">felix.borck@gmail.com</a> · Frankfurt am Main · open to remote
  </span>
@@ -463,6 +625,9 @@
  </header>
 
  <main id="research">
+
+ <h2 class="section-head">Near-perfect SAE reconstruction under-recovered the causal effect.</h2>
+ <p class="program-line">Gemma 3 4B layer 4: reconstruction cosine 0.997 and relMSE 0.007, but causal recovery only CRR 0.621 [0.263, 0.954]. At layer 8, similarly high reconstruction recovers 0.974 [0.749, 1.320].</p>
 
  <div class="figure-placeholder" aria-label="L4 and L8 SAE recovery plus matched-rank PCA effect controls from reported run numbers">
  <div class="figure-title">SAE vs PCA control · L4 and L8 causal recovery</div>

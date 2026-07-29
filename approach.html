@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Approach - Sapphire Bridge</title>
+<meta name="description" content="The long version of the approach: why a successful causal intervention does not by itself establish construct validity, and what formal semantics contributes as a specification of target contrasts and falsification conditions.">
+<meta property="og:title" content="Approach - Sapphire Bridge">
+<meta property="og:description" content="Why a successful causal intervention does not by itself establish construct validity, and what formal semantics contributes as a specification of target contrasts and falsification conditions.">
+<meta property="og:url" content="https://sapphire-bridge.github.io/approach.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Sapphire Bridge">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f0e8;
+    --cream-dark: #ebe4d8;
+    --ink: #2a2520;
+    --ink-soft: #5c554d;
+    --ink-muted: #8a8279;
+    --sapphire: #1e3a5f;
+    --sapphire-faint: rgba(30, 58, 95, 0.08);
+    --rule: rgba(42, 37, 32, 0.15);
+    --serif-display: 'Cormorant Garamond', 'Georgia', serif;
+    --serif-body: 'EB Garamond', 'Georgia', serif;
+    --serif-accent: 'Lora', 'Georgia', serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 18px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body {
+    min-height: 100vh;
+    font-family: var(--serif-body);
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.7;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(30, 58, 95, 0.02) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(180, 160, 130, 0.04) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .page { position: relative; z-index: 1; width: min(760px, calc(100% - 2.5rem)); margin: 0 auto; }
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.25rem;
+    padding: 2rem 0 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .site-name, .top-nav a, .links-row a {
+    font-family: var(--serif-accent);
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    color: var(--sapphire);
+    text-decoration: none;
+  }
+  .site-name { text-transform: uppercase; }
+  .top-nav { display: flex; flex-wrap: wrap; gap: 0.85rem 1.25rem; justify-content: flex-end; }
+  .top-nav a, .links-row a { border-bottom: 1px solid transparent; transition: border-color 0.2s ease; }
+  .top-nav a:hover, .links-row a:hover { border-bottom-color: var(--sapphire); }
+  header { padding: 3.2rem 0 2.4rem; border-bottom: 1px solid var(--rule); margin-bottom: 2.5rem; }
+  .eyebrow {
+    font-family: var(--serif-accent);
+    font-size: 0.76rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-family: var(--serif-display);
+    font-size: clamp(2rem, 5vw, 3.15rem);
+    line-height: 1.05;
+    font-weight: 500;
+    max-width: 680px;
+    margin-bottom: 1.1rem;
+  }
+  .lede {
+    max-width: 650px;
+    color: var(--ink-soft);
+    font-size: 1.08rem;
+  }
+  .status {
+    display: inline-block;
+    margin-top: 1.25rem;
+    font-family: var(--serif-accent);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--sapphire);
+    background: var(--sapphire-faint);
+    border: 1px solid var(--rule);
+    padding: 0.35rem 0.55rem;
+  }
+  .section { margin-bottom: 2.6rem; }
+  .section-label {
+    font-family: var(--serif-accent);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sapphire);
+    margin-bottom: 0.85rem;
+  }
+  p { color: var(--ink-soft); font-size: 1.03rem; margin-bottom: 1rem; }
+  p:last-child { margin-bottom: 0; }
+  .claim {
+    background: var(--sapphire-faint);
+    border: 1px solid var(--rule);
+    padding: 1.3rem 1.4rem;
+    margin: 1.4rem 0;
+  }
+  .claim p {
+    font-family: var(--serif-display);
+    color: var(--sapphire);
+    font-size: 1.15rem;
+    line-height: 1.5;
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.4rem 0 0.8rem;
+    font-size: 0.9rem;
+  }
+  .data-table th {
+    font-family: var(--serif-accent);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--sapphire);
+    text-align: left;
+    padding: 0.55rem 0.65rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .data-table td {
+    color: var(--ink-soft);
+    padding: 0.5rem 0.65rem;
+    border-bottom: 1px solid rgba(42, 37, 32, 0.08);
+    vertical-align: top;
+  }
+  .data-table tr.highlight td { color: var(--sapphire); font-weight: 500; }
+  .note {
+    font-family: var(--serif-accent);
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: var(--ink-muted);
+  }
+  .links-section { border-top: 1px solid var(--rule); padding-top: 2rem; margin-top: 3rem; }
+  .links-row { display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; }
+  footer { padding: 3rem 0 4rem; }
+  footer p { font-family: var(--serif-accent); font-size: 0.78rem; color: var(--ink-muted); }
+  @media (max-width: 640px) {
+    html { font-size: 16px; }
+    .page { width: min(100% - 2rem, 760px); }
+    .topbar { flex-direction: column; align-items: flex-start; }
+    .top-nav { justify-content: flex-start; }
+    header { padding: 2.4rem 0 2rem; }
+    .data-table { font-size: 0.82rem; }
+    .data-table th, .data-table td { padding: 0.42rem 0.45rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="topbar">
+    <a class="site-name" href="index.html">Sapphire Bridge</a>
+    <nav class="top-nav">
+      <a href="research.html">Research</a>
+      <a href="background.html">About</a>
+      <a href="felix-borck-cv.pdf" target="_blank" rel="noopener">CV</a>
+      <a href="mailto:felix.borck@gmail.com">Contact</a>
+    </nav>
+  </div>
+
+  <header>
+    <div class="eyebrow">Approach &middot; Long version</div>
+    <h1>From formal theories of meaning to causal tests inside language models.</h1>
+    <p class="lede">I use formal semantics to specify the target independently of the intervention result, then test how language models realize it internally.</p>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="section-label">The specification problem</div>
+      <p>A well-controlled causal intervention can show that manipulating an internal variable changes a measured outcome. It does not by itself establish that the experimental contrast validly operationalizes the claimed construct, nor does causal efficacy alone identify the computation behind the behavior. My work addresses this specification problem. Formal semantics does not guarantee construct validity. Its role is to make the relevant validity claim testable independently of intervention success by specifying target contrasts, invariances, and falsification conditions. I turn those specifications into controlled same-value/different-standard pairs with explicit falsification controls, then use causal mechanistic methods to investigate how models internally realize them.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Borderline cases</div>
+      <div class="claim">
+        <p><strong>Supervaluation:</strong> A case is borderline when its degree lies within the band of admissible thresholds. Different admissible values of &theta; can therefore yield different classifications while the degree remains fixed. Tolerance concerns stability under small changes in degree; it does not require a label flip.</p>
+      </div>
+    </section>
+  </main>
+
+  <nav class="links-section">
+    <div class="section-label">Links</div>
+    <div class="links-row">
+      <a href="research.html">Research overview</a>
+      <a href="mailto:felix.borck@gmail.com">Contact</a>
+      <a href="index.html">Back to home</a>
+    </div>
+  </nav>
+
+  <footer>
+    <p>&copy; 2026 Felix Borck &middot; Frankfurt am Main</p>
+  </footer>
+
+</div>
+</body>
+</html>
