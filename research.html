@@ -345,9 +345,9 @@
  <h2>Geometric Fidelity Does Not Certify Behavioral Preservation</h2>
  <div class="block-tagline">Reconstruction fidelity determines geometry, not causality.</div>
  <div class="status">Draft available on request.</div>
- <p>Shows that high SAE reconstruction fidelity does not validate sparse feature-level causal explanations of behavior. On Gemma 3 4B, layer 4 and layer 8 reach near-identical reconstruction quality (cosine 0.997 / 0.998, relMSE 0.007 / 0.007) but recover the matched raw-writeback effect very differently.</p>
- <p>A matched-rank PCA control at L4 essentially recovers the raw effect (PCA effect 0.829 vs raw 0.815) despite having no interpretability claim at all. The relative point-estimate ordering of SAE and matched-rank PCA reverses across layers; preservation is basis- and layer-dependent.</p>
- <div class="key-number">L4 SAE causal recovery 0.621 [0.263, 0.954] vs L8 SAE 0.974 [0.749, 1.320], with identical relMSE 0.007. PCA control at L4 ≈ raw.</div>
+ <p>Shows that strong SAE reconstruction diagnostics do not certify sparse feature-level causal explanations of behavior. On Gemma 3 4B, layer 4 and layer 8 reach comparable reconstruction quality (cosine 0.997 / 0.998, relMSE 0.0072 / 0.0067, FVU 0.137 / 0.060) but recover the matched raw-writeback effect very differently. L4 and L8 are the exposition pair, not the largest observed gap: L11 has lower recovery than L4.</p>
+ <p>A matched-rank PCA control at L4 is indistinguishable from raw (paired PCA-minus-raw +0.013 [−0.217, +0.247]), which is not the same as perfect. The control is deliberately weak: PCA is fitted leave-one-pair-out on the evaluation distribution while the SAE is frozen and trained elsewhere, so it only rejects the weakest protocol-only explanation. The basis gap changes sign between L4 and L8.</p>
+ <div class="key-number">Five residual-stream layers were run (4, 5, 8, 11, 16). On the paired SAE-minus-raw contrast, three of five exclude zero — L4 −0.309 [−0.636, −0.027], L11 −0.300 [−0.502, −0.092], L16 −0.204 [−0.397, −0.023] — while reconstruction cosine stays above 0.997 throughout. L4 relMSE 0.0072 vs L8 0.0067; FVU 0.137 vs 0.060.</div>
  <div class="block-links">
  <a href="limitation.html">Result page</a>
  <a href="mailto:felix.borck@gmail.com?subject=Geometric%20Fidelity%20code%20request">Code on request</a>

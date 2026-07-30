@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Felix Borck - Sapphire Bridge</title>
 <meta name="description" content="From formal theories of meaning to causal tests inside language models. Theory-derived contrasts and falsification conditions, tested with causal mechanistic methods across a four-paper arc.">
-<meta property="og:title" content="Sapphire Bridge - Mechanistic Interpretability Research">
+<meta property="og:title" content="From formal theories of meaning to causal tests inside language models">
 <meta property="og:description" content="From formal theories of meaning to causal tests inside language models. Theory-derived contrasts and falsification conditions, tested with causal mechanistic methods across a four-paper arc.">
 <meta property="og:url" content="https://sapphire-bridge.github.io/">
 <meta property="og:type" content="website">
@@ -136,24 +136,6 @@
  margin-bottom: 1.1rem;
  }
 
- .pull-quote {
- font-family: var(--serif-display);
- font-size: 1.15rem;
- font-style: italic;
- color: var(--ink);
- max-width: 790px;
- padding-left: 1rem;
- border-left: 3px solid var(--sapphire);
- margin-bottom: 1.5rem;
- line-height: 1.4;
- }
-
- .pull-quote em {
- font-style: italic;
- color: var(--sapphire);
- font-weight: 500;
- }
-
  .hero-links {
  display: flex;
  flex-wrap: wrap;
@@ -161,24 +143,6 @@
  margin-bottom: 1.3rem;
  font-family: var(--serif-accent);
  font-size: 0.86rem;
- }
-
- .availability {
- font-family: var(--serif-accent);
- font-size: 0.92rem;
- color: var(--sapphire);
- letter-spacing: 0.01em;
- }
-
- .availability::before {
- content: "";
- display: inline-block;
- width: 7px;
- height: 7px;
- border-radius: 50%;
- background: var(--sapphire);
- margin-right: 0.55rem;
- transform: translateY(-2px);
  }
 
  .availability-contact {
@@ -248,9 +212,9 @@
  .anchor-note {
  display: block;
  font-family: var(--serif-accent);
- font-size: 0.78rem;
+ font-size: 0.82rem;
  font-style: italic;
- color: var(--ink-muted);
+ color: var(--ink-soft);
  text-align: center;
  margin-top: 0.5rem;
  }
@@ -548,7 +512,6 @@
  .top-nav { gap: 1rem; }
  header.hero { padding: 2.2rem 0 1.6rem; }
  .promise { font-size: 1.58rem; }
- .pull-quote { font-size: 1.02rem; }
  .figure-placeholder { padding: 1.6rem 1rem; margin-bottom: 2rem; }
  .metric-row { grid-template-columns: 1fr; gap: 0.35rem; }
  .anchor { padding: 1.2rem 1rem 1rem; }
@@ -577,26 +540,26 @@
  <p class="program-line">I use formal semantics to specify the target independently of the intervention result, then test how language models realize it internally.</p>
  <p class="approach">A changed answer shows causal leverage, not yet construct validity or a full account of the computation. Causal interventions do not by themselves establish that the tested contrast captures the claimed concept. My experiments therefore begin with theory-derived contrasts and falsification conditions, then ask which internal variables realize them.</p>
  <p class="approach-more"><a href="approach.html">Read the approach in full</a></p>
- <p class="results-line">In Gemma-3-4B, a layer-20 rank-5 size subspace transferred bidirectionally across two independently constructed prompt families. <a href="https://github.com/Sapphire-Bridge/gradable-manifold-geometry/blob/main/docs/GRADABLE_MANIFOLD_ONE_PAGER.md" target="_blank" rel="noopener">Public research note and artifacts</a>.</p>
+ <p class="results-line">In Gemma-3-4B, rank-5 layer-20 bases fitted on one size operationalization transferred causally to a held-out one and back, recovering 86% and 59% of the full-rank writeback effect against a no-op sham of 0.000. The two families share a prompt template, and the two fitted bases are not the same subspace. <a href="https://github.com/Sapphire-Bridge/gradable-manifold-geometry/blob/main/docs/GRADABLE_MANIFOLD_ONE_PAGER.md" target="_blank" rel="noopener">Public research note and artifacts</a>, not yet peer-reviewed.</p>
 
  <div class="anchor">
- <p><strong>Same value, different standard.</strong> The same three-centimeter length can count as large for an ant and small for a dog. The matched pairs hold the target degree fixed while changing the comparison class. Falsification controls test whether model responses track the predicted standard shift rather than the value alone.</p>
+ <p><strong>Same value, different standard.</strong> The same three-centimeter length counts as huge for an ant and tiny for a labrador. The matched pairs hold the target degree fixed while changing the comparison class. Matched control arms &mdash; explicit value, explicit standard, their two-dimensional combination, norm-matched random directions, and a no-op sham &mdash; test whether the causal effect requires the standard-relative contrast rather than the absolute value.</p>
  <figure class="anchor-figure">
  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 250" role="img" aria-labelledby="anchor-fig-title anchor-fig-desc">
  <title id="anchor-fig-title">Same value, different standard</title>
- <desc id="anchor-fig-desc">A fixed length of three centimetres sits above the standard for ants, yielding the judgement large, and below the standard for dogs, yielding the judgement small.</desc>
+ <desc id="anchor-fig-desc">A fixed length of three centimetres sits far above the standard for ants, yielding the judgement huge, and far below the standard for labradors, yielding the judgement tiny.</desc>
  <style>
  .fig-lbl { font-size: 14px; fill: var(--ink); font-family: var(--serif-body); }
- .fig-mut { font-size: 11px; fill: var(--ink-muted); font-family: var(--serif-accent); }
+ .fig-mut { font-size: 11px; fill: var(--ink-soft); font-family: var(--serif-accent); }
  .fig-val { font-size: 14px; fill: var(--ink); font-family: var(--serif-body); }
  .fig-vd { font-size: 18px; font-weight: 500; font-family: var(--serif-display); }
  .fig-ax { stroke: var(--rule-strong); stroke-width: 1.5; }
  .fig-pos { fill: #0f6e56; }
  .fig-neg { fill: #993c1d; }
- @media (max-width: 640px) {
- .fig-lbl, .fig-val { font-size: 17px; }
- .fig-mut { font-size: 16px; }
- .fig-vd { font-size: 24px; }
+ @media (max-width: 719px) {
+ .fig-lbl, .fig-val { font-size: 19px; }
+ .fig-mut { font-size: 20px; }
+ .fig-vd { font-size: 26px; }
  }
  </style>
  <line class="fig-ax" x1="170" y1="95" x2="540" y2="95"/>
@@ -613,8 +576,8 @@
  <text class="fig-mut" x="465" y="212" text-anchor="middle">standard</text>
  <text class="fig-lbl" x="155" y="100" text-anchor="end">compared with ants</text>
  <text class="fig-lbl" x="155" y="185" text-anchor="end">compared with dogs</text>
- <text class="fig-vd fig-pos" x="565" y="101">large</text>
- <text class="fig-vd fig-neg" x="565" y="186">small</text>
+ <text class="fig-vd fig-pos" x="565" y="101">huge</text>
+ <text class="fig-vd fig-neg" x="565" y="186">tiny</text>
  <text class="fig-mut" x="350" y="240" text-anchor="middle">The value stays fixed. The comparison class moves the standard.</text>
  </svg>
  <figcaption class="anchor-note">Design schematic&mdash;not a result plot.</figcaption>
@@ -639,8 +602,8 @@
  <main id="research">
 
  <p class="program-line">Once a construct has been specified and causally localized, the next question is whether an interpretable representation preserves the same intervention effect.</p>
- <h2 class="section-head">At layer 4, near-perfect SAE reconstruction under-recovered the matched writeback effect.</h2>
- <p class="program-line">Gemma 3 4B layer 4: reconstruction cosine 0.997 and relMSE 0.007, but causal recovery only CRR 0.621 [0.263, 0.954]. At layer 8, similarly high reconstruction recovers 0.974 [0.749, 1.320].</p>
+ <h2 class="section-head">At layer 4, strong SAE reconstruction diagnostics did not certify preservation of the matched writeback effect.</h2>
+ <p class="program-line">Gemma 3 4B layer 4: reconstruction cosine 0.997, relMSE 0.007, FVU 0.137, but causal recovery only CRR 0.621 [0.263, 0.954]. At layer 8, cosine 0.998 and FVU 0.060 recover 0.974 [0.749, 1.320]. Five residual-stream layers were run; on the paired SAE-minus-raw contrast, three of five exclude zero while cosine never falls below 0.997. <a href="limitation.html">Full five-layer profile and strict-gate sensitivity</a>.</p>
 
  <div class="figure-placeholder" aria-label="L4 and L8 SAE recovery plus matched-rank PCA effect controls from reported run numbers">
  <div class="figure-title">SAE vs PCA control · L4 and L8 causal recovery</div>
@@ -664,10 +627,10 @@
  <div class="metric-track"><div class="metric-fill" style="width: 74%"></div></div>
  <span>effect 0.688 vs raw 0.931</span>
  </div>
- <div class="caption">Summary figure from reported run numbers (Gemma 3 4B). All bars show recovery relative to matched raw writeback at the same layer: SAE rows as CRR with 95% CI, PCA rows as the point-estimate ratio of the reported effects (bars capped at 1.0). The relative point-estimate ordering of SAE and matched-rank PCA reverses across layers; preservation is basis- and layer-dependent.</div>
+ <div class="caption">Summary figure from reported run numbers (Gemma 3 4B). All bars show recovery relative to matched raw writeback at the same layer: SAE rows as CRR with 95% CI, PCA rows as the point-estimate ratio of the reported effects (bars capped at 1.0). L4 and L8 are the compact exposition pair, not the largest observed gap &mdash; L11 has lower recovery than L4. The basis gap between SAE and matched-rank PCA changes sign between these two layers; the SAE recovery difference between them alone does not exclude zero. The PCA control is deliberately weak: it is fitted on the evaluation distribution and is not an interpretability substrate.</div>
  </div>
 
- <div class="cards-label">Four-paper arc</div>
+ <h2 class="cards-label">Four-paper arc</h2>
  <nav class="cards-arc" aria-label="Four-paper arc">
  <a href="#cds" class="arc-step">Philosophical semantics</a>
  <span class="arc-arrow" aria-hidden="true">→</span>
@@ -718,7 +681,7 @@
  <h3 class="card-name">Geometric Fidelity Does Not Certify Behavioral Preservation</h3>
  <div class="card-tagline">Reconstruction fidelity determines geometry, not causality.</div>
  <div class="card-status">Draft available on request.</div>
- <p class="card-result">High reconstruction fidelity alone does not validate sparse feature-level explanations of causally localized behavior. CRR makes the gap measurable.</p>
+ <p class="card-result">Strong reconstruction diagnostics alone do not certify sparse feature-level explanations of causally localized behavior. CRR makes the gap measurable across five layers.</p>
  <div class="card-links">
  <a href="limitation.html">Read the result</a>
  <a href="mailto:felix.borck@gmail.com?subject=Geometric%20Fidelity%20code%20request">Code on request</a>

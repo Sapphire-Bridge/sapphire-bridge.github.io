@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Geometric Fidelity Does Not Certify Behavioral Preservation - Sapphire Bridge</title>
-<meta name="description" content="A short result page on why near-perfect SAE reconstruction fidelity does not by itself validate behavioral preservation under matched writeback.">
+<meta name="description" content="A short result page on why strong SAE reconstruction diagnostics do not by themselves certify behavioral preservation under matched writeback.">
 <meta property="og:title" content="Geometric Fidelity Does Not Certify Behavioral Preservation">
-<meta property="og:description" content="In Gemma 3 4B, near-perfect SAE reconstruction (cos 0.997) under-recovered the causal effect at layer 4 (CRR 0.621). Reconstruction fidelity does not certify behavioral preservation.">
+<meta property="og:description" content="In Gemma 3 4B, strong SAE reconstruction diagnostics (cos 0.997, FVU 0.137) coexisted with under-recovery of the causal effect at layer 4 (CRR 0.621). Three of five tested layers show under-recovery on the paired contrast.">
 <meta property="og:url" content="https://sapphire-bridge.github.io/limitation.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Sapphire Bridge">
@@ -177,6 +177,7 @@
     <nav class="top-nav">
       <a href="research.html">Research</a>
       <a href="background.html">About</a>
+      <a href="https://github.com/Sapphire-Bridge" target="_blank" rel="noopener">GitHub</a>
       <a href="felix-borck-cv.pdf" target="_blank" rel="noopener">CV</a>
       <a href="mailto:felix.borck@gmail.com">Contact</a>
     </nav>
@@ -185,7 +186,7 @@
   <header>
     <div class="eyebrow">Limitation result · Paper 4 · CRR</div>
     <h1>Geometric Fidelity Does Not Certify Behavioral Preservation</h1>
-    <p class="lede">A short result page for the current matched-writeback finding: near-perfect SAE reconstruction can coexist with substantial under-recovery of a causally localized behavior.</p>
+    <p class="lede">A short result page for the current matched-writeback finding: strong SAE reconstruction diagnostics can coexist with substantial under-recovery of a causally localized behavior.</p>
     <div class="status">Detailed technical draft available to researchers on request.</div>
   </header>
 
@@ -193,7 +194,7 @@
     <section class="section">
       <div class="section-label">Main Claim</div>
       <div class="claim">
-        <p>Reconstruction fidelity alone does not validate sparse feature-level causal explanation. In Gemma 3 4B, layer 4 reaches reconstruction cosine 0.997 and relMSE 0.007, but sparse writeback recovers only CRR 0.621 [0.263, 0.954] of the matched raw writeback effect.</p>
+        <p>Reconstruction diagnostics alone do not certify sparse feature-level causal explanation. In Gemma 3 4B, layer 4 reaches reconstruction cosine 0.997, relMSE 0.007 and FVU 0.137, but sparse writeback recovers only CRR 0.621 [0.263, 0.954] of the matched raw writeback effect.</p>
       </div>
       <p>The point is not that sparse features fail in general. The narrower claim is that a sparse basis should be checked for behavioral preservation when it is used as an intervention substrate.</p>
     </section>
@@ -215,25 +216,74 @@
             <td>Layer 4</td>
             <td>0.815</td>
             <td>0.506</td>
-            <td>cos 0.997 · relMSE 0.007</td>
+            <td>cos 0.997 · relMSE 0.007 · FVU 0.137</td>
             <td>0.621 [0.263, 0.954]</td>
           </tr>
           <tr>
             <td>Layer 8</td>
             <td>0.931</td>
             <td>0.907</td>
-            <td>cos 0.998 · relMSE 0.007</td>
+            <td>cos 0.998 · relMSE 0.007 · FVU 0.060</td>
             <td>0.974 [0.749, 1.320]</td>
           </tr>
         </tbody>
       </table>
-      <p class="note">CRR is a recovery ratio relative to matched raw writeback, not a clipped probability; confidence intervals can therefore extend above 1.</p>
+      <p class="note">CRR is a recovery ratio relative to matched raw writeback, not a clipped probability; confidence intervals can therefore extend above 1. FVU is reported because cosine and relative MSE are both inflated by the residual stream's mean component: at layer 4 only about 5% of activation energy is variance about the layer mean. The pair-clustered FVU intervals overlap (L4 [0.126, 0.150], L8 [0.027, 0.216]), so the FVU point-estimate difference is not the inferential basis of the result.</p>
+      <p>L4 and L8 are the compact exposition pair, not the largest observed under-recovery gap: L11 has lower observed CRR than L4. The full five-layer profile is below.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Five-layer profile</div>
+      <p>The paper's declared inferential contrast is the paired SAE-minus-raw difference at the same layer-token site, not a comparison of marginal raw and SAE intervals. Across all five tested residual-stream layers, that contrast is negative everywhere and excludes zero at three of five, while reconstruction cosine never falls below 0.997.</p>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Layer</th>
+            <th>Paired SAE − raw [95% CI]</th>
+            <th>Excludes 0</th>
+            <th>CRR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="highlight">
+            <td>4</td>
+            <td>−0.309 [−0.636, −0.027]</td>
+            <td>yes</td>
+            <td>0.621</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>−0.069 [−0.271, +0.140]</td>
+            <td>no</td>
+            <td>0.908</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>−0.024 [−0.270, +0.224]</td>
+            <td>no</td>
+            <td>0.974</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>−0.300 [−0.502, −0.092]</td>
+            <td>yes</td>
+            <td>0.576</td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>−0.204 [−0.397, −0.023]</td>
+            <td>yes</td>
+            <td>0.632</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">52 authored context pairs per layer, both donor directions, 520 comparability rows in total. The pattern is heterogeneous across depth rather than monotonic in reconstruction quality: L11 has the best cosine (0.9987) and the lowest recovery, and L5 reconstructs worse by FVU than L4 (0.180 versus 0.137) while recovering more (0.908 versus 0.621).</p>
     </section>
 
     <section class="section">
       <div class="section-label">Control</div>
       <p>A matched-rank PCA control sharpens the point. At layer 4, PCA writeback sits at 0.829, essentially at the raw level of 0.815, while SAE writeback drops to 0.506. At layer 8, the ordering reverses: SAE stays near raw at 0.907 versus 0.931, while PCA falls to 0.688.</p>
-      <p>This supports a depth-heterogeneous interpretation: behavioral preservation depends on the site and basis, and standard activation-fidelity metrics do not predict the causal recovery pattern.</p>
+      <p>The intended reading of this control is deliberately weak. PCA is fitted leave-one-pair-out on the evaluation distribution while the SAE is frozen and trained elsewhere, so PCA has an in-distribution advantage. It tests whether a rank-controlled low-rank projection preserves the effect, not whether sparsity is the pressure point, and it is not an interpretability substrate. At layer 4 the paired PCA-minus-raw contrast is +0.013 [−0.217, +0.247]: indistinguishable from raw, which is not the same as perfect.</p>
     </section>
 
     <section class="section">
@@ -244,7 +294,9 @@
 
     <section class="section">
       <div class="section-label">Caveats</div>
-      <p>This page is a short public-facing summary of the headline CRR result and the PCA control. It does not reproduce the full manuscript, broader layer sweeps, stress arms, or cross-model analyses. Those materials will be released with the public version of the work.</p>
+      <p>The layer-4 interval excludes zero only narrowly, which warrants replication rather than generalization. The strict-gate sensitivity analysis makes that caution sharper: five of 520 rows exceed pre-specified invariance diagnostics and remain in the reported aggregates under the governed policy. Removing them leaves the L4 SAE-minus-raw estimate negative (−0.213, 95% CI [−0.465, 0.033]) but it no longer excludes zero by target sign-flip (p = 0.117, versus p = 0.008 under the governed policy). L8 stays closer to zero under the same gate (−0.055, p = 0.666). The direction is stable; the per-layer significance claim is inclusion-policy dependent.</p>
+      <p>Evidence is limited to one model family, one SAE width, and one behavior class. The SAE is a Gemma Scope width-16k JumpReLU trained for a different model revision than the one patched, so an SAE-provenance explanation of the layer-4 gap is not excluded by these runs.</p>
+      <p>This page is a short public-facing summary of the headline CRR result and the PCA control. It does not reproduce the full manuscript, stress arms, or cross-model analyses. Those materials will be released with the public version of the work.</p>
       <p>Code and release artifacts are prepared for public release. Until then, implementation details are available only through the controlled manuscript/release package.</p>
     </section>
   </main>
