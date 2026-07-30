@@ -603,7 +603,7 @@
 
  <p class="program-line">Once a construct has been specified and causally localized, the next question is whether an interpretable representation preserves the same intervention effect.</p>
  <h2 class="section-head">At layer 4, strong SAE reconstruction diagnostics did not certify preservation of the matched writeback effect.</h2>
- <p class="program-line">Gemma 3 4B layer 4: reconstruction cosine 0.997, relMSE 0.007, FVU 0.137, but causal recovery only CRR 0.621 [0.263, 0.954]. At layer 8, cosine 0.998 and FVU 0.060 recover 0.974 [0.749, 1.320]. Five residual-stream layers were run; on the paired SAE-minus-raw contrast, three of five exclude zero while cosine never falls below 0.997. <a href="limitation.html">Full five-layer profile and strict-gate sensitivity</a>.</p>
+ <p class="program-line">Gemma 3 4B layer 4: reconstruction cosine 0.997, relMSE 0.007, FVU 0.137, but causal recovery only CRR 0.621 [0.263, 0.954]. At layer 8, cosine 0.998 and FVU 0.060 recover 0.974 [0.749, 1.320]. Across five tested layers, reconstruction quality does not order recovery: L4 has the second-best FVU but the second-lowest CRR, while L5 reconstructs worse and recovers considerably more. <a href="limitation.html">Full five-layer profile and strict-gate sensitivity</a>.</p>
 
  <div class="figure-placeholder" aria-label="L4 and L8 SAE recovery plus matched-rank PCA effect controls from reported run numbers">
  <div class="figure-title">SAE vs PCA control · L4 and L8 causal recovery</div>

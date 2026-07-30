@@ -6,7 +6,7 @@
 <title>Geometric Fidelity Does Not Certify Behavioral Preservation - Sapphire Bridge</title>
 <meta name="description" content="A short result page on why strong SAE reconstruction diagnostics do not by themselves certify behavioral preservation under matched writeback.">
 <meta property="og:title" content="Geometric Fidelity Does Not Certify Behavioral Preservation">
-<meta property="og:description" content="In Gemma 3 4B, strong SAE reconstruction diagnostics (cos 0.997, FVU 0.137) coexisted with under-recovery of the causal effect at layer 4 (CRR 0.621). Three of five tested layers show under-recovery on the paired contrast.">
+<meta property="og:description" content="In Gemma 3 4B, strong SAE reconstruction diagnostics (cos 0.997, FVU 0.137) coexisted with under-recovery of the causal effect at layer 4 (CRR 0.621). Across five layers, reconstruction quality does not order behavioral recovery.">
 <meta property="og:url" content="https://sapphire-bridge.github.io/limitation.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Sapphire Bridge">
@@ -234,50 +234,50 @@
 
     <section class="section">
       <div class="section-label">Five-layer profile</div>
-      <p>The paper's declared inferential contrast is the paired SAE-minus-raw difference at the same layer-token site, not a comparison of marginal raw and SAE intervals. Across all five tested residual-stream layers, that contrast is negative everywhere and excludes zero at three of five, while reconstruction cosine never falls below 0.997.</p>
+      <p>The paper's declared inferential contrast is the paired SAE-minus-raw difference at the same layer-token site, not a comparison of marginal raw and SAE intervals. This profile is context for the L4/L8 result and a check against a simple FVU-only account, not a second headline claim.</p>
       <table class="data-table">
         <thead>
           <tr>
             <th>Layer</th>
+            <th>FVU</th>
+            <th>CRR [95% CI]</th>
             <th>Paired SAE − raw [95% CI]</th>
-            <th>Excludes 0</th>
-            <th>CRR</th>
           </tr>
         </thead>
         <tbody>
           <tr class="highlight">
             <td>4</td>
+            <td>0.137</td>
+            <td>0.621 [0.263, 0.954]</td>
             <td>−0.309 [−0.636, −0.027]</td>
-            <td>yes</td>
-            <td>0.621</td>
           </tr>
           <tr>
             <td>5</td>
+            <td>0.180</td>
+            <td>0.908 [0.626, 1.275]</td>
             <td>−0.069 [−0.271, +0.140]</td>
-            <td>no</td>
-            <td>0.908</td>
           </tr>
           <tr>
             <td>8</td>
+            <td>0.060</td>
+            <td>0.974 [0.749, 1.320]</td>
             <td>−0.024 [−0.270, +0.224]</td>
-            <td>no</td>
-            <td>0.974</td>
           </tr>
           <tr>
             <td>11</td>
+            <td>0.336</td>
+            <td>0.576 [0.285, 0.824]</td>
             <td>−0.300 [−0.502, −0.092]</td>
-            <td>yes</td>
-            <td>0.576</td>
           </tr>
           <tr>
             <td>16</td>
+            <td>0.538</td>
+            <td>0.632 [0.325, 0.940]</td>
             <td>−0.204 [−0.397, −0.023]</td>
-            <td>yes</td>
-            <td>0.632</td>
           </tr>
         </tbody>
       </table>
-      <p class="note">52 authored context pairs per layer, both donor directions, 520 comparability rows in total. The pattern is heterogeneous across depth rather than monotonic in reconstruction quality: L11 has the best cosine (0.9987) and the lowest recovery, and L5 reconstructs worse by FVU than L4 (0.180 versus 0.137) while recovering more (0.908 versus 0.621).</p>
+      <p class="note">52 authored context pairs per layer, both donor directions, 520 comparability rows in total. Reconstruction quality does not order behavioral recovery: L4 has the second-best FVU in the profile but the second-lowest CRR, and L5 reconstructs worse than L4 by FVU (0.180 versus 0.137) while recovering considerably more behavior (0.908 versus 0.621). L11 and L16 also under-recover, but they reconstruct poorly (FVU 0.336 and 0.538), so their under-recovery is the expected case and not independent support for the claim. The load-bearing observation is L4, and the fact that cosine similarity stays above 0.997 at every layer including those two is itself the reason cosine is a weak diagnostic here.</p>
     </section>
 
     <section class="section">
