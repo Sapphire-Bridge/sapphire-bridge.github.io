@@ -1,0 +1,1823 @@
+{
+  "stage": "POST_HOC_EXPLORATORY_METHOD_ILLUSTRATION",
+  "model_forwards": 0,
+  "bootstrap": {
+    "replicates": 20000,
+    "seed": 20261015,
+    "rng": "PCG64",
+    "n_independent_families": 20,
+    "interval": "approximate descriptive 95%, not simultaneous"
+  },
+  "raw_checks": {
+    "records": 1680,
+    "max_q_error": 2.220446049250313e-16,
+    "max_mass_error": 1.1102230246251565e-16,
+    "max_control_q_error": 0.0,
+    "max_native_anchor_error": 1.1102230246251565e-16
+  },
+  "bank_comparison": {
+    "status": "LIMITED_EXCLUSION_NO_CONFIRMED_EFFECT",
+    "excluded": [
+      "S",
+      "C_K",
+      "V",
+      "M",
+      "R"
+    ],
+    "open": [
+      "P",
+      "U_plus",
+      "U_minus",
+      "H"
+    ],
+    "joint_supported": 20,
+    "noise_distinguished": false,
+    "maximum_loss_difference": 1.6653345369377348e-16,
+    "maximum_noise_difference": 1.3877787807814457e-16,
+    "same_decisions": 10,
+    "full_status_tie": true
+  },
+  "historical_stages": [
+    {
+      "stage": "7.1",
+      "forwards": 3680,
+      "blocks": 757,
+      "qualified_blocks": 0,
+      "best_families": 16,
+      "status": "INSUFFICIENT_FEASIBILITY",
+      "source": "runs/section7-1-development-execution-20261013/report.json"
+    },
+    {
+      "stage": "7.1 v2",
+      "forwards": 4880,
+      "blocks": 12421,
+      "qualified_blocks": 0,
+      "best_families": 13,
+      "status": "INSUFFICIENT_FEASIBILITY",
+      "source": "runs/section7-1-revision-execution-20261014/report.json"
+    }
+  ],
+  "descriptive_metrics": [
+    {
+      "metric": "ordinal",
+      "contrast": "active_minus_native",
+      "recipient": "R1",
+      "mean": 0.022275672020329127,
+      "lower": 0.01815317646826518,
+      "upper": 0.026259644929352254,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "ordinal",
+      "contrast": "active_minus_native",
+      "recipient": "R2",
+      "mean": -0.0002130057634720295,
+      "lower": -0.00034758343651002045,
+      "upper": -0.00010005816161047466,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "ordinal",
+      "contrast": "noise0_minus_native",
+      "recipient": "R1",
+      "mean": -0.0077450043020141635,
+      "lower": -0.013985761051026915,
+      "upper": -0.0021931076675537602,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "ordinal",
+      "contrast": "noise0_minus_native",
+      "recipient": "R2",
+      "mean": 0.00029638060487682805,
+      "lower": -0.0001291103864896345,
+      "upper": 0.0009377361289946775,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "ordinal",
+      "contrast": "noise1_minus_native",
+      "recipient": "R1",
+      "mean": -0.00298258814654801,
+      "lower": -0.007586968356230814,
+      "upper": 0.0016563292854135058,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "ordinal",
+      "contrast": "noise1_minus_native",
+      "recipient": "R2",
+      "mean": -7.735894328794179e-05,
+      "lower": -0.00038138079462466903,
+      "upper": 0.00016996903778869875,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "ordinal",
+      "contrast": "noise2_minus_native",
+      "recipient": "R1",
+      "mean": -0.0045470592252685495,
+      "lower": -0.011575973424818696,
+      "upper": 0.0018978338025159218,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "ordinal",
+      "contrast": "noise2_minus_native",
+      "recipient": "R2",
+      "mean": -0.00015317673258349873,
+      "lower": -0.0005759088708505351,
+      "upper": 0.0001623857503389937,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "ordinal",
+      "contrast": "noise3_minus_native",
+      "recipient": "R1",
+      "mean": 4.652117050832003e-06,
+      "lower": -0.003878865243510473,
+      "upper": 0.003599497850557556,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "ordinal",
+      "contrast": "noise3_minus_native",
+      "recipient": "R2",
+      "mean": -3.551358642250868e-06,
+      "lower": -0.000245646901477339,
+      "upper": 0.0002346947164948443,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "ordinal",
+      "contrast": "mean_noise_minus_native",
+      "recipient": "R1",
+      "mean": -0.0038174998891949744,
+      "lower": -0.00718732769479539,
+      "upper": -0.0006769075324558755,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "ordinal",
+      "contrast": "mean_noise_minus_native",
+      "recipient": "R2",
+      "mean": 1.5573392590789713e-05,
+      "lower": -0.0001017446369416694,
+      "upper": 0.00013480421316386127,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "ordinal",
+      "contrast": "active_minus_mean_noise",
+      "recipient": "R1",
+      "mean": 0.026093171909524104,
+      "lower": 0.020364288309281078,
+      "upper": 0.032059842848402194,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "ordinal",
+      "contrast": "active_minus_mean_noise",
+      "recipient": "R2",
+      "mean": -0.0002285791560628192,
+      "lower": -0.0004371132010796689,
+      "upper": -6.306824773068259e-05,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "ordinal",
+      "contrast": "active_minus_noise0",
+      "recipient": "R1",
+      "mean": 0.030020676322343294,
+      "lower": 0.022297865963574606,
+      "upper": 0.03828946600984747,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "ordinal",
+      "contrast": "active_minus_noise0",
+      "recipient": "R2",
+      "mean": -0.0005093863683488575,
+      "lower": -0.0012620943604911715,
+      "upper": -1.996813390156206e-05,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "ordinal",
+      "contrast": "active_minus_noise1",
+      "recipient": "R1",
+      "mean": 0.025258260166877135,
+      "lower": 0.019390490724322442,
+      "upper": 0.031361009123799306,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "ordinal",
+      "contrast": "active_minus_noise1",
+      "recipient": "R2",
+      "mean": -0.0001356468201840877,
+      "lower": -0.0003773620521258024,
+      "upper": 9.957979978371064e-05,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "ordinal",
+      "contrast": "active_minus_noise2",
+      "recipient": "R1",
+      "mean": 0.02682273124559767,
+      "lower": 0.018636230206069724,
+      "upper": 0.03572456479507781,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "ordinal",
+      "contrast": "active_minus_noise2",
+      "recipient": "R2",
+      "mean": -5.982903088853075e-05,
+      "lower": -0.0003550566877935501,
+      "upper": 0.0002758787660358282,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "ordinal",
+      "contrast": "active_minus_noise3",
+      "recipient": "R1",
+      "mean": 0.022271019903278295,
+      "lower": 0.016363975569234312,
+      "upper": 0.028511122490361092,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "ordinal",
+      "contrast": "active_minus_noise3",
+      "recipient": "R2",
+      "mean": -0.00020945440482977862,
+      "lower": -0.000540445635377489,
+      "upper": 6.701588332901133e-05,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_small-tiny",
+      "contrast": "active_minus_native",
+      "recipient": "R1",
+      "mean": 0.8109930992126465,
+      "lower": 0.7761095988750459,
+      "upper": 0.8464435517787927,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_small-tiny",
+      "contrast": "active_minus_native",
+      "recipient": "R2",
+      "mean": 0.11270523071289115,
+      "lower": 0.09231951951980767,
+      "upper": 0.13059856951236706,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_small-tiny",
+      "contrast": "noise0_minus_native",
+      "recipient": "R1",
+      "mean": -0.12433204650878889,
+      "lower": -0.2456356275081631,
+      "upper": -0.0035308349132538636,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_small-tiny",
+      "contrast": "noise0_minus_native",
+      "recipient": "R2",
+      "mean": -0.026480937004089534,
+      "lower": -0.09919471621513473,
+      "upper": 0.04936862707137915,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_small-tiny",
+      "contrast": "noise1_minus_native",
+      "recipient": "R1",
+      "mean": -0.06963396072387687,
+      "lower": -0.18354675531387338,
+      "upper": 0.043050519227981004,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_small-tiny",
+      "contrast": "noise1_minus_native",
+      "recipient": "R2",
+      "mean": 0.007381892204284668,
+      "lower": -0.04626077294349653,
+      "upper": 0.05452926099300396,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_small-tiny",
+      "contrast": "noise2_minus_native",
+      "recipient": "R1",
+      "mean": -0.13233914375305167,
+      "lower": -0.2867856419086455,
+      "upper": 0.014161496162414562,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_small-tiny",
+      "contrast": "noise2_minus_native",
+      "recipient": "R2",
+      "mean": 0.01461391448974787,
+      "lower": -0.03631957530975114,
+      "upper": 0.06501320362091204,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_small-tiny",
+      "contrast": "noise3_minus_native",
+      "recipient": "R1",
+      "mean": 0.011790180206298873,
+      "lower": -0.08243287444114702,
+      "upper": 0.10075885891914395,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_small-tiny",
+      "contrast": "noise3_minus_native",
+      "recipient": "R2",
+      "mean": -0.024952459335327325,
+      "lower": -0.12052470386028254,
+      "upper": 0.06648360192775726,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_small-tiny",
+      "contrast": "mean_noise_minus_native",
+      "recipient": "R1",
+      "mean": -0.07862874269485456,
+      "lower": -0.14620724767446516,
+      "upper": -0.008421738147735326,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_small-tiny",
+      "contrast": "mean_noise_minus_native",
+      "recipient": "R2",
+      "mean": -0.007359397411345991,
+      "lower": -0.04698368117213188,
+      "upper": 0.02870295003056638,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_small-tiny",
+      "contrast": "active_minus_mean_noise",
+      "recipient": "R1",
+      "mean": 0.889621841907501,
+      "lower": 0.8055461251735687,
+      "upper": 0.9758568894863128,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_small-tiny",
+      "contrast": "active_minus_mean_noise",
+      "recipient": "R2",
+      "mean": 0.12006462812423715,
+      "lower": 0.07566520720720266,
+      "upper": 0.16482216924428975,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_small-tiny",
+      "contrast": "active_minus_noise0",
+      "recipient": "R1",
+      "mean": 0.9353251457214355,
+      "lower": 0.8019813704490658,
+      "upper": 1.0706728112697599,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_small-tiny",
+      "contrast": "active_minus_noise0",
+      "recipient": "R2",
+      "mean": 0.1391861677169807,
+      "lower": 0.06243440628051692,
+      "upper": 0.21567864120006708,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_small-tiny",
+      "contrast": "active_minus_noise1",
+      "recipient": "R1",
+      "mean": 0.8806270599365235,
+      "lower": 0.7775193452835079,
+      "upper": 0.9853997921943666,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_small-tiny",
+      "contrast": "active_minus_noise1",
+      "recipient": "R2",
+      "mean": 0.10532333850860649,
+      "lower": 0.05220570862293159,
+      "upper": 0.16073574662208734,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_small-tiny",
+      "contrast": "active_minus_noise2",
+      "recipient": "R1",
+      "mean": 0.9433322429656981,
+      "lower": 0.7807495653629308,
+      "upper": 1.1190593159198758,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_small-tiny",
+      "contrast": "active_minus_noise2",
+      "recipient": "R2",
+      "mean": 0.0980913162231433,
+      "lower": 0.041066864132880625,
+      "upper": 0.15554164290428016,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_small-tiny",
+      "contrast": "active_minus_noise3",
+      "recipient": "R1",
+      "mean": 0.7992029190063474,
+      "lower": 0.6974143195152279,
+      "upper": 0.9068687617778775,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_small-tiny",
+      "contrast": "active_minus_noise3",
+      "recipient": "R2",
+      "mean": 0.13765769004821848,
+      "lower": 0.04457349061966049,
+      "upper": 0.23632789015770098,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-tiny",
+      "contrast": "active_minus_native",
+      "recipient": "R1",
+      "mean": 0.6367225170135505,
+      "lower": 0.6031357592344296,
+      "upper": 0.6698056852817542,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-tiny",
+      "contrast": "active_minus_native",
+      "recipient": "R2",
+      "mean": 0.048009991645813876,
+      "lower": 0.01581199884414639,
+      "upper": 0.07908695340156606,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-tiny",
+      "contrast": "noise0_minus_native",
+      "recipient": "R1",
+      "mean": 0.04047257900237984,
+      "lower": -0.04802929401397671,
+      "upper": 0.12602975070476494,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-tiny",
+      "contrast": "noise0_minus_native",
+      "recipient": "R2",
+      "mean": 0.068916916847229,
+      "lower": -0.04640687227249163,
+      "upper": 0.18488514006137927,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-tiny",
+      "contrast": "noise1_minus_native",
+      "recipient": "R1",
+      "mean": 0.050648045539855954,
+      "lower": -0.06112665593624115,
+      "upper": 0.16417359828948905,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-tiny",
+      "contrast": "noise1_minus_native",
+      "recipient": "R2",
+      "mean": 0.14954895973205512,
+      "lower": 0.051820424199105486,
+      "upper": 0.24447615325451258,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-tiny",
+      "contrast": "noise2_minus_native",
+      "recipient": "R1",
+      "mean": -0.0717244386672963,
+      "lower": -0.18887607157230343,
+      "upper": 0.04306188225746243,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-tiny",
+      "contrast": "noise2_minus_native",
+      "recipient": "R2",
+      "mean": 0.1047667980194106,
+      "lower": 0.011778587102892816,
+      "upper": 0.19495788753032814,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-tiny",
+      "contrast": "noise3_minus_native",
+      "recipient": "R1",
+      "mean": 0.07552146911621146,
+      "lower": -0.040473382472991606,
+      "upper": 0.2032004976272599,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-tiny",
+      "contrast": "noise3_minus_native",
+      "recipient": "R2",
+      "mean": 0.021761965751648304,
+      "lower": -0.1413811475038525,
+      "upper": 0.1696961504220965,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-tiny",
+      "contrast": "mean_noise_minus_native",
+      "recipient": "R1",
+      "mean": 0.02372941374778801,
+      "lower": -0.0389925618469715,
+      "upper": 0.08508563697338206,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-tiny",
+      "contrast": "mean_noise_minus_native",
+      "recipient": "R2",
+      "mean": 0.0862486600875858,
+      "lower": 0.025473892688751748,
+      "upper": 0.14275841549038934,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-tiny",
+      "contrast": "active_minus_mean_noise",
+      "recipient": "R1",
+      "mean": 0.6129931032657625,
+      "lower": 0.5367249386012565,
+      "upper": 0.6924217958748334,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-tiny",
+      "contrast": "active_minus_mean_noise",
+      "recipient": "R2",
+      "mean": -0.03823866844177193,
+      "lower": -0.10910865798592569,
+      "upper": 0.0322304743528376,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-tiny",
+      "contrast": "active_minus_noise0",
+      "recipient": "R1",
+      "mean": 0.5962499380111707,
+      "lower": 0.5126357889175422,
+      "upper": 0.6875056821107874,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-tiny",
+      "contrast": "active_minus_noise0",
+      "recipient": "R2",
+      "mean": -0.020906925201415127,
+      "lower": -0.13597246527671802,
+      "upper": 0.09678392291069292,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-tiny",
+      "contrast": "active_minus_noise1",
+      "recipient": "R1",
+      "mean": 0.5860744714736945,
+      "lower": 0.4719476306438462,
+      "upper": 0.6986125385761266,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-tiny",
+      "contrast": "active_minus_noise1",
+      "recipient": "R2",
+      "mean": -0.10153896808624126,
+      "lower": -0.20088462293148004,
+      "upper": -0.00010260283946880472,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-tiny",
+      "contrast": "active_minus_noise2",
+      "recipient": "R1",
+      "mean": 0.7084469556808468,
+      "lower": 0.5827331990003579,
+      "upper": 0.843228630423546,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-tiny",
+      "contrast": "active_minus_noise2",
+      "recipient": "R2",
+      "mean": -0.05675680637359672,
+      "lower": -0.15196716904640167,
+      "upper": 0.03915750861167955,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-tiny",
+      "contrast": "active_minus_noise3",
+      "recipient": "R1",
+      "mean": 0.561201047897339,
+      "lower": 0.4139684718847268,
+      "upper": 0.6962539452314378,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-tiny",
+      "contrast": "active_minus_noise3",
+      "recipient": "R2",
+      "mean": 0.026248025894165573,
+      "lower": -0.13666967689990775,
+      "upper": 0.1997174978256221,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-tiny",
+      "contrast": "active_minus_native",
+      "recipient": "R1",
+      "mean": 0.37868471145629956,
+      "lower": 0.3502661931514745,
+      "upper": 0.40472627758979884,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-tiny",
+      "contrast": "active_minus_native",
+      "recipient": "R2",
+      "mean": -0.1341010332107535,
+      "lower": -0.1568703693151472,
+      "upper": -0.11032124638557314,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-tiny",
+      "contrast": "noise0_minus_native",
+      "recipient": "R1",
+      "mean": 0.046442222595214314,
+      "lower": -0.04714561462402331,
+      "upper": 0.13323523044586033,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-tiny",
+      "contrast": "noise0_minus_native",
+      "recipient": "R2",
+      "mean": 0.052897286415100275,
+      "lower": -0.019365227222442986,
+      "upper": 0.12288706123828971,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-tiny",
+      "contrast": "noise1_minus_native",
+      "recipient": "R1",
+      "mean": 0.11382813453674334,
+      "lower": -0.014010746479032518,
+      "upper": 0.23801601529121397,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-tiny",
+      "contrast": "noise1_minus_native",
+      "recipient": "R2",
+      "mean": 0.1172842979431163,
+      "lower": 0.04927136957645522,
+      "upper": 0.19042890548706143,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-tiny",
+      "contrast": "noise2_minus_native",
+      "recipient": "R1",
+      "mean": -0.017664384841918058,
+      "lower": -0.13679996490478535,
+      "upper": 0.09962192535400442,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-tiny",
+      "contrast": "noise2_minus_native",
+      "recipient": "R2",
+      "mean": 0.05343165397644203,
+      "lower": -0.0025625991821267664,
+      "upper": 0.11122663736343537,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-tiny",
+      "contrast": "noise3_minus_native",
+      "recipient": "R1",
+      "mean": 0.06255598068237393,
+      "lower": -0.043916277885435784,
+      "upper": 0.16982751488685568,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-tiny",
+      "contrast": "noise3_minus_native",
+      "recipient": "R2",
+      "mean": 0.05648801326751833,
+      "lower": -0.030557014346121292,
+      "upper": 0.13931703448295701,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-tiny",
+      "contrast": "mean_noise_minus_native",
+      "recipient": "R1",
+      "mean": 0.05129048824310338,
+      "lower": -0.023042201399802606,
+      "upper": 0.12084786385297863,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-tiny",
+      "contrast": "mean_noise_minus_native",
+      "recipient": "R2",
+      "mean": 0.07002531290054455,
+      "lower": 0.030617300421000963,
+      "upper": 0.10840091809630469,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-tiny",
+      "contrast": "active_minus_mean_noise",
+      "recipient": "R1",
+      "mean": 0.32739422321319617,
+      "lower": 0.24327282786369414,
+      "upper": 0.4166274106502537,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-tiny",
+      "contrast": "active_minus_mean_noise",
+      "recipient": "R2",
+      "mean": -0.20412634611129804,
+      "lower": -0.2490852247178558,
+      "upper": -0.15885701864957852,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-tiny",
+      "contrast": "active_minus_noise0",
+      "recipient": "R1",
+      "mean": 0.3322424888610852,
+      "lower": 0.24280053615570182,
+      "upper": 0.4282482445240026,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-tiny",
+      "contrast": "active_minus_noise0",
+      "recipient": "R2",
+      "mean": -0.18699831962585378,
+      "lower": -0.25777324318885614,
+      "upper": -0.11352682292461244,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-tiny",
+      "contrast": "active_minus_noise1",
+      "recipient": "R1",
+      "mean": 0.2648565769195562,
+      "lower": 0.1338078522682199,
+      "upper": 0.4009234797954566,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-tiny",
+      "contrast": "active_minus_noise1",
+      "recipient": "R2",
+      "mean": -0.2513853311538698,
+      "lower": -0.3309455430507662,
+      "upper": -0.17974103331565736,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-tiny",
+      "contrast": "active_minus_noise2",
+      "recipient": "R1",
+      "mean": 0.3963490962982176,
+      "lower": 0.267742030620575,
+      "upper": 0.5273538136482232,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-tiny",
+      "contrast": "active_minus_noise2",
+      "recipient": "R2",
+      "mean": -0.18753268718719554,
+      "lower": -0.2504619491100308,
+      "upper": -0.12744876384735204,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-tiny",
+      "contrast": "active_minus_noise3",
+      "recipient": "R1",
+      "mean": 0.3161287307739256,
+      "lower": 0.19003474831581066,
+      "upper": 0.4388187336921689,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-tiny",
+      "contrast": "active_minus_noise3",
+      "recipient": "R2",
+      "mean": -0.19058904647827185,
+      "lower": -0.27590054929256597,
+      "upper": -0.09824591815471764,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-small",
+      "contrast": "active_minus_native",
+      "recipient": "R1",
+      "mean": -0.17427058219909589,
+      "lower": -0.20164849042892355,
+      "upper": -0.14548545122146514,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-small",
+      "contrast": "active_minus_native",
+      "recipient": "R2",
+      "mean": -0.06469523906707816,
+      "lower": -0.08974067449569738,
+      "upper": -0.03724253475666195,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-small",
+      "contrast": "noise0_minus_native",
+      "recipient": "R1",
+      "mean": 0.16480462551116898,
+      "lower": 0.05422277033328815,
+      "upper": 0.2689221060276033,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-small",
+      "contrast": "noise0_minus_native",
+      "recipient": "R2",
+      "mean": 0.09539785385131819,
+      "lower": 0.03301021754741703,
+      "upper": 0.1562409549951553,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-small",
+      "contrast": "noise1_minus_native",
+      "recipient": "R1",
+      "mean": 0.12028200626373282,
+      "lower": 0.007698608040810006,
+      "upper": 0.22407183706760425,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-small",
+      "contrast": "noise1_minus_native",
+      "recipient": "R2",
+      "mean": 0.14216706752777136,
+      "lower": 0.07019687294960093,
+      "upper": 0.21976595401764024,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-small",
+      "contrast": "noise2_minus_native",
+      "recipient": "R1",
+      "mean": 0.06061470508575564,
+      "lower": -0.050679097771643845,
+      "upper": 0.17202991008758717,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-small",
+      "contrast": "noise2_minus_native",
+      "recipient": "R2",
+      "mean": 0.09015288352966308,
+      "lower": 0.021619113087654112,
+      "upper": 0.15535270273685436,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-small",
+      "contrast": "noise3_minus_native",
+      "recipient": "R1",
+      "mean": 0.0637312889099129,
+      "lower": -0.03858937263488699,
+      "upper": 0.17112661182880423,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-small",
+      "contrast": "noise3_minus_native",
+      "recipient": "R2",
+      "mean": 0.046714425086975805,
+      "lower": -0.03590004205703598,
+      "upper": 0.12369743108749565,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-small",
+      "contrast": "mean_noise_minus_native",
+      "recipient": "R1",
+      "mean": 0.1023581564426423,
+      "lower": 0.03601725965738321,
+      "upper": 0.16813952758908327,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-small",
+      "contrast": "mean_noise_minus_native",
+      "recipient": "R2",
+      "mean": 0.09360805749893189,
+      "lower": 0.06503417357802375,
+      "upper": 0.12243409678340007,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-small",
+      "contrast": "active_minus_mean_noise",
+      "recipient": "R1",
+      "mean": -0.2766287386417382,
+      "lower": -0.35871068835258424,
+      "upper": -0.19616282686591047,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-small",
+      "contrast": "active_minus_mean_noise",
+      "recipient": "R2",
+      "mean": -0.15830329656601005,
+      "lower": -0.1992979733645918,
+      "upper": -0.11825732126832099,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-small",
+      "contrast": "active_minus_noise0",
+      "recipient": "R1",
+      "mean": -0.3390752077102649,
+      "lower": -0.4466569226980192,
+      "upper": -0.22155708491802129,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-small",
+      "contrast": "active_minus_noise0",
+      "recipient": "R2",
+      "mean": -0.16009309291839635,
+      "lower": -0.2244491797685625,
+      "upper": -0.09429137825965943,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-small",
+      "contrast": "active_minus_noise1",
+      "recipient": "R1",
+      "mean": -0.2945525884628287,
+      "lower": -0.40652894854545474,
+      "upper": -0.1721549862623194,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-small",
+      "contrast": "active_minus_noise1",
+      "recipient": "R2",
+      "mean": -0.20686230659484953,
+      "lower": -0.2890047186613098,
+      "upper": -0.13040477871894982,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-small",
+      "contrast": "active_minus_noise2",
+      "recipient": "R1",
+      "mean": -0.23488528728485153,
+      "lower": -0.3585060811042793,
+      "upper": -0.11108648896217385,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-small",
+      "contrast": "active_minus_noise2",
+      "recipient": "R2",
+      "mean": -0.15484812259674124,
+      "lower": -0.2256877636909487,
+      "upper": -0.08350822806358359,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-small",
+      "contrast": "active_minus_noise3",
+      "recipient": "R1",
+      "mean": -0.23800187110900878,
+      "lower": -0.3592906260490416,
+      "upper": -0.1254286545515059,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_large-small",
+      "contrast": "active_minus_noise3",
+      "recipient": "R2",
+      "mean": -0.11140966415405398,
+      "lower": -0.19750912547111565,
+      "upper": -0.02127275407314355,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-small",
+      "contrast": "active_minus_native",
+      "recipient": "R1",
+      "mean": -0.43230838775634683,
+      "lower": -0.4661387252807611,
+      "upper": -0.3958599698543537,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-small",
+      "contrast": "active_minus_native",
+      "recipient": "R2",
+      "mean": -0.24680626392364466,
+      "lower": -0.2760616999864566,
+      "upper": -0.2171197289228429,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-small",
+      "contrast": "noise0_minus_native",
+      "recipient": "R1",
+      "mean": 0.17077426910400345,
+      "lower": 0.02711270451545641,
+      "upper": 0.3082753074169161,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-small",
+      "contrast": "noise0_minus_native",
+      "recipient": "R2",
+      "mean": 0.0793782234191898,
+      "lower": 0.01113299429416675,
+      "upper": 0.1426922863721851,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-small",
+      "contrast": "noise1_minus_native",
+      "recipient": "R1",
+      "mean": 0.1834620952606202,
+      "lower": 0.02367794632911719,
+      "upper": 0.32872550368309006,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-small",
+      "contrast": "noise1_minus_native",
+      "recipient": "R2",
+      "mean": 0.10990240573883163,
+      "lower": 0.03276855409145568,
+      "upper": 0.18900645554065706,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-small",
+      "contrast": "noise2_minus_native",
+      "recipient": "R1",
+      "mean": 0.11467475891113388,
+      "lower": -0.023915510177610805,
+      "upper": 0.24905560493469323,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-small",
+      "contrast": "noise2_minus_native",
+      "recipient": "R2",
+      "mean": 0.03881773948669416,
+      "lower": -0.029203295707702654,
+      "upper": 0.10776402354240365,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-small",
+      "contrast": "noise3_minus_native",
+      "recipient": "R1",
+      "mean": 0.05076580047607537,
+      "lower": -0.06983871817588648,
+      "upper": 0.16404709935188425,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-small",
+      "contrast": "noise3_minus_native",
+      "recipient": "R2",
+      "mean": 0.08144047260284566,
+      "lower": 0.019464238882066245,
+      "upper": 0.14579798877239306,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-small",
+      "contrast": "mean_noise_minus_native",
+      "recipient": "R1",
+      "mean": 0.12991923093795768,
+      "lower": 0.03875204831361701,
+      "upper": 0.21427527248859413,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-small",
+      "contrast": "mean_noise_minus_native",
+      "recipient": "R2",
+      "mean": 0.07738471031189031,
+      "lower": 0.04492438524961504,
+      "upper": 0.10959244102239642,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-small",
+      "contrast": "active_minus_mean_noise",
+      "recipient": "R1",
+      "mean": -0.5622276186943045,
+      "lower": -0.6654577001929276,
+      "upper": -0.45375544697046183,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-small",
+      "contrast": "active_minus_mean_noise",
+      "recipient": "R2",
+      "mean": -0.324190974235535,
+      "lower": -0.37003637388348587,
+      "upper": -0.27847023591399217,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-small",
+      "contrast": "active_minus_noise0",
+      "recipient": "R1",
+      "mean": -0.6030826568603503,
+      "lower": -0.752104341983794,
+      "upper": -0.44372779607772667,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-small",
+      "contrast": "active_minus_noise0",
+      "recipient": "R2",
+      "mean": -0.32618448734283445,
+      "lower": -0.39789686441421473,
+      "upper": -0.2514969342947004,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-small",
+      "contrast": "active_minus_noise1",
+      "recipient": "R1",
+      "mean": -0.615770483016967,
+      "lower": -0.7681168925762165,
+      "upper": -0.44629625082016,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-small",
+      "contrast": "active_minus_noise1",
+      "recipient": "R2",
+      "mean": -0.3567086696624763,
+      "lower": -0.443103386759758,
+      "upper": -0.2729651552438754,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-small",
+      "contrast": "active_minus_noise2",
+      "recipient": "R1",
+      "mean": -0.5469831466674807,
+      "lower": -0.6982989943027502,
+      "upper": -0.38871043562889096,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-small",
+      "contrast": "active_minus_noise2",
+      "recipient": "R2",
+      "mean": -0.28562400341033883,
+      "lower": -0.35915019333362513,
+      "upper": -0.20825455307960516,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-small",
+      "contrast": "active_minus_noise3",
+      "recipient": "R1",
+      "mean": -0.4830741882324222,
+      "lower": -0.6071403229236613,
+      "upper": -0.35311165213584944,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-small",
+      "contrast": "active_minus_noise3",
+      "recipient": "R2",
+      "mean": -0.32824673652649033,
+      "lower": -0.39798428177833645,
+      "upper": -0.257432556152345,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-large",
+      "contrast": "active_minus_native",
+      "recipient": "R1",
+      "mean": -0.258037805557251,
+      "lower": -0.27379183650016786,
+      "upper": -0.24208524644374796,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-large",
+      "contrast": "active_minus_native",
+      "recipient": "R2",
+      "mean": -0.1821110248565665,
+      "lower": -0.20063506603240808,
+      "upper": -0.1597315585613249,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-large",
+      "contrast": "noise0_minus_native",
+      "recipient": "R1",
+      "mean": 0.005969643592834473,
+      "lower": -0.05067059040069597,
+      "upper": 0.06000579535961131,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-large",
+      "contrast": "noise0_minus_native",
+      "recipient": "R2",
+      "mean": -0.016019630432128375,
+      "lower": -0.09784013152122568,
+      "upper": 0.06021288156509421,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-large",
+      "contrast": "noise1_minus_native",
+      "recipient": "R1",
+      "mean": 0.06318008899688739,
+      "lower": -0.005040930509567434,
+      "upper": 0.13023966670036397,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-large",
+      "contrast": "noise1_minus_native",
+      "recipient": "R2",
+      "mean": -0.03226466178893972,
+      "lower": -0.0981610071659069,
+      "upper": 0.035597909688951025,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-large",
+      "contrast": "noise2_minus_native",
+      "recipient": "R1",
+      "mean": 0.05406005382537824,
+      "lower": 0.007577999234199014,
+      "upper": 0.10149139165878292,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-large",
+      "contrast": "noise2_minus_native",
+      "recipient": "R2",
+      "mean": -0.051335144042968926,
+      "lower": -0.12978792786598276,
+      "upper": 0.029772037267683796,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-large",
+      "contrast": "noise3_minus_native",
+      "recipient": "R1",
+      "mean": -0.012965488433837536,
+      "lower": -0.07987357497215165,
+      "upper": 0.05367891192436292,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-large",
+      "contrast": "noise3_minus_native",
+      "recipient": "R2",
+      "mean": 0.03472604751586985,
+      "lower": -0.06539605855941649,
+      "upper": 0.14053301453590458,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-large",
+      "contrast": "mean_noise_minus_native",
+      "recipient": "R1",
+      "mean": 0.02756107449531564,
+      "lower": -0.00811460226774204,
+      "upper": 0.06039128065109289,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-large",
+      "contrast": "mean_noise_minus_native",
+      "recipient": "R2",
+      "mean": -0.016223347187041527,
+      "lower": -0.05564962983131302,
+      "upper": 0.026625336110593385,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-large",
+      "contrast": "active_minus_mean_noise",
+      "recipient": "R1",
+      "mean": -0.2855988800525666,
+      "lower": -0.32500151932239485,
+      "upper": -0.2455106225609781,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-large",
+      "contrast": "active_minus_mean_noise",
+      "recipient": "R2",
+      "mean": -0.16588767766952497,
+      "lower": -0.2130939525365826,
+      "upper": -0.11803827166557294,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-large",
+      "contrast": "active_minus_noise0",
+      "recipient": "R1",
+      "mean": -0.26400744915008545,
+      "lower": -0.3249363511800773,
+      "upper": -0.20120429813861865,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-large",
+      "contrast": "active_minus_noise0",
+      "recipient": "R2",
+      "mean": -0.16609139442443813,
+      "lower": -0.2447480309009554,
+      "upper": -0.08428213596343961,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-large",
+      "contrast": "active_minus_noise1",
+      "recipient": "R1",
+      "mean": -0.32121789455413835,
+      "lower": -0.3903982955217356,
+      "upper": -0.25229100048542064,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-large",
+      "contrast": "active_minus_noise1",
+      "recipient": "R2",
+      "mean": -0.14984636306762678,
+      "lower": -0.21512710928916876,
+      "upper": -0.08596137523651089,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-large",
+      "contrast": "active_minus_noise2",
+      "recipient": "R1",
+      "mean": -0.31209785938262924,
+      "lower": -0.3666389900445933,
+      "upper": -0.25783343076705917,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-large",
+      "contrast": "active_minus_noise2",
+      "recipient": "R2",
+      "mean": -0.13077588081359756,
+      "lower": -0.21340222358703453,
+      "upper": -0.052357734441757064,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-large",
+      "contrast": "active_minus_noise3",
+      "recipient": "R1",
+      "mean": -0.24507231712341343,
+      "lower": -0.31305911540985076,
+      "upper": -0.17828785419464196,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "logit_huge-large",
+      "contrast": "active_minus_noise3",
+      "recipient": "R2",
+      "mean": -0.21683707237243635,
+      "lower": -0.3303916573524464,
+      "upper": -0.10579268217086811,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "W1",
+      "contrast": "active_to_native",
+      "recipient": "R1",
+      "mean": 0.022275672020329127,
+      "lower": 0.01815317646826518,
+      "upper": 0.026259644929352278,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "W1",
+      "contrast": "active_to_native",
+      "recipient": "R2",
+      "mean": 0.00021300576347199097,
+      "lower": 0.00010005816161043331,
+      "upper": 0.0003475834365099493,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "W1",
+      "contrast": "noise0_to_native",
+      "recipient": "R1",
+      "mean": 0.01063459141651314,
+      "lower": 0.0061067162292594785,
+      "upper": 0.01600217295809357,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "W1",
+      "contrast": "noise0_to_native",
+      "recipient": "R2",
+      "mean": 0.0005011710659541494,
+      "lower": 0.00011204123926123873,
+      "upper": 0.0011254633087304582,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "W1",
+      "contrast": "noise1_to_native",
+      "recipient": "R1",
+      "mean": 0.008801397955074907,
+      "lower": 0.005966675023142376,
+      "upper": 0.011802774285597305,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "W1",
+      "contrast": "noise1_to_native",
+      "recipient": "R2",
+      "mean": 0.00034079458990611555,
+      "lower": 0.00012966705548853516,
+      "upper": 0.0005975864491680456,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "W1",
+      "contrast": "noise2_to_native",
+      "recipient": "R1",
+      "mean": 0.01250757591705472,
+      "lower": 0.008634174086195967,
+      "upper": 0.017185863691621443,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "W1",
+      "contrast": "noise2_to_native",
+      "recipient": "R2",
+      "mean": 0.0004201140465276344,
+      "lower": 0.00013769311512600897,
+      "upper": 0.0007956646738719987,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "W1",
+      "contrast": "noise3_to_native",
+      "recipient": "R1",
+      "mean": 0.006405529849056362,
+      "lower": 0.00408909446953287,
+      "upper": 0.009045734815906105,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "W1",
+      "contrast": "noise3_to_native",
+      "recipient": "R2",
+      "mean": 0.00028797644816637533,
+      "lower": 0.00010390764434261401,
+      "upper": 0.0005088362181932504,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "W1",
+      "contrast": "active_to_noise0",
+      "recipient": "R1",
+      "mean": 0.03002172804253462,
+      "lower": 0.022298141535142795,
+      "upper": 0.03828976679711992,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "W1",
+      "contrast": "active_to_noise0",
+      "recipient": "R2",
+      "mean": 0.000626756910656418,
+      "lower": 0.00016243554362150615,
+      "upper": 0.00136115761228062,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "W1",
+      "contrast": "active_to_noise1",
+      "recipient": "R1",
+      "mean": 0.02525872966305264,
+      "lower": 0.01939093286057002,
+      "upper": 0.03136170974955902,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "W1",
+      "contrast": "active_to_noise1",
+      "recipient": "R2",
+      "mean": 0.0003495230328164739,
+      "lower": 0.00017529746079340326,
+      "upper": 0.0005517275662186411,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "W1",
+      "contrast": "active_to_noise2",
+      "recipient": "R1",
+      "mean": 0.027184565682956997,
+      "lower": 0.019243576637031305,
+      "upper": 0.03582684118056379,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "W1",
+      "contrast": "active_to_noise2",
+      "recipient": "R2",
+      "mean": 0.0004358130127294555,
+      "lower": 0.00019679434260636393,
+      "upper": 0.000708271509754638,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "W1",
+      "contrast": "active_to_noise3",
+      "recipient": "R1",
+      "mean": 0.022273091958099785,
+      "lower": 0.016367446295109726,
+      "upper": 0.028514979891376288,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "W1",
+      "contrast": "active_to_noise3",
+      "recipient": "R2",
+      "mean": 0.00039794769933006814,
+      "lower": 0.0001670647247071801,
+      "upper": 0.0006981573852003779,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "W1",
+      "contrast": "mean_noise_to_native",
+      "recipient": "R1",
+      "mean": 0.006269874542967157,
+      "lower": 0.004036857313715994,
+      "upper": 0.008896077004552886,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "W1",
+      "contrast": "active_to_mean_noise",
+      "recipient": "R1",
+      "mean": 0.026093874123100803,
+      "lower": 0.02036556524695787,
+      "upper": 0.03206047645254191,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "W1",
+      "contrast": "mean_noise_to_native",
+      "recipient": "R2",
+      "mean": 0.00016524251034123142,
+      "lower": 7.377304618401985e-05,
+      "upper": 0.00026545468357678636,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    },
+    {
+      "metric": "W1",
+      "contrast": "active_to_mean_noise",
+      "recipient": "R2",
+      "mean": 0.0002320284450565724,
+      "lower": 6.757653264059441e-05,
+      "upper": 0.00044001194715628854,
+      "n_families": 20,
+      "interval": "descriptive_percentile_95_non_simultaneous"
+    }
+  ],
+  "source_hashes_unchanged": true
+}

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Added K/V tests on 512 fresh routes ruled out all four simple response rules left open by the joint TaxiGPT intervention.">
+  <title>TaxiGPT · Causal Decidability · Sapphire Bridge</title>
+  <link rel="icon" type="image/png" href="../assets/sapphire-bridge-mark.png">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="taxigpt.css">
+  <script src="../config.js" defer></script>
+  <script src="../app.js" defer></script>
+  <script src="taxigpt.js" defer></script>
+</head>
+<body class="taxigpt-page">
+  <header class="nav-shell">
+    <nav class="nav" aria-label="Primary navigation">
+      <div class="nav-brand">
+        <a class="site-return" href="../../" aria-label="Back to Felix Borck’s homepage">← Felix Borck</a>
+        <a class="wordmark" href="../" aria-label="Sapphire Bridge causal decidability home"><img src="../assets/sapphire-bridge-mark.png" alt=""><span>Sapphire Bridge</span></a>
+      </div>
+      <div class="nav-links"><a href="../#method">Method</a><a href="../#evidence">Evidence</a><a href="../#programme">Programme</a></div>
+      <a class="nav-cta" href="../">← Research programme</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="taxi-hero section-pad" aria-labelledby="page-title">
+      <div class="taxi-hero-content">
+        <aside class="taxi-archive-note" aria-label="Historical presentation">
+          <strong>Historical presentation · v1</strong>
+          <p>This earlier presentation uses a driving analogy. The measurements concern location decoding from internal activity, not driving performance.</p>
+          <a href="../taxigpt-v2/">Read the current TaxiGPT presentation →</a>
+        </aside>
+        <p class="taxi-overline">Sapphire Bridge · Causal Decidability</p>
+        <h1 id="page-title">Method applied<br>to <span>TaxiGPT.</span></h1>
+        <p>We ruled out four simple stories about why the virtual taxi driver loses their bearings after a memory edit; separate K/V tests on 512 fresh routes excluded all four response rules left open by the joint intervention.</p>
+        <a class="taxi-jump" href="#case-study">Explore the case <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="taxi-hero-note"><span>01 / Worked example</span><span>Fresh K/V interventions</span></div>
+    </section>
+
+    <section class="taxi-case section-pad" id="case-study" aria-labelledby="graphic-title">
+      <div class="taxi-section-heading"><div><p class="section-label">The method in one view</p><h2 id="graphic-title">One effect. Four explanations.<br>Two tests that separate them.</h2></div><span class="taxi-study-status">Confirmation · 512 routes</span></div>
+      <p class="taxi-context"><strong>The story.</strong> Imagine a taxi driver recalling the last few turns to work out which intersection they are at. Call two parts of that memory A and B. Disturb both, and the driver loses their bearings. Which part explains the trouble? Four simple stories could fit that first observation. We tested what each story predicts when only one part is disturbed.</p>
+
+      <figure class="taxi-main-graphic" aria-labelledby="graphic-title">
+        <ol class="taxi-flow" aria-label="How the method extends the published test">
+          <li><span class="taxi-step-no">01 / Published test</span><div class="taxi-component-pair" aria-hidden="true"><span>K</span><b>+</b><span>V</span></div><h3>Edit both together</h3><p class="taxi-published-credit"><a href="https://arxiv.org/html/2609.21748v1#A3.SS1" target="_blank" rel="noreferrer">Beckmann, Queloz &amp; Freitas (2026), App. C.1 ↗</a></p><p>Our local replication: correct location decoding falls from <strong>100% to 15.6%.</strong></p></li>
+          <li><span class="taxi-step-no">02 / Declare rivals</span><div class="taxi-four-marks" aria-hidden="true"><i>K</i><i>V</i><i>K∧V</i><i>K∨V</i></div><h3>Name four rules</h3><p>K alone, V alone, both required, or either edit sufficient to reproduce the joint effect.</p></li>
+          <li class="taxi-flow-question"><span class="taxi-step-no">03 / Check separation</span><div class="taxi-tie" aria-hidden="true">= &nbsp; = &nbsp; =</div><h3>Can that test decide?</h3><p><strong>Not between these four rules.</strong> All agree on the joint condition.</p></li>
+          <li><span class="taxi-step-no">04 / Add separating tests</span><div class="taxi-split-marks" aria-hidden="true"><span>K<span>V</span></span><b>/</b><span><span>K</span>V</span></div><h3>Edit K alone. Edit V alone.</h3><p>Freeze rules and thresholds, then test <strong>512 fresh routes</strong> with controls.</p></li>
+        </ol>
+
+        <section class="taxi-driver-stories" aria-labelledby="driver-stories-title">
+          <div class="taxi-table-heading"><h3 id="driver-stories-title">Four stories about the driver. All four ruled out.</h3><p>Each story makes a different promise about disturbing just one memory part. Here is where those promises failed.</p></div>
+          <div class="taxi-story-grid">
+            <article class="taxi-story-card" data-story="K_only">
+              <div class="taxi-story-top"><span class="taxi-story-symbol">A</span><span class="taxi-story-status">Ruled out</span></div>
+              <h4>“The trouble comes from A.”</h4>
+              <p>Disturb A alone: reproduce the double disturbance. Disturb B alone: the driver should locate themselves as before.</p>
+              <p class="taxi-story-counter"><strong>But B alone changed the right/wrong result on 387 of 512 rides.</strong></p>
+              <p class="taxi-story-tech">Technical rule: <code>K_only</code><br>K matches joint; V matches baseline.</p>
+            </article>
+            <article class="taxi-story-card" data-story="V_only">
+              <div class="taxi-story-top"><span class="taxi-story-symbol">B</span><span class="taxi-story-status">Ruled out</span></div>
+              <h4>“The trouble comes from B.”</h4>
+              <p>Disturb B alone: reproduce the double disturbance. Disturb A alone: the driver should locate themselves as before.</p>
+              <p class="taxi-story-counter"><strong>But A alone changed the right/wrong result on 264 of 512 rides.</strong></p>
+              <p class="taxi-story-tech">Technical rule: <code>V_only</code><br>K matches baseline; V matches joint.</p>
+            </article>
+            <article class="taxi-story-card" data-story="joint_required">
+              <div class="taxi-story-top"><span class="taxi-story-symbol taxi-story-symbol-wide">A + B</span><span class="taxi-story-status">Ruled out</span></div>
+              <h4>“Only the double disturbance causes trouble.”</h4>
+              <p>Disturb A alone or B alone: the driver should still locate themselves as before. Both must be disturbed for the failure.</p>
+              <p class="taxi-story-counter"><strong>But A alone already changed the right/wrong result on 264 of 512 rides.</strong></p>
+              <p class="taxi-story-tech">Technical rule: <code>joint_required</code><br>Both single edits match baseline.</p>
+            </article>
+            <article class="taxi-story-card" data-story="either_sufficient">
+              <div class="taxi-story-top"><span class="taxi-story-symbol taxi-story-symbol-wide">A / B</span><span class="taxi-story-status">Ruled out</span></div>
+              <h4>“Either disturbance explains the whole trouble.”</h4>
+              <p>Disturb A alone or B alone: each should reproduce the double disturbance’s pattern of getting the location right or wrong.</p>
+              <p class="taxi-story-counter"><strong>But A alone differed from the double disturbance on 190 of 512 rides.</strong></p>
+              <p class="taxi-story-tech">Technical rule: <code>either_sufficient</code><br>Both single edits match joint.</p>
+            </article>
+          </div>
+          <p class="taxi-story-key"><strong>From the story to the model:</strong> A = keys (K); B = values (V). “Right or wrong” means whether the current intersection is decoded correctly from internal activations. The memory parts are an analogy for the edited computational components, not an assignment of what each stores. Counts describe sample mismatches; exclusion additionally requires the uncertainty bound to exceed the 10% tolerance.</p>
+        </section>
+
+        <div class="taxi-table-heading"><h3>The technical predictions underneath the stories.</h3><p>Each rule predicts correctness <strong>route by route</strong>. The added columns separate the rules.</p></div>
+        <div class="taxi-legend"><span><i class="taxi-legend-joint"></i><strong>Matches joint:</strong> same correct/incorrect outcome as the K + V edit.</span><span><i class="taxi-legend-baseline"></i><strong>Matches baseline:</strong> same correct/incorrect outcome as unedited.</span></div>
+        <div class="taxi-matrix-wrap">
+          <table class="taxi-matrix">
+            <caption class="taxi-sr-only">Four prespecified casewise response rules and their predictions for joint and split interventions, followed by measured decoding accuracy and paired mismatch rates.</caption>
+            <colgroup><col class="taxi-rule-col"><col><col><col></colgroup>
+            <thead><tr><th scope="col">Rule</th><th scope="col" class="taxi-joint-col">Edit K + V<span>Original condition</span></th><th scope="col">Edit K only<span>Added</span></th><th scope="col">Edit V only<span>Added</span></th></tr></thead>
+            <tbody>
+              <tr><th scope="row">The trouble comes from A<small class="taxi-rule-code">K_only</small></th><td class="taxi-joint-col"><span class="taxi-match taxi-match-joint">Matches joint</span></td><td><span class="taxi-match taxi-match-joint">Matches joint</span></td><td><span class="taxi-match taxi-match-baseline">Matches baseline</span></td></tr>
+              <tr><th scope="row">The trouble comes from B<small class="taxi-rule-code">V_only</small></th><td class="taxi-joint-col"><span class="taxi-match taxi-match-joint">Matches joint</span></td><td><span class="taxi-match taxi-match-baseline">Matches baseline</span></td><td><span class="taxi-match taxi-match-joint">Matches joint</span></td></tr>
+              <tr><th scope="row">Only the double disturbance<small class="taxi-rule-code">joint_required</small></th><td class="taxi-joint-col"><span class="taxi-match taxi-match-joint">Matches joint</span></td><td><span class="taxi-match taxi-match-baseline">Matches baseline</span></td><td><span class="taxi-match taxi-match-baseline">Matches baseline</span></td></tr>
+              <tr><th scope="row">Either disturbance is enough<small class="taxi-rule-code">either_sufficient</small></th><td class="taxi-joint-col"><span class="taxi-match taxi-match-joint">Matches joint</span></td><td><span class="taxi-match taxi-match-joint">Matches joint</span></td><td><span class="taxi-match taxi-match-joint">Matches joint</span></td></tr>
+            </tbody>
+            <tfoot>
+              <tr class="taxi-measured"><th scope="row">Measured: decoded correctly<small>Our replication · 512 routes</small></th><td class="taxi-joint-col" data-accuracy="KV">15.6%</td><td data-accuracy="K">48.4%</td><td data-accuracy="V">24.4%</td></tr>
+              <tr class="taxi-mismatches"><th scope="row">Route-by-route mismatch<small>vs baseline · vs joint edit</small></th><td class="taxi-joint-col">Anchor</td><td data-mismatch="K">51.6% · 37.1%</td><td data-mismatch="V">75.6% · 10.7%</td></tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="taxi-verdict"><div class="taxi-verdict-mark"><strong>0<span>/4</span></strong><span>rules remain</span></div><div><span class="taxi-verdict-label">What the added tests establish</span><h3>None of the four rules fits the full pattern.</h3><p>Each fails a prespecified prediction beyond the 10% mismatch tolerance, with uncertainty accounted for. This constrains explanations of the intervention effect; a unique natural mechanism remains open.</p></div></div>
+        <figcaption>Confirmation on 512 complete 27–34-move routes selected before their neural outcomes. Random-subspace control: 99.8% correct. Decisions use paired mismatches and simultaneous intervals, not mean accuracies alone. Centroids were rebuilt locally; these are our numbers, not the paper’s original values.</figcaption>
+      </figure>
+    </section>
+
+    <section class="taxi-detail-section section-pad" aria-labelledby="detail-title">
+      <div class="taxi-detail-intro"><p class="section-label">Look closer</p><h2 id="detail-title">Why each story fails.</h2><p>One failed prediction excludes a rule. Inspect the numerical evidence for each driver story below.</p></div>
+      <div class="taxi-decision-panel">
+        <label for="taxi-rule-select">Inspect a driver story</label>
+        <select id="taxi-rule-select"><option value="K_only">The trouble comes from A · K_only</option><option value="V_only">The trouble comes from B · V_only</option><option value="joint_required">Only the double disturbance · joint_required</option><option value="either_sufficient">Either disturbance is enough · either_sufficient</option></select>
+        <div id="taxi-rule-result" aria-live="polite"></div>
+        <noscript><p>All four rules are excluded. The decisive mismatch rate for the rule <code>K_only</code> is 75.59% (V-only edit versus baseline); for the rules <code>V_only</code> and <code>joint_required</code>, 51.56% (K-only edit versus baseline); and for the rule <code>either_sufficient</code>, 37.11% (K-only edit versus joint edit). Full numerical details are in the <a href="EVIDENCE.md">evidence notes</a>.</p></noscript>
+      </div>
+    </section>
+
+    <section class="taxi-sources section-pad" aria-label="Scope and sources">
+      <details><summary>Scope, decision criteria &amp; sources</summary><div class="taxi-source-grid">
+        <div><h3>What was measured</h3><p>GPT-2 XL TaxiGPT, 48 blocks. Current-node decoding at layer 18, at the final move of complete 27–34-move routes, all at their goal. 512 routes sampled without replacement from 76,135 eligible held-out routes. The five conditions share the same routes.</p></div>
+        <div><h3>What “excluded” means</h3><p>Each rule must match both split conditions within 10% casewise disagreement. An exclusion requires a simultaneous lower bound above 10% for at least one mismatch. Eight exact finite-population intervals share a 5% error budget. Baseline, full-effect, random-control and technical gates passed.</p></div>
+        <div><h3>What remains open</h3><p>The four rules describe intervention responses, not exclusive semantic roles for K and V. Context-dependent and graded accounts remain possible. This does not identify a complete localization algorithm or establish general navigation ability or methodological superiority. The local centroid fit prevents an exact numerical replication claim.</p></div>
+        <div><h3>Trace the evidence</h3><p><a href="https://arxiv.org/html/2609.21748v1#A3.SS1" target="_blank" rel="noreferrer">Beckmann, Queloz &amp; Freitas · World Modeling in Transformers, §2.2 / C.1 ↗</a></p><p><a href="evidence.json">Numerical evidence snapshot</a><br><a href="EVIDENCE.md">Provenance and interpretation notes</a></p><p>Primary case: v0.4 confirmation. No new model runs were performed for this page.</p><p>The downloadable snapshot contains aggregate results and provenance; the route-level measurements and verification code for this follow-up are not included in this website release.</p></div>
+      </div></details>
+      <a class="taxi-back" href="../#evidence">← Back to the evidence portfolio</a>
+    </section>
+  </main>
+
+  <footer class="footer section-pad"><div class="footer-mark"><img src="../assets/sapphire-bridge-mark.png" alt=""><span>Sapphire Bridge</span></div><p>Testing what interpretability evidence establishes</p><p class="footer-right">A research programme by Felix Borck · 2026</p><nav class="footer-legal" aria-label="Rechtliches" lang="de"><a href="../../impressum.html">Impressum</a><span aria-hidden="true">·</span><a href="../../datenschutz.html">Datenschutz</a></nav>
+  </footer>
+</body>
+</html>

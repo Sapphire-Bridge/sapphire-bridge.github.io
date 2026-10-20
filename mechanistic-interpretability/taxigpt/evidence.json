@@ -1,0 +1,150 @@
+{
+  "status": "confirmation; all four declared rules excluded",
+  "source": "science_v04/results/confirmation.json",
+  "source_sha256": "82c5f9387ce0fecf48e0ffff1aef4c52b0e997dad0ee954d6ccc74b15e40cb52",
+  "model": "GPT2XL TaxiGPT random-walks, 48 blocks, width 1600, FP32 eager attention",
+  "checkpoint_sha256": "001bd2d2a19e411bae674a340508bd1ffeef535109543ca9a815ff426911e8b7",
+  "scope": "The L18 nearest-centroid current-node decode at the final move of complete 27..34-move corpus rides. Terminal goal contexts retained, matching the upstream experiment. Conditional on this checkpoint, fitted readout, map and intervention; not navigation, semantic content of K/V, unique natural computation, or intermediate transit localization.",
+  "fit_deviation": "Locally rebuilt centroids, bounded training sample and FP32 storage; not the authors' frozen centroid artifacts. Same nearest-centroid scoring and 90%-energy subspace rule.",
+  "n": 512,
+  "population_N": 76135,
+  "cell_accuracy": {
+    "K": 0.484375,
+    "KV": 0.15625,
+    "R": 0.998046875,
+    "U": 1.0,
+    "V": 0.244140625
+  },
+  "rates": {
+    "K_ne_KV": {
+      "ci": [
+        0.31353516779405005,
+        0.4313653378866487
+      ],
+      "count": 190,
+      "mean": 0.37109375,
+      "n": 512
+    },
+    "K_ne_U": {
+      "ci": [
+        0.45456097721153216,
+        0.5763577855125763
+      ],
+      "count": 264,
+      "mean": 0.515625,
+      "n": 512
+    },
+    "V_ne_KV": {
+      "ci": [
+        0.0733828068562422,
+        0.14982596703224535
+      ],
+      "count": 55,
+      "mean": 0.107421875,
+      "n": 512
+    },
+    "V_ne_U": {
+      "ci": [
+        0.7006370263348001,
+        0.8056741314769816
+      ],
+      "count": 387,
+      "mean": 0.755859375,
+      "n": 512
+    },
+    "baseline_correct": {
+      "ci": [
+        0.9888356209364944,
+        1.0
+      ],
+      "count": 512,
+      "mean": 1.0,
+      "n": 512
+    },
+    "full_gain": {
+      "ci": [
+        0.0,
+        0.011164379063505614
+      ],
+      "count": 0,
+      "mean": 0.0,
+      "n": 512
+    },
+    "full_loss": {
+      "ci": [
+        0.7955211138109937,
+        0.8846916661193932
+      ],
+      "count": 432,
+      "mean": 0.84375,
+      "n": 512
+    },
+    "random_ne_U": {
+      "ci": [
+        1.3134563604124252e-05,
+        0.015393708544033624
+      ],
+      "count": 1,
+      "mean": 0.001953125,
+      "n": 512
+    }
+  },
+  "candidates": {
+    "K_only": {
+      "constraints": [
+        "K_ne_KV",
+        "V_ne_U"
+      ],
+      "status": "excluded"
+    },
+    "V_only": {
+      "constraints": [
+        "K_ne_U",
+        "V_ne_KV"
+      ],
+      "status": "excluded"
+    },
+    "either_sufficient": {
+      "constraints": [
+        "K_ne_KV",
+        "V_ne_KV"
+      ],
+      "status": "excluded"
+    },
+    "joint_required": {
+      "constraints": [
+        "K_ne_U",
+        "V_ne_U"
+      ],
+      "status": "excluded"
+    }
+  },
+  "gates": {
+    "baseline": true,
+    "full_effect": true,
+    "random_control": true,
+    "technical": true
+  },
+  "claim_valid": true,
+  "compatible_set": [],
+  "inference": {
+    "alpha": 0.05,
+    "family_size": 8,
+    "intervals": "Two-sided exact hypergeometric inversion for eight binary population rates under finite-population simple random sampling; Bonferroni alpha/8. Development uses Clopper-Pearson descriptively.",
+    "rates": [
+      "K_ne_U",
+      "K_ne_KV",
+      "V_ne_U",
+      "V_ne_KV",
+      "baseline_correct",
+      "full_loss",
+      "full_gain",
+      "random_ne_U"
+    ],
+    "full_drop": "P(U=1,KV=0)-P(U=0,KV=1), interval from simultaneous component intervals",
+    "gates": "Baseline lower bound >=.90; full-drop lower bound >.20; random disagreement upper bound <=.10; all numerical/integrity checks pass.",
+    "candidate_status": "Excluded if either mismatch lower bound >.10; adequate if both upper bounds <=.10; otherwise undecided. Compatible set includes adequate and undecided. A sole undecided survivor is evidence_insufficient, not identification.",
+    "no_interim_testing": true
+  },
+  "note": "Rates are paired correctness mismatches, not accuracy differences or shares of a mechanism."
+}

@@ -1,0 +1,33 @@
+/* Compact Gemma story only; the literature page keeps its existing layout. */
+.method-compact .story-hero{padding-top:105px;padding-bottom:42px}
+.method-compact .story-hero h1{font-size:clamp(2.5rem,4.8vw,4rem);margin-bottom:20px}
+.method-compact .story-hero .lead{max-width:650px;font-size:1.02rem;margin:0}
+.method-compact .chapter{padding-top:42px;padding-bottom:42px}
+.method-compact .chapter h2{font-size:clamp(1.8rem,3vw,2.55rem);margin-bottom:16px}
+.method-compact .chapter-intro{max-width:740px;margin-bottom:23px;font-size:.94rem}
+.method-compact .donor-layout{padding:22px;gap:18px}
+.method-compact .length-card{padding:12px 15px 4px}
+.method-compact .length-card img{max-height:145px;object-fit:contain}
+.method-compact .length-value{margin:8px 0 0}
+.method-compact .scene figcaption{padding:15px 22px;font-size:.81rem;line-height:1.65}
+.picture-meaning{max-width:740px;font-size:.91rem;line-height:1.7;color:#5b6170;margin:19px 0 0}
+.compact-finding{display:grid;grid-template-columns:1.5fr 1fr;gap:45px;align-items:center}
+.compact-finding p{max-width:620px;font-size:.95rem;line-height:1.75;color:#535c6d;margin:0}
+.compact-finding .scope-line{font-size:.71rem;letter-spacing:.02em;color:#68718a;margin-top:14px}
+.finding-counts{display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:center}
+.finding-counts>div{background:#e9eef6;border:1px solid #d6deeb;padding:22px 10px;border-radius:14px}
+.finding-counts>div:last-child{background:#eee8f7;border-color:#ddd1ed}
+.finding-counts strong{display:block;font-size:3.2rem;font-weight:500;line-height:1.1;letter-spacing:-.06em;color:#344c70}
+.finding-counts>div:last-child strong{color:#755991}
+.finding-counts span{display:block;font-size:.78rem;color:#576279;margin-top:10px}
+.compact-limit{font-size:.85rem;line-height:1.7;border-left:2px solid #9a83b4;padding-left:17px;color:#61576c;margin:25px 0}
+.compact-limit strong{color:#3e344a}
+.compact-takeaway{display:grid;grid-template-columns:1fr 3fr;gap:30px;border-top:1px solid #dce0e9;padding-top:23px}
+.compact-takeaway h3{font-size:.8rem;color:#3c4e6c;margin:3px 0}
+.compact-takeaway p{font-size:.9rem;line-height:1.75;color:#535c6d;margin:0}
+.compact-links{display:flex;justify-content:space-between;gap:20px;margin-top:25px;padding-top:23px;border-top:1px solid #dce0e9}
+.compact-links a{font-size:.82rem;color:#294e7a;line-height:1.6}
+.compact-links a:hover{text-decoration:underline;text-underline-offset:4px}
+.compact-links span{display:block;font-size:.69rem;color:#717b8e;margin-top:3px}
+@media(max-width:900px){.method-compact .donor-layout{grid-template-columns:1fr .55fr 2fr;gap:12px}.method-compact .donor-card{max-width:none}.method-compact .patch-bridge{flex-direction:column;gap:8px}.method-compact .patch-bridge>span{transform:none}.method-compact .patch-bridge strong{font-size:.64rem}.method-compact .length-card{padding:12px 9px 4px}.method-compact .length-value{font-size:1.1rem}.method-compact .length-value small{font-size:.65rem}.compact-finding{gap:24px}}
+@media(max-width:600px){.method-compact .story-hero{padding-top:100px;padding-bottom:34px}.method-compact .story-hero h1{font-size:2.4rem}.method-compact .story-hero .lead{font-size:.94rem}.method-compact .chapter{padding-top:32px;padding-bottom:32px}.method-compact .donor-layout{grid-template-columns:1fr;padding:17px;gap:10px}.method-compact .donor-card{max-width:195px}.method-compact .length-card img{max-height:85px}.method-compact .patch-bridge{flex-direction:row;gap:12px}.method-compact .patch-bridge>span{transform:rotate(90deg);font-size:25px}.method-compact .patch-bridge strong{font-size:.72rem}.method-compact .length-value{font-size:1.15rem}.method-compact .recipient-pair{gap:10px}.method-compact .scene figcaption{padding:14px 17px;font-size:.75rem}.compact-finding{grid-template-columns:1fr;gap:21px}.finding-counts>div{padding:15px 10px}.finding-counts strong{font-size:2.6rem}.compact-takeaway{grid-template-columns:1fr;gap:9px}.compact-links{flex-direction:column;gap:20px}}

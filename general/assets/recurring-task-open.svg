@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="560" viewBox="0 0 400 560" role="img" aria-labelledby="title desc">
+  <title id="title">Ohne Arbeitsanweisung: eine weitere Runde</title>
+  <desc id="desc">Die Person gibt einen Auftrag an die KI. Der erste Entwurf passt noch nicht genau. Die Person ergänzt und korrigiert. Die KI überarbeitet den Entwurf mit dieser Rückmeldung. Beispielhafter Ablauf, kein gemessenes Ergebnis.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#7a8b98"/></marker>
+    <marker id="focus" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#28638f"/></marker>
+    <style>text { font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #424245; }</style>
+  </defs>
+  <g fill="none" stroke="#7a8b98" stroke-width="3" marker-end="url(#arrow)">
+    <path d="M172 82 H224"/>
+    <path d="M305 128 V218"/>
+    <path d="M230 272 H178"/>
+    <path d="M95 320 V410"/>
+  </g>
+  <path d="M172 464 H224" fill="none" stroke="#28638f" stroke-width="3" marker-end="url(#focus)"/>
+  <g fill="#fff" stroke="#b9c5ce" stroke-width="1.5">
+    <rect x="20" y="34" width="150" height="94" rx="12"/>
+    <rect x="230" y="34" width="150" height="94" rx="12"/>
+    <rect x="230" y="226" width="150" height="94" rx="12"/>
+    <rect x="20" y="226" width="150" height="94" rx="12"/>
+    <rect x="20" y="418" width="150" height="94" rx="12"/>
+  </g>
+  <rect x="230" y="418" width="150" height="94" rx="12" fill="#e5f1f9" stroke="#28638f" stroke-width="1.5"/>
+  <g text-anchor="middle">
+    <text x="95" y="73" font-weight="600">Person</text>
+    <text x="95" y="104" style="font-size:20px">gibt Auftrag</text>
+    <text x="305" y="91" style="font-size:28px;font-weight:600">KI</text>
+    <text x="200" y="184" style="font-size:20px">Rückmeldeschleife</text>
+    <text x="305" y="251" font-weight="600">Erster</text>
+    <text x="305" y="278" font-weight="600">Entwurf</text>
+    <text x="305" y="304" style="font-size:20px">noch ungenau</text>
+    <text x="95" y="251" font-weight="600">Person</text>
+    <text x="95" y="279" style="font-size:20px">ergänzt und</text>
+    <text x="95" y="304" style="font-size:20px">korrigiert</text>
+    <text x="200" y="377" style="font-size:20px">mit Rückmeldung</text>
+    <text x="95" y="457" style="font-size:28px;font-weight:600">KI</text>
+    <text x="95" y="489" style="font-size:20px">überarbeitet</text>
+    <text x="305" y="456" style="font-size:19px;font-weight:600;fill:#21567e">Überarbeiteter</text>
+    <text x="305" y="487" style="font-weight:600;fill:#21567e">Entwurf</text>
+  </g>
+</svg>

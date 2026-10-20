@@ -1,0 +1,157 @@
+{
+  "kind": "illustration, not an observed case",
+  "compressed_history": true,
+  "scientific_positions": "All earlier move tokens, 2..t-2 inclusive; same mask in K, V and KV",
+  "past_nodes": [
+    {
+      "node": [
+        120,
+        220
+      ],
+      "tags": [
+        118,
+        240
+      ],
+      "leader": "M120 226 137 240"
+    },
+    {
+      "node": [
+        120,
+        140
+      ],
+      "tags": [
+        54,
+        157
+      ],
+      "leader": "M117 145 100 157"
+    },
+    {
+      "node": [
+        200,
+        140
+      ],
+      "tags": [
+        184,
+        168
+      ],
+      "leader": "M200 146 209 168"
+    },
+    {
+      "node": [
+        200,
+        60
+      ],
+      "tags": [
+        137,
+        20
+      ],
+      "leader": "M195 55 178 44"
+    },
+    {
+      "node": [
+        280,
+        60
+      ],
+      "tags": [
+        279,
+        20
+      ],
+      "leader": "M283 55 300 44"
+    }
+  ],
+  "origin": [
+    40,
+    220
+  ],
+  "current": [
+    280,
+    140
+  ],
+  "arms": {
+    "joint": {
+      "file": "route-joint.svg",
+      "edited_components": [
+        "K",
+        "V"
+      ],
+      "past_nodes": [
+        [
+          120,
+          220
+        ],
+        [
+          120,
+          140
+        ],
+        [
+          200,
+          140
+        ],
+        [
+          200,
+          60
+        ],
+        [
+          280,
+          60
+        ]
+      ]
+    },
+    "k-only": {
+      "file": "route-k-only.svg",
+      "edited_components": [
+        "K"
+      ],
+      "past_nodes": [
+        [
+          120,
+          220
+        ],
+        [
+          120,
+          140
+        ],
+        [
+          200,
+          140
+        ],
+        [
+          200,
+          60
+        ],
+        [
+          280,
+          60
+        ]
+      ]
+    },
+    "v-only": {
+      "file": "route-v-only.svg",
+      "edited_components": [
+        "V"
+      ],
+      "past_nodes": [
+        [
+          120,
+          220
+        ],
+        [
+          120,
+          140
+        ],
+        [
+          200,
+          140
+        ],
+        [
+          200,
+          60
+        ],
+        [
+          280,
+          60
+        ]
+      ]
+    }
+  }
+}

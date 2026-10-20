@@ -1,0 +1,274 @@
+{
+  "scope": "Development-only D1; post-hoc descriptive comparison. No new model forwards.",
+  "model": "Gemma-3-4b-it",
+  "revision": "093f9f388b31de276ce2de164bdc2081324b9767",
+  "families": 20,
+  "rotations": 4,
+  "forwards": 1680,
+  "site": "After text block 17 (index 16), final prompt position",
+  "donor": {
+    "value_cm": 32,
+    "standard_cm": 10
+  },
+  "recipients": {
+    "R1": {
+      "value_cm": 12,
+      "standard_cm": 80
+    },
+    "R2": {
+      "value_cm": 96,
+      "standard_cm": 80
+    }
+  },
+  "d1": {
+    "status": "LIMITED_EXCLUSION_NO_CONFIRMED_EFFECT",
+    "forwards": 1680,
+    "families": 20,
+    "joint_supported": 20,
+    "G2": true,
+    "excluded": [
+      "S",
+      "C_K",
+      "V",
+      "M",
+      "R"
+    ],
+    "open": [
+      "P",
+      "U_plus",
+      "U_minus",
+      "H"
+    ],
+    "noise_distinguished": false,
+    "development_success": false,
+    "semantic_planning_signal": false,
+    "confirmation_claim": false,
+    "delegated_signature": true,
+    "elapsed_minutes": 25.68848495,
+    "clipping_count": 0,
+    "metrics": {
+      "S": {
+        "mean": 0.2914109887430393,
+        "minimum": 0.17819870046565503,
+        "maximum": 0.4013206419472277,
+        "log_capital": 20.719826093313696,
+        "capital": 996566165.5081624,
+        "rejected": true
+      },
+      "P": {
+        "mean": 0.02227567202032913,
+        "minimum": 0.002069510487300579,
+        "maximum": 0.03547162563502773,
+        "log_capital": -16.371065093762812,
+        "capital": 7.76491608867122e-08,
+        "rejected": false
+      },
+      "C_K": {
+        "mean": 0.48099363843780407,
+        "minimum": 0.3683372518901914,
+        "maximum": 0.6112004241185437,
+        "log_capital": 30.282466462867628,
+        "capital": 14174510933022.727,
+        "rejected": true
+      },
+      "V": {
+        "mean": 0.41114969396627166,
+        "minimum": 0.34113228640877247,
+        "maximum": 0.4165720445010536,
+        "log_capital": 27.456013218614256,
+        "capital": 839450391339.4569,
+        "rejected": true
+      },
+      "M": {
+        "mean": 0.2689984836908027,
+        "minimum": 0.17067909493858963,
+        "maximum": 0.4013206419472277,
+        "log_capital": 19.240929997980036,
+        "capital": 227106583.92979154,
+        "rejected": true
+      },
+      "U_plus": {
+        "mean": 0.00021300576347200008,
+        "minimum": 1.7978814471647444e-06,
+        "maximum": 0.0010740524878479457,
+        "log_capital": -27.613265980815008,
+        "capital": 1.0179136945496128e-12,
+        "rejected": false
+      },
+      "U_minus": {
+        "mean": 0.02227567202032913,
+        "minimum": 0.002069510487300579,
+        "maximum": 0.03547162563502773,
+        "log_capital": -16.371065093762812,
+        "capital": 7.76491608867122e-08,
+        "rejected": false
+      },
+      "R": {
+        "mean": 0.2799355654913968,
+        "minimum": 0.251555829828891,
+        "maximum": 0.31071668812042297,
+        "log_capital": 20.341185208236624,
+        "capital": 682440026.7282007,
+        "rejected": true
+      },
+      "H": {
+        "mean": 0.02227510890177315,
+        "minimum": 0.0020695079811079093,
+        "maximum": 0.03547107602832108,
+        "log_capital": -16.37128756642817,
+        "capital": 7.76318879923717e-08,
+        "rejected": false
+      },
+      "noise": {
+        "mean": 0.015196361677525791,
+        "minimum": 0.0020766323065645794,
+        "maximum": 0.04241916286270929,
+        "log_capital": -19.59997787953593,
+        "capital": 3.0749478981088006e-09,
+        "rejected": false
+      }
+    },
+    "masses": {
+      "active": {
+        "median": 0.9999999943374448,
+        "minimum": 0.9999999711422808,
+        "minimum_rotation": 0.999999931441139
+      },
+      "noise0": {
+        "median": 0.9999999936166643,
+        "minimum": 0.999999962859704,
+        "minimum_rotation": 0.9999999143577623
+      },
+      "noise1": {
+        "median": 0.9999999935394794,
+        "minimum": 0.9999999611469139,
+        "minimum_rotation": 0.99999986287749
+      },
+      "noise2": {
+        "median": 0.9999999925707306,
+        "minimum": 0.9999999691479557,
+        "minimum_rotation": 0.9999999329632607
+      },
+      "noise3": {
+        "median": 0.9999999932573367,
+        "minimum": 0.999999962719809,
+        "minimum_rotation": 0.9999998971160268
+      }
+    },
+    "model_forwards_in_review": 0,
+    "replay": "PASS",
+    "independent": "PASS",
+    "archive": "PASS",
+    "report_sha256": "8cb761cbcd2324ca7b6147dfdcbeec01b9240376e12ad267dc56e2a303393a0d"
+  },
+  "profile_means": {
+    "R1": {
+      "native": [
+        0.7623635852937685,
+        0.23763395483900981,
+        2.5128014523927474e-07,
+        2.2085870764760046e-06
+      ],
+      "active": [
+        0.6955383023134295,
+        0.3044582761535236,
+        4.415311471714108e-07,
+        2.9800018997187223e-06
+      ],
+      "noise0": [
+        0.7856009640423748,
+        0.21439540005251267,
+        2.375133632058873e-07,
+        3.3983917493754922e-06
+      ],
+      "noise1": [
+        0.7713121620562838,
+        0.22868498002792711,
+        2.3505440849725927e-07,
+        2.6228613805215987e-06
+      ],
+      "noise2": [
+        0.7760056721848959,
+        0.22399145398360576,
+        1.6999337669377096e-07,
+        2.7038381216353056e-06
+      ],
+      "noise3": [
+        0.762353117998575,
+        0.23764266511903745,
+        2.7625451809906583e-07,
+        3.94062786952254e-06
+      ],
+      "noise_mean": [
+        0.7738179790705324,
+        0.22617862479577075,
+        2.2970391662399585e-07,
+        3.166429780263734e-06
+      ]
+    },
+    "R2": {
+      "native": [
+        1.7810710783110192e-10,
+        0.015327758982523745,
+        0.9846239720403173,
+        4.8268799051857564e-05
+      ],
+      "active": [
+        5.061198280702527e-10,
+        0.01596140181283114,
+        0.9839957026860804,
+        4.289499496869247e-05
+      ],
+      "noise0": [
+        3.954772289082891e-10,
+        0.014443703928344893,
+        0.9855029396819343,
+        5.3355994243683226e-05
+      ],
+      "noise1": [
+        1.3988268838326058e-10,
+        0.01556322264997021,
+        0.9843851216499614,
+        5.165556018567413e-05
+      ],
+      "noise2": [
+        1.5233657805642247e-10,
+        0.015786036247106134,
+        0.9841669477862146,
+        4.7015814342660385e-05
+      ],
+      "noise3": [
+        1.4151581053403969e-10,
+        0.015339813206052622,
+        0.9846105177789601,
+        4.966887347140064e-05
+      ],
+      "noise_mean": [
+        2.0730307647050296e-10,
+        0.015283194007868465,
+        0.9846663817242676,
+        5.042406056085459e-05
+      ]
+    }
+  },
+  "source_sha256": {
+    "docs/analyses/gemma_comparison_20261015/REPORT.md": "5488c3b72a82aed53f6c45433d14c34d29e993f79611e555caba9b1dadbf0fb9",
+    "docs/analyses/gemma_comparison_20261015/CLAIMS.md": "d6ee6adb0ae32efe736137215fc37ac589453bd9f4c9080ef479a65ccf364099",
+    "docs/analyses/gemma_comparison_20261015/results.json": "d1b5b6c7e28ff31b817e8acbcdb6955e1a91d1db4b5ebc3386340a6dcc6483c5",
+    "docs/analyses/gemma_comparison_20261015/family_profiles.csv": "1855b3a28b1226e3eea513edb89a93cdd064c7b418d58d8b0cf93033300c2ad6",
+    "docs/analyses/gemma_comparison_20261015/figure_1_design_history.svg": "bc544b1a2873898e62a02be586f6029dff018ff15710acd2ad2de9cb6dccd09c",
+    "docs/analyses/gemma_comparison_20261015/figure_2_effects_and_rivals.svg": "7c47db0b0d718757b2de0353c3671ba6da937ca688fa0f6c3bf543136b3ea344",
+    "runs/single-donor-d1-review-20261014/result_summary.json": "f4435cee8851c06fabfdc79173c8749187ebb9f6404a8f3543b5bdb4d5d5631e",
+    "docs/analyses/gemma_comparison_20261015/metric_summary.csv": "66e2ecda06e46c2cbdcf35f9dcffb76db57a1c00663e048775e7cbd444b3b6c8",
+    "docs/analyses/gemma_comparison_20261015/rival_comparison.csv": "8cc7e599e66ea13f8f9574f42a24f3bf2e505b27ffcfc0508291232c1e46de5d",
+    "docs/analyses/gemma_comparison_20261015/rival_family_losses.csv": "661f81815a552679c9d147745841e13c63066649f5d835f4a916977992078385",
+    "docs/analyses/gemma_comparison_20261015/figure_1_design_history.png": "09f6408d356a4fc71f94d832fedb25d4a44f15e37fea19e1ca31827f7aaa5eb2",
+    "docs/analyses/gemma_comparison_20261015/figure_1_design_history.pdf": "4b23965c9a988ac19ce61d54dd433d7dee983abd772b222826399d1efa63cdae",
+    "docs/analyses/gemma_comparison_20261015/figure_2_effects_and_rivals.pdf": "7e1793b0ee364f329ee37ac956d3957aa784339559b2fb4ccbb5b942748cc73f",
+    "docs/analyses/gemma_comparison_20261015/figure_2_effects_and_rivals.png": "2b66d488d9dc172f2f7d3ecc8c6f5cb2f6f8dc5409babf765b42d2d373f9bafa",
+    "docs/analyses/gemma_comparison_20261015/family_metrics.csv": "b5a66a3b3507f3dacd5e02ca7db2f4712d05efcefa3bc858b7cbe36ea970f805",
+    "docs/analyses/gemma_comparison_20261015/PROTOCOL.md": "cb772df446545989d2cb3d71aa53fd6e55a021d26644a1b0b3e62601350dd062"
+  },
+  "source_checkout_head": "7475a15a88614593991bc394542036310d5f25c5",
+  "export_date": "2026-10-15"
+}

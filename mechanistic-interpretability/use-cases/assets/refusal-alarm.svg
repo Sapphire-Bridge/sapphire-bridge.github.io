@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="210" viewBox="0 0 600 210" role="img" aria-labelledby="title desc">
+  <title id="title">A causal effect leaves a question about function</title>
+  <desc id="desc">Alarm metaphor for the acknowledged open question about a refusal direction's meaning: changed detection on the left, interrupted influence on the alarm on the right. Both are silent. These are illustrative alternatives, not observed model components or an exhaustive set of explanations.</desc>
+  <defs>
+    <g id="hazard" stroke="#7b89a4" stroke-width="2" stroke-linejoin="round" fill="#edf1f8">
+      <path d="M0 -19 L21 17 H-21 Z"/>
+      <path d="M0 -7 V3 M0 9 V10" stroke-linecap="round"/>
+    </g>
+    <g id="bell" fill="#f1f3f8" stroke="#8a97ae" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-20 15 Q-14 8 -14 -2 A14 14 0 0 1 14 -2 Q14 8 20 15 Z"/>
+      <path d="M-5 21 Q0 27 5 21 M0 -20 V-16" fill="none"/>
+      <path d="M-25 24 L25 -24" stroke="#9a85b3" stroke-width="2.5"/>
+    </g>
+  </defs>
+  <rect width="600" height="210" fill="#fafbfe"/>
+  <g font-family="-apple-system,Helvetica,Arial,sans-serif" text-anchor="middle" fill="#344860">
+    <rect x="14" y="18" width="278" height="174" rx="12" fill="#fff" stroke="#d2dceb" stroke-width="1.5"/>
+    <rect x="308" y="18" width="278" height="174" rx="12" fill="#fff" stroke="#d2dceb" stroke-width="1.5"/>
+    <g transform="translate(57 83)"><use href="#hazard"/></g>
+    <path d="M81 83 H111 M157 83 H214" stroke="#b6c1d1" stroke-width="2" stroke-dasharray="5 5"/>
+    <circle cx="135" cy="83" r="22" fill="#f0eaf8" stroke="#a18ab9" stroke-width="2"/>
+    <path d="M125 73 L145 93 M125 93 L145 73" stroke="#9a80b4" stroke-width="2.5" stroke-linecap="round"/>
+    <g transform="translate(242 83)"><use href="#bell"/></g>
+    <text x="153" y="153" font-size="23">Detector changed?</text>
+    <g transform="translate(351 83)"><use href="#hazard"/></g>
+    <path d="M375 83 H405 M451 83 H473 M499 83 H508" stroke="#7e93b1" stroke-width="2"/>
+    <circle cx="429" cy="83" r="22" fill="#edf3fb" stroke="#8098b8" stroke-width="2"/>
+    <circle cx="429" cy="83" r="7" fill="#8098b8"/>
+    <path d="M478 75 L494 91 M478 91 L494 75" stroke="#9a80b4" stroke-width="2.5" stroke-linecap="round"/>
+    <g transform="translate(536 83)"><use href="#bell"/></g>
+    <text x="447" y="153" font-size="23">Alarm disconnected?</text>
+  </g>
+</svg>

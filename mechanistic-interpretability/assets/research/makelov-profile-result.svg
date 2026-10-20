@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1240" height="800" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1240 800" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>GPT-2 Small: two specified profiles excluded</title>
+	<desc>At the frozen plus or minus 0.25 nat tolerance, position-only invariance fits 301 of 512 families (simultaneous interval 53.20 to 64.22 percent); name-assignment-only invariance fits 0 of 512 (0 to 0.99 percent). Both upper bounds are below the required 80 percent coverage. The underlying mechanism remains open.</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1240" height="800"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-800)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="1240" height="800" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="52" y="742" style="font-family: Helvetica-Bold; font-size: 43px;fill: rgb(6%,12%,25%); stroke:none;" transform="translate(0,1484) scale(1,-1)">Neither simple rule adequately</text>
+			<text x="52" y="690" style="font-family: Helvetica-Bold; font-size: 43px;fill: rgb(6%,12%,25%); stroke:none;" transform="translate(0,1380) scale(1,-1)">explains this patch.</text>
+			<text x="52" y="640" style="font-family: Helvetica-Bold; font-size: 15px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,1280) scale(1,-1)">OUR FOLLOW-UP TO MAKELOV ET AL.  ·  GPT-2 SMALL</text>
+			<rect x="1054.0" y="216" width="126.0" height="359" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(92%,94%,97%); fill-rule: evenodd;"/>
+			<path d="M 550,216 L 550,575 Z" style="stroke: rgb(86%,88%,91%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<text x="537.7175" y="188" style="font-family: Helvetica-Bold; font-size: 17px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,376) scale(1,-1)">0%</text>
+			<path d="M 676,216 L 676,575 Z" style="stroke: rgb(86%,88%,91%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<text x="658.9915" y="188" style="font-family: Helvetica-Bold; font-size: 17px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,376) scale(1,-1)">20%</text>
+			<path d="M 802,216 L 802,575 Z" style="stroke: rgb(86%,88%,91%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<text x="784.9915" y="188" style="font-family: Helvetica-Bold; font-size: 17px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,376) scale(1,-1)">40%</text>
+			<path d="M 928,216 L 928,575 Z" style="stroke: rgb(86%,88%,91%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<text x="910.9915" y="188" style="font-family: Helvetica-Bold; font-size: 17px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,376) scale(1,-1)">60%</text>
+			<path d="M 1054,216 L 1054,575 Z" style="stroke: rgb(86%,88%,91%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<text x="1036.9915" y="188" style="font-family: Helvetica-Bold; font-size: 17px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,376) scale(1,-1)">80%</text>
+			<path d="M 1180,216 L 1180,575 Z" style="stroke: rgb(86%,88%,91%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<text x="1158.2655" y="188" style="font-family: Helvetica-Bold; font-size: 17px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,376) scale(1,-1)">100%</text>
+			<path d="M 1054,216 L 1054,575 Z" style="stroke: rgb(39%,45%,54%); stroke-linecap: butt; stroke-width: 1.4; stroke-dasharray: 6, 5;"/>
+			<path d="M 540,216 L 1188,216 Z" style="stroke: rgb(86%,88%,91%); stroke-linecap: butt; stroke-width: 1.8;"/>
+			<text x="1066.0" y="552" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(6%,12%,25%); stroke:none;" transform="translate(0,1104) scale(1,-1)">REQUIRED</text>
+			<text x="1066.0" y="535" style="font-family: Helvetica; font-size: 12px;fill: rgb(6%,12%,25%); stroke:none;" transform="translate(0,1070) scale(1,-1)">population</text>
+			<text x="1066.0" y="519" style="font-family: Helvetica; font-size: 12px;fill: rgb(6%,12%,25%); stroke:none;" transform="translate(0,1038) scale(1,-1)">coverage</text>
+			<text x="1066.0" y="493" style="font-family: Helvetica-Bold; font-size: 21px;fill: rgb(6%,12%,25%); stroke:none;" transform="translate(0,986) scale(1,-1)">≥80%</text>
+			<text x="52" y="477" style="font-family: Helvetica-Bold; font-size: 14px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,954) scale(1,-1)">RULE 1</text>
+			<text x="52" y="446" style="font-family: Helvetica-Bold; font-size: 21px;fill: rgb(6%,12%,25%); stroke:none;" transform="translate(0,892) scale(1,-1)">Patch effect depends only on</text>
+			<text x="52" y="419" style="font-family: Helvetica-Bold; font-size: 21px;fill: rgb(6%,12%,25%); stroke:none;" transform="translate(0,838) scale(1,-1)">donor-answer mention position</text>
+			<text x="52" y="384" style="font-family: Helvetica-Bold; font-size: 15px;fill: rgb(68%,40%,11%); stroke:none;" transform="translate(0,768) scale(1,-1)">EXCLUDED</text>
+			<path d="M 885.15475,450 L 954.596188,450 Z" style="stroke: rgb(6%,12%,25%); stroke-linecap: butt; stroke-width: 5;"/>
+			<path d="M 885.15475,445 L 885.15475,455 Z" style="stroke: rgb(6%,12%,25%); stroke-linecap: butt; stroke-width: 2;"/>
+			<path d="M 954.596188,445 L 954.596188,455 Z" style="stroke: rgb(6%,12%,25%); stroke-linecap: butt; stroke-width: 2;"/>
+			<circle cx="920.37109375" cy="450" r="8" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(6%,12%,25%); fill-rule: evenodd;"/>
+			<text x="846.82309375" y="414" style="font-family: Helvetica-Bold; font-size: 18px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,828) scale(1,-1)">301 / 512 families</text>
+			<text x="858.66709375" y="391" style="font-family: Helvetica; font-size: 12px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,782) scale(1,-1)">Interval: 53.20–64.22%</text>
+			<text x="52" y="327" style="font-family: Helvetica-Bold; font-size: 14px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,654) scale(1,-1)">RULE 2</text>
+			<text x="52" y="296" style="font-family: Helvetica-Bold; font-size: 21px;fill: rgb(6%,12%,25%); stroke:none;" transform="translate(0,592) scale(1,-1)">Patch effect depends only on</text>
+			<text x="52" y="269" style="font-family: Helvetica-Bold; font-size: 21px;fill: rgb(6%,12%,25%); stroke:none;" transform="translate(0,538) scale(1,-1)">name assignment</text>
+			<text x="52" y="234" style="font-family: Helvetica-Bold; font-size: 15px;fill: rgb(68%,40%,11%); stroke:none;" transform="translate(0,468) scale(1,-1)">EXCLUDED</text>
+			<path d="M 550,300 L 556.213994,300 Z" style="stroke: rgb(6%,12%,25%); stroke-linecap: butt; stroke-width: 5;"/>
+			<path d="M 550,295 L 550,305 Z" style="stroke: rgb(6%,12%,25%); stroke-linecap: butt; stroke-width: 2;"/>
+			<path d="M 556.213994,295 L 556.213994,305 Z" style="stroke: rgb(6%,12%,25%); stroke-linecap: butt; stroke-width: 2;"/>
+			<circle cx="550.0" cy="300" r="8" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(6%,12%,25%); fill-rule: evenodd;"/>
+			<text x="565.0" y="264" style="font-family: Helvetica-Bold; font-size: 18px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,528) scale(1,-1)">0 / 512 families</text>
+			<text x="565.0" y="241" style="font-family: Helvetica; font-size: 12px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,482) scale(1,-1)">Interval: 0.00–0.99%</text>
+			<text x="679.136" y="150" style="font-family: Helvetica-Bold; font-size: 16px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,300) scale(1,-1)">Share of families satisfying all invariance checks</text>
+			<text x="805.2" y="126" style="font-family: Helvetica-Bold; font-size: 16px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,252) scale(1,-1)">within ±0.25 nat</text>
+			<path d="M 52,96 L 1188,96 Z" style="stroke: rgb(86%,88%,91%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<text x="52" y="65" style="font-family: Helvetica-Bold; font-size: 15px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,130) scale(1,-1)">512 fresh families · Decision rule fixed before confirmation</text>
+			<text x="52" y="39" style="font-family: Helvetica; font-size: 14px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,78) scale(1,-1)">Dot: observed share · Line: simultaneous 97.5% confidence interval</text>
+		</g>
+	</g>
+</svg>

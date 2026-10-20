@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A short Gemma case study: ask which explanations an intervention can distinguish, and which survive the evidence.">
+  <title>Which explanations survive the patch? · Sapphire Bridge</title>
+  <link rel="icon" type="image/png" href="../assets/sapphire-bridge-mark.png">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../research-stories.css">
+  <link rel="stylesheet" href="compact.css">
+</head>
+<body class="story-page method-compact">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="nav-shell"><nav class="nav" aria-label="Primary navigation">
+  <div class="nav-brand">
+        <a class="site-return" href="../../" aria-label="Back to Felix Borck’s homepage">← Felix Borck</a>
+        <a class="wordmark" href="../"><img src="../assets/sapphire-bridge-mark.png" alt=""><span>Sapphire Bridge</span></a>
+      </div>
+  <div class="nav-links"><a href="./" aria-current="page">Method</a><a href="../#evidence">Evidence</a><a href="../use-cases/">Use cases</a><a href="../#programme">Programme</a></div>
+  <a class="nav-cta" href="../">← Research programme</a>
+</nav></header>
+<main id="main">
+  <section class="story-hero section-pad">
+    <p class="story-eyebrow">Causal decidability · The Gemma case</p>
+    <h1>Which explanations<br><span>survive the patch?</span></h1>
+    <p class="lead">Measuring a change is one question. Knowing which explanations it rules out is another. Our method makes that second question explicit.</p>
+  </section>
+  <section class="chapter section-pad" aria-labelledby="question">
+    <p class="section-label">The question, made concrete</p>
+    <h2 id="question">Transfer the standard.<br>Or copy the answer?</h2>
+    <p class="chapter-intro">Gemma judges whether a length is small or large relative to a comparison standard. We move one internal state from a donor prompt into two different recipient prompts.</p>
+    <figure class="scene">
+      <div class="donor-layout">
+        <div class="length-card donor-card"><span class="card-role">Donor</span><strong class="length-value">32 cm<small>standard 10 cm</small></strong><img src="assets/donor.svg" width="300" height="185" alt="A 32 cm length exceeds the donor’s 10 cm standard."></div>
+        <div class="patch-bridge"><span aria-hidden="true">→</span><strong>Same internal state</strong></div>
+        <div class="recipient-pair">
+          <div class="length-card"><span class="card-role">Recipient 1</span><strong class="length-value">12 cm<small>standard 80 cm</small></strong><img src="assets/r1.svg" width="300" height="185" alt="A 12 cm length is below the recipient’s 80 cm standard."></div>
+          <div class="length-card"><span class="card-role">Recipient 2</span><strong class="length-value">96 cm<small>standard 80 cm</small></strong><img src="assets/r2.svg" width="300" height="185" alt="A 96 cm length exceeds the recipient’s 80 cm standard."></div>
+        </div>
+      </div>
+      <figcaption><strong>Standard transfer:</strong> judge each recipient against 10 cm.<br><strong>Answer copy:</strong> give both the donor’s answer distribution.</figcaption>
+    </figure>
+    <p class="picture-meaning">Before patching, we check that these predictions are distinguishable. Afterward, we test them against the same observed answers.</p>
+  </section>
+  <section class="chapter soft section-pad" aria-labelledby="result">
+    <p class="section-label">What the test established</p>
+    <div class="compact-finding">
+      <div>
+        <h2 id="result">A narrower set.<br>No single explanation.</h2>
+        <p>The evidence excluded five specified local predictions, including standard transfer and donor-answer copy. Four remained open. An unchanged-output counterfactual excludes the same five; this count does not demonstrate semantic transfer.</p>
+        <p class="scope-line">One patch site · 20 development families · Gemma</p>
+      </div>
+      <div class="finding-counts" aria-label="Five local prediction classes excluded; four remain open">
+        <div><strong>5</strong><span>excluded</span></div>
+        <div><strong>4</strong><span>still open</span></div>
+      </div>
+    </div>
+    <p class="compact-limit"><strong>The limit:</strong> small changes were measured, but the registered tests did not establish sufficient separation from the original output and matched disturbances. These are local exclusions, not identification of Gemma’s natural mechanism.</p>
+    <div class="compact-takeaway">
+      <h3>What the method adds</h3>
+      <p>A traceable boundary: which alternatives this experiment can separate, which it excludes, and which it leaves unresolved. A comparator given the same rivals and rule reached the same decisions. Stopped designs are a separate outcome: Gemma’s two-donor menus and GPT-2 Round 3B did not qualify, so their planned patches did not run.</p>
+    </div>
+    <p class="compact-limit">Under the old curve rule, D0 would have qualified 13/20 families (18 needed; post-hoc counter-check, not yet public), blocking D1. The revision was disclosed before fresh D0/D1. The two-donor v2 stop reflected that rule, not general impossibility.</p>
+    <p class="compact-limit">The download contains reports and aggregate evidence, not the original score records or analysis code.</p>
+    <div class="compact-links">
+      <a href="evidence/TECHNICAL_NOTE.md" download>Technical note &amp; evidence <span>Markdown · for GitHub ↓</span></a>
+      <a href="../#tracr-validation">A check with known computation <span>See the Tracr validation →</span></a>
+      <a href="../use-cases/">Where else does this question matter? <span>Explore the use cases →</span></a>
+    </div>
+  </section>
+</main>
+<footer class="footer section-pad"><div class="footer-mark"><img src="../assets/sapphire-bridge-mark.png" alt=""><span>Sapphire Bridge</span></div><p>Testing what interpretability evidence establishes</p><p class="footer-right">Felix Borck · 2026</p><nav class="footer-legal" aria-label="Rechtliches" lang="de"><a href="../../impressum.html">Impressum</a><span aria-hidden="true">·</span><a href="../../datenschutz.html">Datenschutz</a></nav>
+  </footer>
+</body></html>

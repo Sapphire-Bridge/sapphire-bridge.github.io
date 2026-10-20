@@ -1,0 +1,10 @@
+.legal-page { width: min(680px, calc(100% - 48px)); margin: 0 auto; padding: 30px 0 60px; color: #424245; font-size: 17px; line-height: 1.65; }
+.legal-page .site-return { display: inline-flex; align-items: center; min-height: 44px; color: #515154; text-underline-offset: 4px; font-size: 14px; }
+.legal-page h1 { margin: 48px 0 20px; color: #1d1d1f; font-size: clamp(34px, 7vw, 48px); font-weight: 550; line-height: 1.15; letter-spacing: -.035em; }
+.legal-page h2 { margin: 36px 0 12px; color: #1d1d1f; font-size: 21px; font-weight: 500; line-height: 1.4; }
+.legal-page p { margin: 0 0 18px; }
+.legal-page address { font-style: normal; }
+.legal-page a { color: #28638f; overflow-wrap: anywhere; }
+.legal-page a:focus-visible { outline: 2px solid #0066cc; outline-offset: 4px; }
+.draft-note { padding: 16px 18px; background: #f5f5f7; border-radius: 8px; font-size: 15px; }
+.pending-detail { overflow-wrap: anywhere; }

@@ -1,0 +1,204 @@
+{
+  "title": "Causal Parrots: causal facts or plausible wording?",
+  "created": "2026-10-15",
+  "kind": "Explanatory infographic of existing exploratory results",
+  "new_experiments": false,
+  "new_statistical_analyses": false,
+  "repository_head_at_build": "7b726a4f5459850d7d45d822e14fd5fdd3405d37",
+  "original_result_source_commit": "e25538a876a20a92c3d98d62fb9fb1052a27ef6c",
+  "model": "google/gemma-3-4b-it",
+  "model_revision": "093f9f388b31de276ce2de164bdc2081324b9767",
+  "n_prompts": 1536,
+  "n_family_instances": 48,
+  "n_recipient_mechanism_clusters": 23,
+  "numbers": {
+    "target_preference_own|with|avg": {
+      "source": "exploratory/fact_vs_relatedness/matched_truth_decision_analysis.json",
+      "source_sha256": "b9e653208e481838dbbc5ab80af9efe80d723ece56cf1fbee5fdaf274acba52d",
+      "field": [
+        "cells",
+        "own|with|avg",
+        "E1"
+      ],
+      "value": 3.810546868480742,
+      "scope": "Exploratory familiar families; plausible-for-original-source target minus opposite target score. Family-instance weighted over both graph labels and relevant order(s).",
+      "verification": "independent_raw_recalculation",
+      "independent_field": [
+        "matched_truth_decision",
+        "cells",
+        "own|with|avg",
+        "point"
+      ],
+      "confidence": null
+    },
+    "target_preference_foreign|with|avg": {
+      "source": "exploratory/fact_vs_relatedness/matched_truth_decision_analysis.json",
+      "source_sha256": "b9e653208e481838dbbc5ab80af9efe80d723ece56cf1fbee5fdaf274acba52d",
+      "field": [
+        "cells",
+        "foreign|with|avg",
+        "E1"
+      ],
+      "value": 3.3300781257761023,
+      "scope": "Exploratory familiar families; plausible-for-original-source target minus opposite target score. Family-instance weighted over both graph labels and relevant order(s).",
+      "verification": "independent_raw_recalculation",
+      "independent_field": [
+        "matched_truth_decision",
+        "cells",
+        "foreign|with|avg",
+        "point"
+      ],
+      "confidence": null
+    },
+    "source_substitution_relational|with|avg_point": {
+      "source": "exploratory/fact_vs_relatedness/matched_truth_decision_analysis.json",
+      "source_sha256": "b9e653208e481838dbbc5ab80af9efe80d723ece56cf1fbee5fdaf274acba52d",
+      "field": [
+        "contrasts",
+        "relational|with|avg",
+        "value"
+      ],
+      "value": 0.4804687427046397,
+      "scope": "Original-source minus foreign-source target preference. Recipient-cluster bootstrap only; source vocabulary/context and donor dependence unresolved. No equivalence test.",
+      "verification": "independent_raw_recalculation",
+      "independent_field": [
+        "matched_truth_decision",
+        "contrasts",
+        "relational|with|avg",
+        "point"
+      ],
+      "confidence": null
+    },
+    "source_substitution_relational|with|avg_ci": {
+      "source": "exploratory/fact_vs_relatedness/matched_truth_decision_analysis.json",
+      "source_sha256": "b9e653208e481838dbbc5ab80af9efe80d723ece56cf1fbee5fdaf274acba52d",
+      "field": [
+        "contrasts",
+        "relational|with|avg",
+        "ci95"
+      ],
+      "value": [
+        -0.41782270242646335,
+        1.4550781198156377
+      ],
+      "scope": "Original-source minus foreign-source target preference. Recipient-cluster bootstrap only; source vocabulary/context and donor dependence unresolved. No equivalence test.",
+      "verification": "independent_raw_recalculation",
+      "independent_field": [
+        "matched_truth_decision",
+        "contrasts",
+        "relational|with|avg",
+        "ci95"
+      ],
+      "confidence": 0.95
+    },
+    "target_preference_own|without|avg": {
+      "source": "exploratory/fact_vs_relatedness/matched_truth_decision_analysis.json",
+      "source_sha256": "b9e653208e481838dbbc5ab80af9efe80d723ece56cf1fbee5fdaf274acba52d",
+      "field": [
+        "cells",
+        "own|without|avg",
+        "E1"
+      ],
+      "value": 3.2910156226716936,
+      "scope": "Exploratory familiar families; plausible-for-original-source target minus opposite target score. Family-instance weighted over both graph labels and relevant order(s).",
+      "verification": "independent_raw_recalculation",
+      "independent_field": [
+        "matched_truth_decision",
+        "cells",
+        "own|without|avg",
+        "point"
+      ],
+      "confidence": null
+    },
+    "target_preference_foreign|without|avg": {
+      "source": "exploratory/fact_vs_relatedness/matched_truth_decision_analysis.json",
+      "source_sha256": "b9e653208e481838dbbc5ab80af9efe80d723ece56cf1fbee5fdaf274acba52d",
+      "field": [
+        "cells",
+        "foreign|without|avg",
+        "E1"
+      ],
+      "value": 3.1302083337989948,
+      "scope": "Exploratory familiar families; plausible-for-original-source target minus opposite target score. Family-instance weighted over both graph labels and relevant order(s).",
+      "verification": "independent_raw_recalculation",
+      "independent_field": [
+        "matched_truth_decision",
+        "cells",
+        "foreign|without|avg",
+        "point"
+      ],
+      "confidence": null
+    },
+    "source_substitution_relational|without|avg_point": {
+      "source": "exploratory/fact_vs_relatedness/matched_truth_decision_analysis.json",
+      "source_sha256": "b9e653208e481838dbbc5ab80af9efe80d723ece56cf1fbee5fdaf274acba52d",
+      "field": [
+        "contrasts",
+        "relational|without|avg",
+        "value"
+      ],
+      "value": 0.1608072888726988,
+      "scope": "Original-source minus foreign-source target preference. Recipient-cluster bootstrap only; source vocabulary/context and donor dependence unresolved. No equivalence test.",
+      "verification": "independent_raw_recalculation",
+      "independent_field": [
+        "matched_truth_decision",
+        "contrasts",
+        "relational|without|avg",
+        "point"
+      ],
+      "confidence": null
+    },
+    "source_substitution_relational|without|avg_ci": {
+      "source": "exploratory/fact_vs_relatedness/matched_truth_decision_analysis.json",
+      "source_sha256": "b9e653208e481838dbbc5ab80af9efe80d723ece56cf1fbee5fdaf274acba52d",
+      "field": [
+        "contrasts",
+        "relational|without|avg",
+        "ci95"
+      ],
+      "value": [
+        -0.622395829146262,
+        0.986979160015471
+      ],
+      "scope": "Original-source minus foreign-source target preference. Recipient-cluster bootstrap only; source vocabulary/context and donor dependence unresolved. No equivalence test.",
+      "verification": "independent_raw_recalculation",
+      "independent_field": [
+        "matched_truth_decision",
+        "contrasts",
+        "relational|without|avg",
+        "ci95"
+      ],
+      "confidence": 0.95
+    }
+  },
+  "formatted_values": {
+    "own_with": "3.81",
+    "foreign_with": "3.33",
+    "difference_with": "+0.48",
+    "ci_with": "[\u22120.42, +1.46]",
+    "own_without": "3.29",
+    "foreign_without": "3.13",
+    "difference_without": "+0.16",
+    "ci_without": "[\u22120.62, +0.99]",
+    "repo_commit": "7b726a4",
+    "model_revision_short": "093f9f388b31"
+  },
+  "sources": {
+    "audits/2026-10-13/numbers_for_writing.json": "8fe5afd8d4e26cd781fe622d4c7dd425fe087789b0d80aca74bc851442c2eaa0",
+    "exploratory/fact_vs_relatedness/matched_truth_decision_rows.json": "86ee415d5eb5eb315ff6370d2932058da90adba01d90700ec261f8de0e6780ea",
+    "exploratory/fact_vs_relatedness/matched_truth_decision_analysis.json": "b9e653208e481838dbbc5ab80af9efe80d723ece56cf1fbee5fdaf274acba52d",
+    "exploratory/fact_vs_relatedness/matched_truth_decision.py": "92a1de2190b2381e49b15fad809665e8a426a778ae161c7314a2f86adf7369cf",
+    "audits/2026-10-13/WEBSITE_NOTE_EN.md": "7c16decebeaff143474a3da20d5d8b7f0ade1572d1368fc3038fc773654a5328",
+    "data/sources/causal_parrots_arxiv_2308.13067v1.txt": "b56773cedd8e260865fabb920d03619503cae86c3752d1b02deace14d874ae70"
+  },
+  "figure_template_sha256": "912f341abf6f5735e94a0d51ff9bed97644e1038caa080ad9ed725537452913f",
+  "html_sha256": "b7b55b5b6e89f08bd78c7b105d02e87724699e5073e79fc212e921655ff2e50e",
+  "bootstrap_scope": "Recipient mechanism clusters only; not a joint recipient/donor uncertainty analysis",
+  "excluded_claims": [
+    "Original-paper replication",
+    "CCF decided",
+    "No causal knowledge",
+    "Equal own/foreign effects",
+    "Wording mechanism identified"
+  ]
+}

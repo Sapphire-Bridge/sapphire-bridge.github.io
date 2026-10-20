@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="210" viewBox="0 0 600 210" role="img" aria-labelledby="title desc">
+  <title id="title">A positive film review, a conflicting opinion</title>
+  <desc id="desc">The film review says ‘A brilliant film. I’d watch it again.’ Alice says ‘This review is negative.’ Their disagreement separates the review’s sentiment from Alice’s stated opinion. Which does the signal follow? An illustrative example, not measured data.</desc>
+  <rect width="600" height="210" fill="#fafbfe"/>
+  <g font-family="-apple-system,Helvetica,Arial,sans-serif" fill="#344860">
+    <rect x="18" y="14" width="270" height="150" rx="10" fill="#fff" stroke="#d2dceb" stroke-width="1.5"/>
+    <rect x="18" y="14" width="270" height="39" rx="10" fill="#edf3fb"/>
+    <path d="M18 43 V53 H288 V43" fill="#edf3fb"/>
+    <text x="153" y="41" text-anchor="middle" font-size="22" font-weight="600">The film review</text>
+    <text x="153" y="92" text-anchor="middle" font-size="23">“A brilliant film.</text>
+    <text x="153" y="126" text-anchor="middle" font-size="23">I’d watch it again.”</text>
+    <circle cx="343" cy="32" r="11" fill="#f0eaf8" stroke="#a18ab9" stroke-width="1.5"/>
+    <path d="M326 56 C327 40 359 40 360 56" fill="#f0eaf8" stroke="#a18ab9" stroke-width="1.5"/>
+    <text x="376" y="44" font-size="23" font-weight="600">Alice’s opinion</text>
+    <path d="M326 70 H569 Q582 70 582 83 V147 Q582 160 569 160 H326 Q313 160 313 147 V83 Q313 70 326 70 Z" fill="#f6f2fa" stroke="#c5b6d6" stroke-width="1.5"/>
+    <path d="M334 70 L342 58 L350 70" fill="#f6f2fa" stroke="#c5b6d6" stroke-width="1.5"/>
+    <text x="447" y="107" text-anchor="middle" font-size="23">“This review</text>
+    <text x="447" y="140" text-anchor="middle" font-size="23">is negative.”</text>
+    <text x="300" y="198" text-anchor="middle" font-size="22">Which does the signal follow?</text>
+  </g>
+</svg>

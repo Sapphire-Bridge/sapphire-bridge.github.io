@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="560" viewBox="0 0 400 560" role="img" aria-labelledby="title desc">
+  <title id="title">Mit Arbeitsanweisung: Vorgaben vor dem Entwurf</title>
+  <desc id="desc">Die Person gibt einen Auftrag an die KI. Die KI liest die bereitgestellte Arbeitsanweisung und nutzt ihre Vorgaben. Das Ziel ist ein präziserer erster Entwurf. Prüfen und Nachbessern können weiterhin nötig sein.</desc>
+  <defs>
+    <marker id="focus" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#28638f"/></marker>
+    <style>text { font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #424245; }</style>
+  </defs>
+  <g fill="none" stroke="#28638f" stroke-width="3" marker-end="url(#focus)">
+    <path d="M95 128 V218"/>
+    <path d="M172 246 H224"/>
+    <path d="M230 298 H178"/>
+    <path d="M95 320 V410"/>
+  </g>
+  <rect x="20" y="34" width="150" height="94" rx="12" fill="#fff" stroke="#b9c5ce" stroke-width="1.5"/>
+  <rect x="20" y="226" width="150" height="94" rx="12" fill="#e5f1f9" stroke="#28638f" stroke-width="1.5"/>
+  <path d="M242 178 H348 L380 210 V344 Q380 356 368 356 H242 Q230 356 230 344 V190 Q230 178 242 178 Z" fill="#fff" stroke="#28638f" stroke-width="1.5"/>
+  <path d="M348 178 V210 H380" fill="#e5f1f9" stroke="#28638f" stroke-width="1.5"/>
+  <path d="M254 296 H356 M254 310 H356 M254 324 H332" fill="none" stroke="#a5bfd2" stroke-width="3" stroke-linecap="round"/>
+  <rect x="20" y="418" width="360" height="94" rx="12" fill="#e5f1f9" stroke="#28638f" stroke-width="1.5"/>
+  <g text-anchor="middle">
+    <text x="95" y="73" font-weight="600">Person</text>
+    <text x="95" y="104" style="font-size:20px">gibt Auftrag</text>
+    <text x="95" y="283" style="font-size:28px;font-weight:600;fill:#21567e">KI</text>
+    <text x="200" y="231" style="font-size:20px;fill:#21567e">liest</text>
+    <text x="200" y="331" style="font-size:20px;fill:#21567e">nutzt</text>
+    <text x="305" y="242" style="font-weight:600;fill:#21567e">Arbeits-</text>
+    <text x="305" y="271" style="font-weight:600;fill:#21567e">anweisung</text>
+    <text x="200" y="451" style="font-size:20px;fill:#21567e">Ziel: schon im ersten Schritt</text>
+    <text x="200" y="486" style="font-size:25px;font-weight:600;fill:#21567e">Präziserer Entwurf</text>
+  </g>
+</svg>

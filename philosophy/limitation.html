@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geometric Fidelity Does Not Certify Behavioral Preservation - Sapphire Bridge</title>
+<meta name="description" content="Strong state reconstruction alone does not certify preservation of the raw intervention effect under error-preserving SAE delta patching.">
+<meta property="og:title" content="Geometric Fidelity Does Not Certify Behavioral Preservation">
+<meta property="og:description" content="In Gemma 3 4B, error-preserving SAE delta patching yielded CRR 0.621 at L4 and 0.974 at L8 despite strong state reconstruction. The L8 point estimate was close to raw; equivalence was not established.">
+<meta property="og:url" content="https://sapphire-bridge.github.io/philosophy/limitation.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Sapphire Bridge">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root {
+    --cream: #f5f0e8;
+    --cream-dark: #ebe4d8;
+    --ink: #2a2520;
+    --ink-soft: #5c554d;
+    --ink-muted: #8a8279;
+    --sapphire: #1e3a5f;
+    --sapphire-faint: rgba(30, 58, 95, 0.08);
+    --rule: rgba(42, 37, 32, 0.15);
+    --serif-display: 'Cormorant Garamond', 'Georgia', serif;
+    --serif-body: 'EB Garamond', 'Georgia', serif;
+    --serif-accent: 'Lora', 'Georgia', serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 18px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body {
+    min-height: 100vh;
+    font-family: var(--serif-body);
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.7;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(30, 58, 95, 0.02) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(180, 160, 130, 0.04) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .page { position: relative; z-index: 1; width: min(760px, calc(100% - 2.5rem)); margin: 0 auto; }
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.25rem;
+    padding: 2rem 0 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .site-name, .top-nav a, .site-return, .links-row a {
+    font-family: var(--serif-accent);
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    color: var(--sapphire);
+    text-decoration: none;
+  }
+  .site-name { text-transform: uppercase; }
+  .top-nav { display: flex; flex-wrap: wrap; gap: 0.85rem 1.25rem; justify-content: flex-end; }
+  .top-nav a, .site-return, .links-row a { border-bottom: 1px solid transparent; transition: border-color 0.2s ease; }
+  .top-nav a:hover, .site-return:hover, .links-row a:hover { border-bottom-color: var(--sapphire); }
+  header { padding: 3.2rem 0 2.4rem; border-bottom: 1px solid var(--rule); margin-bottom: 2.5rem; }
+  .eyebrow {
+    font-family: var(--serif-accent);
+    font-size: 0.76rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-family: var(--serif-display);
+    font-size: clamp(2rem, 5vw, 3.15rem);
+    line-height: 1.05;
+    font-weight: 500;
+    max-width: 680px;
+    margin-bottom: 1.1rem;
+  }
+  .lede {
+    max-width: 650px;
+    color: var(--ink-soft);
+    font-size: 1.08rem;
+  }
+  .status {
+    display: inline-block;
+    margin-top: 1.25rem;
+    font-family: var(--serif-accent);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--sapphire);
+    background: var(--sapphire-faint);
+    border: 1px solid var(--rule);
+    padding: 0.35rem 0.55rem;
+  }
+  .section { margin-bottom: 2.6rem; }
+  .section-label {
+    font-family: var(--serif-accent);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sapphire);
+    margin-bottom: 0.85rem;
+  }
+  p { color: var(--ink-soft); font-size: 1.03rem; margin-bottom: 1rem; }
+  p:last-child { margin-bottom: 0; }
+  .claim {
+    background: var(--sapphire-faint);
+    border: 1px solid var(--rule);
+    padding: 1.3rem 1.4rem;
+    margin: 1.4rem 0;
+  }
+  .claim p {
+    font-family: var(--serif-display);
+    color: var(--sapphire);
+    font-size: 1.15rem;
+    line-height: 1.5;
+  }
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .table-scroll-hint { display: none; font-size: 14px; color: var(--ink-soft); }
+  @media (max-width: 600px) { .table-scroll-hint { display: block; } }
+  .table-scroll:focus-visible { outline: 2px solid var(--sapphire); outline-offset: 3px; }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.4rem 0 0.8rem;
+    font-size: 0.9rem;
+  }
+  .data-table th {
+    font-family: var(--serif-accent);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--sapphire);
+    text-align: left;
+    padding: 0.55rem 0.65rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .data-table td {
+    color: var(--ink-soft);
+    padding: 0.5rem 0.65rem;
+    border-bottom: 1px solid rgba(42, 37, 32, 0.08);
+    vertical-align: top;
+  }
+  .data-table tr.highlight td { color: var(--sapphire); font-weight: 500; }
+  .note {
+    font-family: var(--serif-accent);
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: var(--ink-muted);
+  }
+  .links-section { border-top: 1px solid var(--rule); padding-top: 2rem; margin-top: 3rem; }
+  .links-row { display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; }
+  footer { padding: 3rem 0 4rem; }
+  footer p { font-family: var(--serif-accent); font-size: 0.78rem; color: var(--ink-muted); }
+  @media (max-width: 640px) {
+    html { font-size: 16px; }
+    .page { width: min(100% - 2rem, 760px); }
+    .topbar { flex-direction: column; align-items: flex-start; }
+    .top-nav { justify-content: flex-start; }
+    header { padding: 2.4rem 0 2rem; }
+    .data-table { font-size: 0.82rem; }
+    .data-table th, .data-table td { padding: 0.42rem 0.45rem; }
+  }
+
+  /* Shared return and legal links in the local release draft. */
+  .top-nav { align-items: center; }
+  .nav-brand { display: flex; flex-direction: column; align-items: flex-start; flex-shrink: 0; }
+  .nav-brand .site-name { white-space: nowrap; }
+  .site-return { display: inline-flex; align-items: center; min-width: 44px; min-height: 44px; white-space: nowrap; }
+  .legal-links { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; width: 100%; margin-top: 0.75rem; font-family: var(--serif-accent); font-size: 0.78rem; }
+  .legal-links a { display: inline-flex; align-items: center; min-height: 44px; color: var(--sapphire); }
+  .legal-links a:focus-visible, .site-return:focus-visible { outline: 2px solid var(--sapphire); outline-offset: 3px; }
+  @media (max-width: 640px) { .top-nav { gap: 0.5rem; } .top-nav a, .site-return { font-size: 0.82rem; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="topbar">
+    <div class="nav-brand">
+      <a class="site-return" href="../" aria-label="Back to Felix Borck’s homepage">← Felix Borck</a>
+      <a class="site-name" href="index.html">Sapphire Bridge</a>
+    </div>
+    <nav class="top-nav">
+      <a href="research.html">Research</a>
+      <a href="background.html">About</a>
+      <a href="https://github.com/Sapphire-Bridge" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:felix.borck@gmail.com?subject=CV%20request">CV on request</a>
+      <a href="mailto:felix.borck@gmail.com">Contact</a>
+    </nav>
+  </div>
+
+  <header>
+    <div class="eyebrow">Limitation result · Paper 4 · CRR</div>
+    <h1>Geometric Fidelity Does Not Certify Behavioral Preservation</h1>
+    <p class="lede">Strong SAE state reconstruction can coexist with a reduced behavioral effect under error-preserving SAE delta patching.</p>
+    <div class="status">Earlier technical draft available on GitHub.</div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="section-label">Main Claim</div>
+      <div class="claim">
+        <p>Good state reconstruction alone does not establish preservation of the measured intervention effect. In Gemma 3 4B, layer 4 reaches reconstruction cosine 0.997, relMSE 0.007 and FVU 0.137, but error-preserving SAE delta patching recovers an estimated 62.1% of the mean raw effect (CRR 0.621; 95% CI 0.263–0.954).</p>
+      </div>
+      <p>I compare raw donor-state replacement with <strong>error-preserving SAE delta patching</strong>. Raw patching replaces the receiver state with the donor state. SAE delta patching adds the difference between the donor and receiver SAE reconstructions to the receiver state, preserving the receiver’s reconstruction residual.</p>
+      <p>Here, recovery refers to the donor-directed margin shift under that specific intervention. CRR divides the mean SAE effect by the mean raw effect; it does not measure behavior preserved in general. The exploratory evaluation uses 52 authored context pairs spanning 13 target words, with four variants per target and both donor directions.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Headline Numbers</div>
+      <p class="table-scroll-hint">On narrow screens, scroll the table sideways to see all columns.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable headline results">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Gemma 3 4B site</th>
+            <th>Raw replacement effect</th>
+            <th>SAE delta effect</th>
+            <th>State reconstruction</th>
+            <th>CRR [95% CI]</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="highlight">
+            <td>Layer 4</td>
+            <td>0.815</td>
+            <td>0.506</td>
+            <td>cos 0.997 · relMSE 0.007 · FVU 0.137</td>
+            <td>0.621 [0.263, 0.954]</td>
+          </tr>
+          <tr>
+            <td>Layer 8</td>
+            <td>0.931</td>
+            <td>0.907</td>
+            <td>cos 0.998 · relMSE 0.007 · FVU 0.060</td>
+            <td>0.974 [0.749, 1.320]</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="note">CRR is a ratio of mean intervention effects, with nominal 95% pair-bootstrap confidence intervals. The resampling unit is the authored pair, with donor directions kept together. Variants of the same target share lexical and template structure; these intervals do not establish uncertainty for a population of unseen words and are not adjusted for testing multiple layers. CRR is not a clipped probability, so its interval can extend above 1. The L8 point estimate is close to raw, but its wide interval does not establish equivalence. FVU is reported because the residual stream’s mean component can make state cosine high and relative MSE low: at L4 only about 5% of activation energy is variance about the layer mean. The pair-clustered FVU intervals overlap (L4 [0.126, 0.150], L8 [0.027, 0.216]); this point-estimate difference is not the inferential basis of the result.</p>
+      <p>State reconstruction and the transferred change are different measurements. The mean cosine between the SAE reconstruction difference and the raw donor–receiver difference is 0.809 at L4 and 0.833 at L8. Neither value by itself explains the effect loss.</p>
+      <p>L4 and L8 are the compact exposition pair, not the largest observed under-recovery gap: L11 has lower observed CRR than L4. The full five-layer profile is below.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Five-layer profile</div>
+      <p>The paper's declared inferential contrast is the paired SAE-minus-raw difference at the same layer-token site, not a comparison of marginal raw and SAE intervals. This profile is context for the L4/L8 result and a check against a simple FVU-only account, not a second headline claim.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable five-layer results">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Layer</th>
+            <th>FVU</th>
+            <th>CRR [95% CI]</th>
+            <th>Paired SAE − raw [95% CI]</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="highlight">
+            <td>4</td>
+            <td>0.137</td>
+            <td>0.621 [0.263, 0.954]</td>
+            <td>−0.309 [−0.636, −0.027]</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>0.180</td>
+            <td>0.908 [0.626, 1.275]</td>
+            <td>−0.069 [−0.271, +0.140]</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>0.060</td>
+            <td>0.974 [0.749, 1.320]</td>
+            <td>−0.024 [−0.270, +0.224]</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>0.336</td>
+            <td>0.576 [0.285, 0.824]</td>
+            <td>−0.300 [−0.502, −0.092]</td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>0.538</td>
+            <td>0.632 [0.325, 0.940]</td>
+            <td>−0.204 [−0.397, −0.023]</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="note">52 authored context pairs per layer, both donor directions, 520 comparability rows in total. In this profile, FVU does not order observed CRR: L4 has the second-best FVU and the second-lowest CRR, while L5 has worse FVU (0.180 versus 0.137) and higher CRR (0.908 versus 0.621). L11 and L16 also under-recover, alongside worse reconstruction (FVU 0.336 and 0.538). L4 is the main observation of strong state reconstruction with reduced intervention-effect recovery; the profile does not establish why the effects differ.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Uncentered SVD projection comparison</div>
+      <p>At layer 4, the uncentered SVD projection comparison gives a mean effect of 0.829, versus raw 0.815 and SAE delta patching 0.506. At layer 8, the corresponding values are 0.688, 0.931 and 0.907. These are point estimates; the paired L4 projection-minus-raw contrast is +0.013 (95% CI −0.217 to +0.247), which does not establish equivalence.</p>
+      <p>The projection is fitted leave-one-pair-out on the evaluation distribution, while the SAE is frozen and trained elsewhere. The 51 fit pairs each contribute opposite donor–receiver differences, so the data rank is at most 51. The implemented SVD projection also includes numerical or null-space directions beyond that data-supported rank. It is therefore an implementation-specific comparison, not a clean comparison at equal data-determined rank. It does not isolate a cause of the SAE effect loss.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Interpretation</div>
+      <p>For mechanistic interpretability, the practical question is whether interventions based on an SAE preserve the relevant behavioral effects. Strong state-reconstruction diagnostics alone cannot answer that question.</p>
+      <p>For this controlled context-sensitive behavior, strong state reconstruction coexists with reduced mean recovery of the raw intervention effect at L4. An intervention-specific preservation test strengthens the evidence, but passing it would not by itself establish a feature-level causal explanation or the model’s natural use of that representation.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Caveats</div>
+      <p>The paired L4 SAE-minus-raw 95% interval excludes zero only narrowly, which warrants replication rather than generalization. Five of 520 rows exceed pre-specified invariance diagnostics and remain in the reported aggregates under the governed policy. Removing them in the strict-gate sensitivity analysis leaves the L4 estimate negative (−0.213), but its pair-bootstrap 95% interval [−0.465, 0.033] includes zero. Separately, the target-level sign-flip sensitivity test gives p = 0.117, versus p = 0.008 under the governed policy; this test assumes sign symmetry under the null. L8 stays closer to zero under the same gate (−0.055, target-level p = 0.666). The direction is stable; the per-layer significance claim is inclusion-policy dependent.</p>
+      <p>Evidence is limited to Gemma 3 4B PT, Gemma Scope 2 width-16k JumpReLU SAEs, and one behavior class. The archived bundle identifies the SAE source revision; it does not establish exact correspondence between the SAE training checkpoint and the patched model revision. A mismatch is not demonstrated by these provenance records.</p>
+      <p>This page summarizes the CRR result and the uncentered SVD projection comparison. The evaluation is exploratory and uses authored pairs; it does not establish generalization to unseen targets or model families.</p>
+      <p>The linked public GitHub draft uses an earlier description of the intervention and projection comparison. The account on this page incorporates the audit corrections; the code and available artifacts remain linked for provenance.</p>
+    </section>
+  </main>
+
+  <nav class="links-section">
+    <div class="section-label">Links</div>
+    <div class="links-row">
+      <a href="research.html">Research overview</a>
+      <a href="https://github.com/Sapphire-Bridge/sae-behavioral-preservation/blob/dc081ba132bb02c108413cc6bdfab6467a0acac7/paper/sae_writeback_limitation_short_paper.md" target="_blank" rel="noopener">Earlier draft on GitHub</a>
+      <a href="https://github.com/Sapphire-Bridge/sae-behavioral-preservation/tree/dc081ba132bb02c108413cc6bdfab6467a0acac7" target="_blank" rel="noopener">Code and artifacts</a>
+      <a href="index.html">Back to home</a>
+    </div>
+  </nav>
+
+  <footer>
+    <p>© 2026 Felix Borck · Frankfurt am Main</p>
+    <div class="legal-links"><a href="../impressum.html">Impressum</a><span aria-hidden="true">·</span><a href="../datenschutz.html">Datenschutz</a></div>
+  </footer>
+
+</div>
+</body>
+</html>

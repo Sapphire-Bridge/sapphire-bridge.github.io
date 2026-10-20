@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" fill="none" role="img" aria-labelledby="title"><title id="title">Same past route states; KV edited.</title>
+<rect x="1" y="1" width="358" height="278" rx="12" fill="#fff"/>
+<path d="M24 60h294M24 140h294M24 220h294M40 47v190m80-190v190m80-190v190m80-190v190" stroke="#edf0f5" stroke-width="12" stroke-linecap="round"/>
+<path d="M40 220h80v-80h80V60h80v80" stroke="#8ab5df" stroke-width="3.5" stroke-linejoin="round"/>
+<circle cx="40" cy="220" r="5" fill="#a8b2c0"/>
+<rect x="260" y="128" width="40" height="24" rx="6" fill="#e9b849" stroke="#a4812d" stroke-width="1.2"/>
+<path d="m267 128 5-8h15l6 8" fill="#f3cf7e" stroke="#a4812d" stroke-width="1.2"/>
+<path d="m274 123-3 5h17l-4-5" fill="#728da5"/>
+<circle cx="269" cy="152" r="4.5" fill="#424d5e"/><circle cx="291" cy="152" r="4.5" fill="#424d5e"/>
+<text x="280" y="181" font-family="Arial,sans-serif" font-size="16" text-anchor="middle" fill="#536174">now</text>
+<g class="location-question" aria-label="Can researchers still read the current location from the model’s internal activity?">
+<path d="M316 85h26a9 9 0 0 1 9 9v21a9 9 0 0 1-9 9h-22l-16 12 5-17a9 9 0 0 1-2-4V94a9 9 0 0 1 9-9Z" fill="#f0ecfb" stroke="#b5a4d9" stroke-width="1.5"/>
+<text x="329" y="114" text-anchor="middle" font-family="Arial,sans-serif" font-size="29" font-weight="600" fill="#7558d8">?</text>
+</g>
+<circle class="past-node" cx="120" cy="220" r="4.5" fill="#0066cc"/><path d="M120 226 137 240" stroke="#a8b2c0" stroke-width="1.2"/>
+<g class="component-marker" data-component="K" data-edited="true" data-past-node="120,220"><rect x="118" y="240" width="25" height="24" rx="5" fill="#7558d8" stroke="#6447b8"/><text x="130.5" y="258" text-anchor="middle" font-family="Arial,sans-serif" font-weight="600" font-size="18" fill="#fff">K</text></g>
+<g class="component-marker" data-component="V" data-edited="true" data-past-node="120,220"><rect x="147" y="240" width="25" height="24" rx="5" fill="#7558d8" stroke="#6447b8"/><text x="159.5" y="258" text-anchor="middle" font-family="Arial,sans-serif" font-weight="600" font-size="18" fill="#fff">V</text></g>
+<circle class="past-node" cx="120" cy="140" r="4.5" fill="#0066cc"/><path d="M117 145 100 157" stroke="#a8b2c0" stroke-width="1.2"/>
+<g class="component-marker" data-component="K" data-edited="true" data-past-node="120,140"><rect x="54" y="157" width="25" height="24" rx="5" fill="#7558d8" stroke="#6447b8"/><text x="66.5" y="175" text-anchor="middle" font-family="Arial,sans-serif" font-weight="600" font-size="18" fill="#fff">K</text></g>
+<g class="component-marker" data-component="V" data-edited="true" data-past-node="120,140"><rect x="83" y="157" width="25" height="24" rx="5" fill="#7558d8" stroke="#6447b8"/><text x="95.5" y="175" text-anchor="middle" font-family="Arial,sans-serif" font-weight="600" font-size="18" fill="#fff">V</text></g>
+<circle class="past-node" cx="200" cy="140" r="4.5" fill="#0066cc"/><path d="M200 146 209 168" stroke="#a8b2c0" stroke-width="1.2"/>
+<g class="component-marker" data-component="K" data-edited="true" data-past-node="200,140"><rect x="184" y="168" width="25" height="24" rx="5" fill="#7558d8" stroke="#6447b8"/><text x="196.5" y="186" text-anchor="middle" font-family="Arial,sans-serif" font-weight="600" font-size="18" fill="#fff">K</text></g>
+<g class="component-marker" data-component="V" data-edited="true" data-past-node="200,140"><rect x="213" y="168" width="25" height="24" rx="5" fill="#7558d8" stroke="#6447b8"/><text x="225.5" y="186" text-anchor="middle" font-family="Arial,sans-serif" font-weight="600" font-size="18" fill="#fff">V</text></g>
+<circle class="past-node" cx="200" cy="60" r="4.5" fill="#0066cc"/><path d="M195 55 178 44" stroke="#a8b2c0" stroke-width="1.2"/>
+<g class="component-marker" data-component="K" data-edited="true" data-past-node="200,60"><rect x="137" y="20" width="25" height="24" rx="5" fill="#7558d8" stroke="#6447b8"/><text x="149.5" y="38" text-anchor="middle" font-family="Arial,sans-serif" font-weight="600" font-size="18" fill="#fff">K</text></g>
+<g class="component-marker" data-component="V" data-edited="true" data-past-node="200,60"><rect x="166" y="20" width="25" height="24" rx="5" fill="#7558d8" stroke="#6447b8"/><text x="178.5" y="38" text-anchor="middle" font-family="Arial,sans-serif" font-weight="600" font-size="18" fill="#fff">V</text></g>
+<circle class="past-node" cx="280" cy="60" r="4.5" fill="#0066cc"/><path d="M283 55 300 44" stroke="#a8b2c0" stroke-width="1.2"/>
+<g class="component-marker" data-component="K" data-edited="true" data-past-node="280,60"><rect x="279" y="20" width="25" height="24" rx="5" fill="#7558d8" stroke="#6447b8"/><text x="291.5" y="38" text-anchor="middle" font-family="Arial,sans-serif" font-weight="600" font-size="18" fill="#fff">K</text></g>
+<g class="component-marker" data-component="V" data-edited="true" data-past-node="280,60"><rect x="308" y="20" width="25" height="24" rx="5" fill="#7558d8" stroke="#6447b8"/><text x="320.5" y="38" text-anchor="middle" font-family="Arial,sans-serif" font-weight="600" font-size="18" fill="#fff">V</text></g>
+</svg>

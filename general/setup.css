@@ -1,0 +1,140 @@
+/* The optional hands-on section stays separate from the existing essay. */
+.setup-kit { max-width: 760px; margin: 100px auto 0; }
+.setup-kit [hidden] { display: none !important; }
+.setup-heading { text-align: center; }
+.setup-heading h2 { margin: 0; font-size: clamp(34px, 4.5vw, 48px); line-height: 1.08; letter-spacing: -.04em; font-weight: 500; }
+.setup-subtitle { margin: 22px 0 0; color: #6e6e73; font-size: 16px; line-height: 1.55; }
+.setup-figure { margin: 46px auto 34px; }
+.recurring-example { margin: 0 0 24px; text-align: center; font-size: 16px; line-height: 1.6; color: #6e6e73; }
+.recurring-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.recurring-panel { min-width: 0; padding: 22px 0; border: 1px solid #dde4e9; border-radius: 14px; background: #f8fafb; }
+.recurring-panel h3 { margin: 0 20px 10px; font-size: 20px; font-weight: 500; line-height: 1.3; letter-spacing: -.02em; }
+.recurring-panel p { margin: 0 20px; font-size: 15px; line-height: 1.6; color: #626970; }
+.recurring-panel img { display: block; width: 100%; height: auto; margin: 14px 0; }
+.recurring-figure figcaption { margin-top: 24px; text-align: center; font-size: 17px; line-height: 1.5; color: #424245; }
+.recurring-figure .figure-note { display: block; margin-top: 10px; font-size: 13px; line-height: 1.6; color: #6e6e73; }
+.setup-explanation { font-size: 18px; }
+.setup-comparison { margin: 36px auto 0; border-top: 1px solid #dcdce0; border-bottom: 1px solid #dcdce0; }
+.setup-comparison > summary { padding: 23px 0; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; font-size: 19px; letter-spacing: -.02em; }
+.setup-comparison > summary::-webkit-details-marker { display: none; }
+.setup-comparison[open] .expand-icon { transform: rotate(45deg); }
+.comparison-body { padding: 0 0 28px; }
+.setup-instruction { color: #424245; font-size: 15px; line-height: 1.65; }
+.prompt-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin: 25px 0; }
+.prompt-panel { min-width: 0; }
+.prompt-panel label { display: flex; align-items: center; gap: 9px; min-height: 42px; margin-bottom: 12px; font-size: 14px; line-height: 1.5; color: #424245; }
+.prompt-number { color: #28638f; font-size: 13px; }
+.prompt-text { box-sizing: border-box; display: block; width: 100%; padding: 16px; border: 1px solid #dcdce0; border-radius: 10px; background: #fafbfc; color: #424245; font: inherit; font-size: 14px; line-height: 1.65; resize: vertical; overflow-wrap: anywhere; }
+.prompt-panel .prompt-text { height: 310px; }
+.copy-button, .platform-choices button { font: inherit; font-size: 14px; line-height: 1.4; cursor: pointer; min-height: 44px; }
+.copy-button { padding: 10px 17px; border: 1px solid #c4cbd0; border-radius: 8px; color: #1d1d1f; background: #fff; }
+.prompt-panel .copy-button { margin-top: 12px; }
+.copy-button:hover { background: #f4f6f7; }
+.comparison-question { margin: 20px 0 10px; font-size: 17px; line-height: 1.5; }
+.setup-note { color: #6e6e73; font-size: 13px; line-height: 1.6; }
+.personal-interview { max-width: 640px; margin: 48px auto 0; }
+.personal-interview h3 { margin: 0 0 14px; font-size: 28px; font-weight: 500; letter-spacing: -.03em; line-height: 1.2; }
+.interview-intro { margin: 0; color: #424245; font-size: 17px; line-height: 1.65; }
+.interview-time { margin: 12px 0 22px; }
+.platform-choices { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+.platform-choices button { padding: 10px 21px; background: #fff; border: 1px solid #c4cbd0; border-radius: 999px; color: #424245; }
+.platform-choices button[aria-pressed="true"] { border-color: #28638f; background: #edf4f9; color: #21567e; }
+.platform-choices button:hover { border-color: #28638f; }
+.interview-actions { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; margin: 20px 0 14px; }
+.primary-copy { background: #28638f; color: #fff; border-color: #28638f; }
+.primary-copy:hover { background: #21567e; }
+.open-service { color: #1d1d1f; font-size: 14px; line-height: 1.5; text-decoration: none; padding: 12px 0; }
+.open-service span { color: #6e6e73; margin-left: 4px; }
+.open-service:hover { text-decoration: underline; text-underline-offset: 4px; }
+.interview-text, .setup-aftercare { margin-top: 19px; color: #526b7a; font-size: 14px; line-height: 1.65; }
+.interview-text > summary, .setup-aftercare > summary { cursor: pointer; padding: 8px 0; }
+.interview-text .prompt-text { margin-top: 12px; }
+.setup-aftercare p { color: #424245; margin: 12px 0; }
+.setup-aftercare a { color: #28638f; text-underline-offset: 3px; }
+.copy-status { max-width: 640px; margin: 12px auto 0; }
+.copy-status:empty { margin: 0; }
+.setup-kit button:focus-visible, .setup-kit textarea:focus-visible { outline: 2px solid #0066cc; outline-offset: 4px; }
+@media (max-width: 600px) {
+  .setup-kit { margin-top: 68px; }
+  .setup-subtitle { max-width: 260px; margin: 18px auto 0; font-size: 15px; }
+  .setup-figure { margin-top: 34px; }
+  .recurring-panels { grid-template-columns: 1fr; }
+  .recurring-example { font-size: 15px; }
+  .setup-explanation { font-size: 17px; }
+  .setup-comparison > summary { font-size: 18px; }
+  .prompt-pair { grid-template-columns: 1fr; gap: 24px; }
+  .prompt-panel .prompt-text { height: 450px; font-size: 16px; }
+  .prompt-panel:first-child .prompt-text { height: 110px; }
+  .prompt-panel label { min-height: 0; }
+  .personal-interview { margin-top: 38px; }
+  .personal-interview h3 { font-size: 25px; }
+  .platform-choices { gap: 8px; }
+  .platform-choices button { padding-inline: 16px; }
+  .interview-actions { gap: 5px 16px; }
+  .interview-text .prompt-text { font-size: 16px; }
+}
+@media (max-width: 360px) {
+  .setup-heading h2 { font-size: 32px; }
+}
+
+/* One primary route. Saving preferences and contacting Felix are secondary. */
+.setup-path { list-style: none; margin: 0; padding: 0; }
+.setup-path > li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 16px; padding: 0 0 34px; }
+.setup-path > li:last-child { padding-bottom: 0; }
+.path-number { display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid #cbd8e2; border-radius: 50%; color: #28638f; font-size: 14px; }
+.setup-path h3 { margin: 2px 0 11px; font-size: 23px; }
+.setup-path p { margin: 0 0 17px; color: #424245; font-size: 16px; line-height: 1.65; }
+.setup-path .path-check { color: #526b7a; font-size: 15px; margin-bottom: 0; }
+.service-links { display: flex; gap: 7px 22px; flex-wrap: wrap; }
+.service-links a { padding: 6px 0; color: #28638f; text-decoration: none; font-size: 14px; line-height: 1.5; }
+.service-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.settings-guide { margin-top: 36px; border-top: 1px solid #dcdce0; border-bottom: 1px solid #dcdce0; }
+.settings-guide > summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 0; font-size: 19px; letter-spacing: -.02em; color: #1d1d1f; list-style: none; }
+.settings-guide > summary::-webkit-details-marker { display: none; }
+.settings-guide[open] > summary .expand-icon { transform: rotate(45deg); }
+.settings-content { padding-bottom: 26px; }
+.settings-content > p { margin: 0 0 25px; font-size: 16px; }
+.platform-guide h4 { margin: 0 0 18px; font-size: 17px; font-weight: 500; color: #1d1d1f; }
+.settings-map { margin: 0; }
+.settings-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
+.settings-steps li { min-width: 0; min-height: 152px; padding: 18px; border: 1px solid #d9e1e6; border-radius: 10px; background: #fafbfc; }
+.setting-number { display: block; color: #28638f; font-size: 12px; margin-bottom: 18px; }
+.setting-label { display: block; color: #1d1d1f; font-size: 16px; line-height: 1.5; overflow-wrap: anywhere; }
+.setting-en { display: block; color: #6e6e73; font-size: 12px; line-height: 1.5; margin-top: 9px; }
+.setting-paste { display: block; color: #28638f; border-left: 2px solid #83a8c4; margin-top: 13px; padding-left: 10px; font-size: 13px; line-height: 1.6; }
+.settings-map figcaption { margin: 16px 0 14px; color: #6e6e73; font-size: 12px; line-height: 1.6; }
+.guide-source { font-size: 13px; }
+.platform-guide + .platform-guide { margin-top: 28px; }
+.setup-comparison { margin-top: 36px; }
+.setup-comparison + .settings-guide { margin-top: 0; border-top: 0; }
+.prompt-panel h3 { margin: 0 0 12px; font-size: 17px; font-weight: 500; line-height: 1.45; }
+.prompt-panel p, .comparison-checks { color: #424245; font-size: 15px; line-height: 1.65; }
+.prompt-panel p { margin: 0; }
+.comparison-checks { padding-left: 22px; }
+.comparison-checks li + li { margin-top: 8px; }
+.setup-contact { max-width: 640px; margin: 95px auto 0; }
+.setup-contact h2 { margin: 0 0 19px; font-size: 33px; line-height: 1.15; letter-spacing: -.035em; font-weight: 500; }
+.setup-contact > p:not(.eyebrow) { color: #424245; font-size: 17px; line-height: 1.6; margin: 0 0 26px; }
+.contact-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+.setup-contact label { display: block; font-size: 14px; line-height: 1.5; margin-bottom: 8px; }
+.setup-contact label span { color: #6e6e73; }
+.setup-contact input, .setup-contact textarea { box-sizing: border-box; width: 100%; padding: 12px 14px; color: #1d1d1f; font: inherit; font-size: 16px; line-height: 1.5; background: #fff; border: 1px solid #c4cbd0; border-radius: 8px; }
+.setup-contact textarea { resize: vertical; margin-bottom: 18px; }
+.setup-contact input:focus-visible, .setup-contact textarea:focus-visible, .setup-contact button:focus-visible { outline: 2px solid #0066cc; outline-offset: 4px; }
+.setup-contact button:disabled { opacity: .55; cursor: default; }
+.setup-contact .setup-note { margin: 12px 0 0; }
+@media (max-width: 600px) {
+  .setup-path > li { grid-template-columns: 28px minmax(0,1fr); gap: 12px; padding-bottom: 30px; }
+  .path-number { width: 26px; height: 26px; font-size: 12px; }
+  .setup-path h3 { font-size: 21px; }
+  .setup-path p { font-size: 16px; }
+  .setup-path .interview-text .prompt-text { min-width: 0; }
+  .settings-guide > summary { font-size: 18px; }
+  .settings-steps { grid-template-columns: 1fr; gap: 10px; }
+  .settings-steps li { min-height: 0; padding: 16px; }
+  .setting-number { margin-bottom: 8px; }
+  .platform-choices button { padding-inline: 14px; }
+  .setup-contact { margin-top: 64px; }
+  .setup-contact h2 { font-size: 28px; }
+  .contact-fields { grid-template-columns: 1fr; gap: 18px; }
+}

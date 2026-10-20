@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Method applied to TaxiGPT: test additional predictions to rule out inadequate accounts and limit claims to have explained an intervention’s effect.">
+  <title>Method applied to TaxiGPT · Sapphire Bridge</title>
+  <link rel="icon" type="image/png" href="../assets/sapphire-bridge-mark.png">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../causal-parrots/causal-parrots.css">
+  <link rel="stylesheet" href="taxigpt-v2.css">
+  <script src="../config.js" defer></script>
+  <script src="../app.js" defer></script>
+</head>
+<body class="parrots-page taxi-v2-page">
+  <header class="nav-shell">
+    <nav class="nav" aria-label="Primary navigation">
+      <div class="nav-brand">
+        <a class="site-return" href="../../" aria-label="Back to Felix Borck’s homepage">← Felix Borck</a>
+        <a class="wordmark" href="../" aria-label="Sapphire Bridge causal decidability home"><img src="../assets/sapphire-bridge-mark.png" alt=""><span>Sapphire Bridge</span></a>
+      </div>
+      <div class="nav-links"><a href="../method/">Method</a><a href="../#evidence">Evidence</a><a href="../use-cases/">Use cases</a><a href="../#programme">Programme</a></div>
+      <a class="nav-cta" href="../taxigpt/">Historical presentation (v1)</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="parrots-hero section-pad" aria-labelledby="page-title">
+      <p class="parrots-overline">Sapphire Bridge · TaxiGPT case study</p>
+      <h1 id="page-title">Method applied<br>to <span>TaxiGPT.</span></h1>
+      <p class="parrots-hero-copy"><strong>An effect is not yet an explanation.</strong> We test what proposed explanations predict, then narrow what the evidence supports. Our local follow-up to <a href="https://arxiv.org/html/2609.21748v1#A3.SS1" target="_blank" rel="noreferrer">Beckmann, Queloz &amp; Freitas (2026)</a> rules out four simple response rules for one joint K/V edit; the localization mechanism remains open.</p>
+      <a class="parrots-jump" href="#case-study">Explore the case <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section class="parrots-story section-pad" id="case-study" aria-labelledby="story-title">
+      <div class="parrots-heading">
+        <p class="section-label">The experiment in one picture</p>
+        <h2 id="story-title">The joint edit shows an effect.<br>What would explain it?</h2>
+      </div>
+      <figure class="parrots-scene" aria-labelledby="story-title" aria-describedby="readout-question scene-caption">
+        <div class="taxi-v2-route-experiment">
+          <div class="taxi-v2-readout-question" aria-labelledby="readout-question">
+            <span class="taxi-v2-question-mark" aria-hidden="true">?</span>
+            <div>
+              <p class="taxi-v2-question-label">The question after each edit</p>
+              <h3 id="readout-question">Can researchers still read the taxi’s current location from the model’s internal activity?</h3>
+              <p class="taxi-v2-question-context">TaxiGPT is a transformer trained on random walks through Manhattan’s street network. It uses attention to read earlier states.</p>
+            </div>
+          </div>
+          <div class="taxi-v2-role-key">
+            <p><strong>K</strong> <span>· <b>Keys:</b> Help determine which earlier states the model reads.</span></p>
+            <p><strong>V</strong> <span>· <b>Values:</b> Supply what is read from those states.</span></p>
+          </div>
+          <div class="taxi-v2-route-panels" aria-label="Three identical route schematics; only the edited component changes">
+            <div class="taxi-v2-route-panel" data-arm="KV"><span class="taxi-v2-test-origin">Published test · Beckmann et al.</span><h3>Edit both</h3><p>K and V change at the earlier steps</p><img src="assets/route-joint.svg" alt="K and V highlighted at the same five past route states. A question mark beside the taxi asks whether researchers can still read the current location from the model’s internal activity." width="360" height="280"></div>
+            <div class="taxi-v2-route-panel" data-arm="K"><span class="taxi-v2-test-origin is-added">Our added test</span><h3>Edit K only</h3><p>Same steps; V stays unchanged</p><img src="assets/route-k-only.svg" alt="Only K highlighted at the same five past route states; V remains outlined. The question mark asks whether researchers can still read the current location from the model’s internal activity." width="360" height="280"></div>
+            <div class="taxi-v2-route-panel" data-arm="V"><span class="taxi-v2-test-origin is-added">Our added test</span><h3>Edit V only</h3><p>Same steps; K stays unchanged</p><img src="assets/route-v-only.svg" alt="Only V highlighted at the same five past route states; K remains outlined. The question mark asks whether researchers can still read the current location from the model’s internal activity." width="360" height="280"></div>
+          </div>
+          <div class="taxi-v2-map-key"><span><i class="taxi-v2-filled" aria-hidden="true"></i>Filled tag: edited</span><span><i class="taxi-v2-outline" aria-hidden="true"></i>Outlined tag: unchanged</span><span>Earlier steps … shown in compressed form</span></div>
+        </div>
+        <figcaption id="scene-caption"><strong>Illustrative, not an observed case.</strong> The “?” marks our location-readout question, not an observed failure on this route. We read internal model activity, not driving performance. The route is shortened for the drawing; the current step stays unedited.</figcaption>
+      </figure>
+
+      <aside class="taxi-v2-architecture-note" aria-labelledby="architecture-note-title">
+        <h3 id="architecture-note-title">The joint result leaves four readings open.</h3>
+        <p>Editing K and V together makes the taxi’s current location harder to read from internal activity. The drop alone does not tell us whether K accounts for it, V does, both edits are needed, or either edit is enough.</p>
+        <p>Changing K can change how unchanged V is read: queries and keys jointly determine how values are weighted. That possibility alone does not explain the measured pattern.</p>
+      </aside>
+
+      <div class="taxi-v2-readings" aria-labelledby="readings-title">
+        <h3 id="readings-title">What the single edits rule out</h3>
+        <p class="taxi-v2-readings-intro">These are our four simple rules for this edit. All allow the drop after editing K and V together. The single edits test their additional predictions.</p>
+        <div class="parrots-table-wrap">
+          <table class="taxi-v2-reading-table">
+            <caption class="parrots-sr-only">Four rules compatible with the joint effect, their single-edit predictions and the observed counterevidence.</caption>
+            <thead><tr><th scope="col">Possible reading</th><th scope="col">What it would predict</th><th scope="col">What our single edits show</th></tr></thead>
+            <tbody>
+              <tr data-reading="K_only">
+                <th scope="row">Only the K edit matters.</th>
+                <td data-label="Prediction">V-only should leave the readout’s right/wrong result unchanged.</td>
+                <td data-label="Our observation"><strong>V-only changes that result.</strong><span class="taxi-v2-counter-count"><span data-count="V_ne_U">387</span> of 512 routes</span><small><span data-rate="V_ne_U">75.59%</span> · <span data-ci="V_ne_U">[70.06%, 80.57%]</span></small></td>
+              </tr>
+              <tr data-reading="V_only">
+                <th scope="row">Only the V edit matters.</th>
+                <td data-label="Prediction">K-only should leave the readout’s right/wrong result unchanged.</td>
+                <td data-label="Our observation"><strong>K-only changes that result.</strong><span class="taxi-v2-counter-count"><span data-count="K_ne_U">264</span> of 512 routes</span><small><span data-rate="K_ne_U">51.56%</span> · <span data-ci="K_ne_U">[45.46%, 57.64%]</span></small></td>
+              </tr>
+              <tr data-reading="joint_required">
+                <th scope="row">Both edits are needed.</th>
+                <td data-label="Prediction">Neither single edit should change the right/wrong result.</td>
+                <td data-label="Our observation"><strong>K-only already changes it.</strong><span class="taxi-v2-counter-count"><span data-count="K_ne_U">264</span> of 512 routes</span><small><span data-rate="K_ne_U">51.56%</span> · <span data-ci="K_ne_U">[45.46%, 57.64%]</span></small></td>
+              </tr>
+              <tr data-reading="either_sufficient">
+                <th scope="row">Either edit is enough.</th>
+                <td data-label="Prediction">Each single edit should match the joint edit’s right/wrong pattern.</td>
+                <td data-label="Our observation"><strong>K-only differs from the joint edit.</strong><span class="taxi-v2-counter-count"><span data-count="K_ne_KV">190</span> of 512 routes</span><small><span data-rate="K_ne_KV">37.11%</span> · <span data-ci="K_ne_KV">[31.35%, 43.14%]</span></small></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="taxi-v2-reading-note">We compare <strong>correct versus incorrect location readouts on each route</strong>. Every discrepancy above exceeds our fixed 10% tolerance, even at the lower end of its simultaneous uncertainty interval. The brackets show those intervals.</p>
+      </div>
+
+      <div class="parrots-verdict">
+        <h3>The added tests limit the explanation.</h3>
+        <p>All four rules allow the joint result. None fits the added tests within the fixed tolerance. We can therefore rule out these four simple accounts of the edit’s effect. <strong>That narrows what we can claim to have explained; it does not identify the localization mechanism.</strong></p>
+      </div>
+
+      <div class="parrots-message taxi-v2-paper-note">
+        <h3>The original paper<br>and this follow-up</h3>
+        <div>
+          <p><strong>The authors already show that past positions support localization.</strong> Their evidence includes look-back windows, controls, <a href="https://arxiv.org/html/2609.21748v1#A5.SS3" target="_blank" rel="noreferrer">recovery after errors</a> and <a href="https://arxiv.org/html/2609.21748v1#A1.SS2" target="_blank" rel="noreferrer">position edits that change the next predicted move</a>.</p>
+          <p><strong>Our follow-up splits one joint edit.</strong> The authors did not propose these four rules. Their exclusion does not refute the paper’s look-back account. Whether V-only matches the joint edit within the 10% tolerance remains unresolved.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="parrots-results section-pad" aria-labelledby="results-title">
+      <div class="parrots-heading">
+        <p class="section-label">The results</p>
+        <h2 id="results-title">How much did the<br>location readout change?</h2>
+      </div>
+      <p class="parrots-section-intro">All numbers below come from our follow-up, using locally rebuilt readouts. We reran the published joint edit locally. After development on 64 routes, we tested the unchanged rules on 512 fresh held-out routes, with the same 10% disagreement tolerance.</p>
+      <div class="taxi-v2-accuracy" aria-label="Correct current-location decoding by condition">
+        <article><h3>Unedited</h3><strong data-accuracy="U">100%</strong><small>512 / 512 routes</small></article>
+        <article><h3>Edit K + V</h3><strong data-accuracy="KV">15.6%</strong><small>80 / 512 routes</small></article>
+        <article><h3>Edit K only</h3><strong data-accuracy="K">48.4%</strong><small>248 / 512 routes</small></article>
+        <article><h3>Edit V only</h3><strong data-accuracy="V">24.4%</strong><small>125 / 512 routes</small></article>
+        <article><h3>Random control</h3><strong data-accuracy="R">99.8%</strong><small>511 / 512 routes</small></article>
+      </div>
+      <p class="parrots-metric">The random-subspace control leaves decoding almost intact. These are local follow-up measurements, not the paper’s original numbers.</p>
+
+      <p class="parrots-uncertainty">Still unresolved: editing V versus editing both gives <span data-rate="V_ne_KV">10.74%</span> mismatch, interval <span data-ci="V_ne_KV">[7.34%, 14.98%]</span>. The interval crosses 10%. The rule “Only the V edit matters” fails on its other prediction: editing K should preserve correctness.</p>
+
+      <details class="taxi-v2-predictions taxi-v2-exact-rules">
+        <summary>See the exact rule predictions</summary>
+        <h3 id="prediction-title">All four rules predict the same result when both are edited.</h3>
+        <p>Each rule predicts whether a single edit should match the joint edit or no edit, route by route. Only the added columns make them disagree.</p>
+        <div class="parrots-table-wrap">
+          <table class="taxi-v2-prediction-table">
+            <caption class="parrots-sr-only">All four rules share the joint result. Their predictions for editing K alone or V alone differ.</caption>
+            <thead><tr><th scope="col">Rule</th><th scope="col">Edit both<small>Published test</small></th><th scope="col">Edit K only<small>Our added test</small></th><th scope="col">Edit V only<small>Our added test</small></th></tr></thead>
+            <tbody>
+              <tr data-rule="K_only"><th scope="row">Only the K edit matters.</th><td data-label="Edit both"><span class="taxi-v2-joint">Like editing both</span></td><td data-label="Edit K only"><span class="taxi-v2-joint">Like editing both</span></td><td data-label="Edit V only"><span class="taxi-v2-unedited">Like no edit</span></td></tr>
+              <tr data-rule="V_only"><th scope="row">Only the V edit matters.</th><td data-label="Edit both"><span class="taxi-v2-joint">Like editing both</span></td><td data-label="Edit K only"><span class="taxi-v2-unedited">Like no edit</span></td><td data-label="Edit V only"><span class="taxi-v2-joint">Like editing both</span></td></tr>
+              <tr data-rule="joint_required"><th scope="row">Both edits are needed.</th><td data-label="Edit both"><span class="taxi-v2-joint">Like editing both</span></td><td data-label="Edit K only"><span class="taxi-v2-unedited">Like no edit</span></td><td data-label="Edit V only"><span class="taxi-v2-unedited">Like no edit</span></td></tr>
+              <tr data-rule="either_sufficient"><th scope="row">Either edit is enough.</th><td data-label="Edit both"><span class="taxi-v2-joint">Like editing both</span></td><td data-label="Edit K only"><span class="taxi-v2-joint">Like editing both</span></td><td data-label="Edit V only"><span class="taxi-v2-joint">Like editing both</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="taxi-v2-table-note">“Like” means the same right-or-wrong decoding result on each route, not the same exact decoded place.</p>
+      </details>
+
+      <details class="parrots-graph taxi-v2-technical">
+        <summary>Exactly which states were edited?</summary>
+        <p>Every condition targets the same earlier move tokens: sequence positions 2 through t−2, where t is the number of input tokens. The origin, goal and final move are excluded. At blocks 1–17, the position-subspace component is replaced with the average component for that move, preserving the orthogonal component.</p>
+        <p>Edited keys and values are computed from the same changed historical states. Editing both uses both changed components; editing K alone retains clean V, and editing V alone retains clean K. Historical residual states stay fixed: the edit is not propagated through earlier tokens. Only the final token is rerun, with its original input and position; its queries and later activations recompute naturally. Current-intersection correctness is read at layer 18.</p>
+        <p>This compares components at shared positions. It does not independently vary prefix length or absolute token position. <a href="INTERVENTION_NOTES.md">Read the configuration and code check →</a></p>
+      </details>
+    </section>
+
+    <section class="parrots-sources-section section-pad" aria-label="Scope and sources">
+      <details class="taxi-v2-polyphony">
+        <summary>Does this support the polyphony argument?</summary>
+        <p><strong>Two affected components do not establish polyphony.</strong> In <em>A Polyphonic Conception of AI Understanding</em>, Queloz and Beckmann distinguish circuitry being present from its being correctly recruited and controlling an output. Their TaxiGPT example already draws on the original findings.</p>
+        <p>Our K/V split does not distinguish polyphonic organisation from a single, more complex computation. It identifies no alternative circuits or compensating pathways and does not measure control over the next move. The connection is methodological: intervention evidence can constrain an explanation without establishing how many mechanisms produce it. <a href="https://arxiv.org/abs/2609.36079v1" target="_blank" rel="noreferrer">Manuscript, §§4.2–4.4 ↗</a></p>
+      </details>
+      <details class="taxi-v2-scope">
+        <summary>Scope, decision criteria &amp; sources</summary>
+        <div class="parrots-source-grid">
+          <div>
+            <h3>What was measured</h3>
+            <p>GPT-2 XL TaxiGPT random-walk checkpoint, 48 blocks, FP32 eager attention. Layer-18 nearest-centroid decoding of the current intersection at the final move of complete 27–34-move routes, all at their goal. The sample contains 512 routes drawn without replacement from 76,135 eligible deduplicated held-out routes. Results concern this checkpoint, map, fitted readout and intervention.</p>
+          </div>
+          <div>
+            <h3>What “ruled out” means</h3>
+            <p>Each rule must match both single-edit conditions within 10% paired correctness disagreement. At least one simultaneous lower bound above 10% excludes a rule. Eight exact hypergeometric intervals use a Bonferroni-shared 5% error budget. Baseline, full-effect, random-subspace and technical gates passed. Editing V versus editing both remains unresolved relative to the 10% threshold.</p>
+          </div>
+          <div>
+            <h3>What remains open</h3>
+            <p>The intervention compares K and V at the same past move-token positions. It does not establish exclusive semantic roles for either component. Prefix length and absolute token position were not independently varied in a controlled comparison; their contributions remain open. Centroids were rebuilt locally from 4,000 training routes, so this is not an exact numerical replication of the authors’ frozen centroid results. The four rules are operational responses, not all possible mechanisms. The result does not establish navigation ability, a unique natural computation, the absence of a map representation, or general superiority of the method.</p>
+          </div>
+          <div>
+            <h3>Trace the evidence</h3>
+            <p>Primary case: v0.4 confirmation. Canonical result: <code>science_v04/results/confirmation.json</code>; SHA256 <code>82c5f9387ce0fecf48e0ffff1aef4c52b0e997dad0ee954d6ccc74b15e40cb52</code>. <a href="https://arxiv.org/html/2609.21748v1#A3.SS1" target="_blank" rel="noreferrer">Beckmann, Queloz &amp; Freitas · World Modeling in Transformers, §2.2 / C.1 ↗</a><br><a href="../taxigpt/evidence.json">Numerical evidence snapshot</a> · <a href="../taxigpt/EVIDENCE.md">Provenance and interpretation notes</a> · <a href="INTERVENTION_NOTES.md">Same-position K/V intervention check</a>. No new model runs, fits or case selection were performed for this page.</p>
+            <p>The downloadable snapshot contains aggregate results and provenance; the route-level measurements and verification code for this follow-up are not included in this website release.</p>
+          </div>
+        </div>
+      </details>
+      <div class="parrots-links"><a href="../#evidence">← Back to the evidence portfolio</a><a href="../taxigpt/">Read the historical presentation (v1) →</a></div>
+    </section>
+  </main>
+
+  <footer class="footer section-pad"><div class="footer-mark"><img src="../assets/sapphire-bridge-mark.png" alt=""><span>Sapphire Bridge</span></div><p>Testing what interpretability evidence establishes</p><p class="footer-right">A research programme by Felix Borck · 2026</p><nav class="footer-legal" aria-label="Rechtliches" lang="de"><a href="../../impressum.html">Impressum</a><span aria-hidden="true">·</span><a href="../../datenschutz.html">Datenschutz</a></nav>
+  </footer>
+</body>
+</html>

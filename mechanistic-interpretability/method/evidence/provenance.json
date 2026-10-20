@@ -1,0 +1,32 @@
+{
+  "source_sha256": {
+    "runs/single-donor-d1-execution-20261014/records.jsonl": "a1ec90238b15175c7c0475472a653dd497717615d80ebddb32fbcf742e4c9477",
+    "runs/single-donor-d1-execution-20261014/raw_manifest.json": "5b7c92a86f6b83d633e7c3b93a45e66480b5fdb1642c473dcb81718dbe514079",
+    "runs/single-donor-d1-execution-20261014/report.json": "105916862ff09c70073b1a43d45215e875ee58b62e17b87364428123fe2de3cc",
+    "runs/single-donor-d1-execution-20261014/provenance.json": "2710db386440f85de6b719bf088beaad67782e3a45fea90c6a12666c92543200",
+    "runs/single-donor-d0-gate-v2-execution-20261014/report.json": "4835955a96f087fa0fb8a741721d0d6c9d8e95cd21df4086709845ff78a5163a",
+    "runs/single-donor-d1-review-20261014/REPORT.md": "8cb761cbcd2324ca7b6147dfdcbeec01b9240376e12ad267dc56e2a303393a0d",
+    "runs/single-donor-d1-review-20261014/replay.json": "f94e9ac75ea1deac728895ccde48457eab7026a05f1091c45e451f116705ec48",
+    "runs/single-donor-d1-review-20261014/independent_recalculation.json": "08f9a26de4bad47bd01d7bd435117951e4e3c3fc4dd8c234e1f726f874fe0ac1",
+    "runs/section7-1-development-execution-20261013/report.json": "28805d3cd10e741600ea432438910560b2d82b8e17fff703351cfa2f010b6301",
+    "runs/section7-1-revision-execution-20261014/report.json": "bbb4b2909972119c4dd92500af3de08012e849e8b54a8d19f03be24ecaa37487",
+    "runs/section7-1-review-20261013/REPORT.md": "c701f01a61c07a8ab54a4996d69d27d1c8520179fa409e803639dac723698238",
+    "runs/section7-1-revision-review-20261014/REPORT.md": "340373b1fd461e14fbeebc7c10a7bf398201592d790137b40e3f737cac8c9726",
+    "docs/plans/single_donor_20261014/history/v1/PLAN_ENTWURF.md": "132945dacc3d707ef3dedfb443daedf2b80a4e02275e20b7f8dc11dc688a523b",
+    "docs/plans/single_donor_20261014/REVISION_2.md": "7699dd74944ef14970de2a5766fd0d3c4de2fdf570344f220eb05a6298985abd",
+    "runs/e1f1-bos-v2-development-20261012/bos_report.md": "e2f75341c4f93b3110624a8ff800d01438ea5c66eab2d5a0ffd9fa0b7f5bb48f",
+    "docs/plans/single_donor_20261014/D0_VERTRAG_V2.md": "38fe1d9b2d5da17b06c3effa9203feae404fd4800b5b14ffd61b248ab44f0242",
+    "runs/single-donor-d0-gate-v2-review-20261014/replay.json": "1e6da336eb6281dec9ba1cbe5b3ee851deef6a30407c152732d7275024fa3e8a",
+    "runs/single-donor-d0-gate-v2-review-20261014/independent_recalculation.json": "00922fc271abaa9b1e7a2575cff6ca107a2989acba473724a33544a27c2ebd45"
+  },
+  "repository_head_before_analysis": "453771a1b76487f59f36c796c69b8d1dd483cfa2",
+  "python": "3.11.15",
+  "numpy": "1.26.4",
+  "matplotlib": "3.9.2",
+  "platform": "macOS-15.7.3-arm64-arm-64bit",
+  "analysis_sha256": "e6c620d18b992352ff3cea89b297cbf416c5d688fcb6bfc432105f2f764532d2",
+  "protocol_sha256": "cb772df446545989d2cb3d71aa53fd6e55a021d26644a1b0b3e62601350dd062",
+  "command": "scripts/python_model.sh docs/analyses/gemma_comparison_20261015/analyze.py",
+  "scope": "CPU only; records and reports; no model or producer imports; historical NPZ audit reused, not rerun",
+  "source_hashes_unchanged": true
+}

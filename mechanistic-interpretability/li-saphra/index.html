@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A measured follow-up to Li, Saphra et al.: two successive tests narrow what an attention replacement explains, with the limits kept in view.">
+  <title>Different occurrences matter · Sapphire Bridge</title>
+  <link rel="icon" type="image/png" href="../assets/sapphire-bridge-mark.png">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../research-stories.css">
+  <link rel="stylesheet" href="li-saphra.css">
+</head>
+<body class="story-page saphra-page">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="nav-shell"><nav class="nav" aria-label="Primary navigation">
+  <div class="nav-brand">
+        <a class="site-return" href="../../" aria-label="Back to Felix Borck’s homepage">← Felix Borck</a>
+        <a class="wordmark" href="../"><img src="../assets/sapphire-bridge-mark.png" alt=""><span>Sapphire Bridge</span></a>
+      </div>
+  <div class="nav-links"><a href="../method/">Method</a><a href="../#evidence">Evidence</a><a href="../use-cases/">Use cases</a><a href="../#programme">Programme</a></div>
+  <a class="nav-cta" href="../#evidence">← Applications</a>
+</nav></header>
+<main id="main">
+  <section class="story-hero section-pad">
+    <p class="story-eyebrow">Measured follow-up · Li, Saphra et al.</p>
+    <h1>Different occurrences<br><span>of the same bracket matter.</span></h1>
+    <p class="lead">An attention replacement changes several things at once. Two successive tests separate which changes account for its effect.</p>
+  </section>
+  <section class="chapter section-pad" aria-labelledby="separate-title">
+    <div class="saphra-inner">
+      <p class="section-label">From an effect to a more specific account</p>
+      <h2 id="separate-title">How much attention.<br>Or where it goes?</h2>
+      <figure class="saphra-scene">
+        <div class="saphra-panels">
+          <div><h3>01 · Positions or group totals?</h3><img src="../assets/research/attention-groups.svg" width="500" height="230" alt="Schematic: total attention to bracket tokens and special tokens can be held fixed while redistributing attention between bracket positions."><p>Redistribute attention between bracket positions.</p><span>165/165 qualifying families matched the account.</span></div>
+          <div><h3>02 · Which occurrence?</h3><img src="../assets/research/attention-occurrences.svg" width="500" height="230" alt="Schematic: three identical closing brackets at different positions. Changing their relative attention leaves the total on that symbol fixed."><p>Redistribute it between identical symbols.</p><span>136/136 qualifying families matched the account.</span></div>
+        </div>
+        <figcaption>Schematics of the tested changes, not measured attention weights. Each stage had its own qualifying families and prediction test.</figcaption>
+      </figure>
+      <p class="saphra-explanation"><a href="https://arxiv.org/html/2507.06445v4#S4.SS3">Li, Saphra et al.</a> show that replacing attention can improve a model’s judgement of whether brackets are correctly nested. Our follow-up separates what that replacement changes. In one tested head, redistributing attention between occurrences of the same bracket predicted the measured effect; changing symbol totals alone did not. What information those occurrences carry remains open.</p>
+    </div>
+  </section>
+  <section class="chapter soft section-pad" aria-labelledby="boundary-title">
+    <div class="saphra-inner">
+      <p class="section-label">Keep the successful case and its limits together</p>
+      <h2 id="boundary-title">A local explanation.<br>A visible boundary.</h2>
+      <figure class="cohort-scene">
+        <div class="cohort-strip" role="img" aria-label="Second-stage within-symbol account across 35 transfer tasks: 7 adequate, 21 excluded, 5 unresolved, 1 with insufficient separating cases, 1 technically invalid.">
+          <span class="adequate" style="flex:7"></span><span class="excluded" style="flex:21"></span><span class="unresolved" style="flex:5"></span><span class="insufficient" style="flex:1"></span><span class="invalid" style="flex:1"></span>
+        </div>
+        <figcaption><span><i class="adequate"></i>7 adequate</span><span><i class="excluded"></i>21 excluded</span><span><i class="unresolved"></i>5 unresolved</span><span><i class="insufficient"></i>1 too few separating cases</span><span><i class="invalid"></i>1 technical invalidity</span></figcaption>
+      </figure>
+      <p class="saphra-explanation">The illustrated head was selected after the cohort run: it was the only two-stage success among 36 tasks. Across 35 transfer tasks, stage 1 yielded 1 adequate, 33 excluded and 1 technically invalid; stage 2 yielded seven adequate. Six of those seven had the routing account excluded at stage 1. Stage 2 was the primary substantive target. Later tests excluded two more specific balance-only and position-only rules; the complete computation remains open.</p>
+      <p class="saphra-scope">The local freeze preceded execution by 7.7 seconds. After an outcome-triggered stop, an execution amendment completed the fixed cohort; predictions, cases, thresholds and multiplicity stayed unchanged. The original authors already used causal controls. This follow-up adds component tests; it neither refutes their result nor establishes an advantage over equally careful design.</p>
+      <div class="saphra-links"><a href="TECHNICAL_NOTE.md" download>Full sequence, scope &amp; sources <span>Markdown · for GitHub ↓</span></a><a href="../#evidence">Explore the other applications <span>TaxiGPT and Causal Parrots →</span></a></div>
+    </div>
+  </section>
+</main>
+<footer class="footer section-pad"><div class="footer-mark"><img src="../assets/sapphire-bridge-mark.png" alt=""><span>Sapphire Bridge</span></div><p>Testing what interpretability evidence establishes</p><p class="footer-right">Felix Borck · 2026</p><nav class="footer-legal" aria-label="Rechtliches" lang="de"><a href="../../impressum.html">Impressum</a><span aria-hidden="true">·</span><a href="../../datenschutz.html">Datenschutz</a></nav>
+  </footer>
+</body>
+</html>

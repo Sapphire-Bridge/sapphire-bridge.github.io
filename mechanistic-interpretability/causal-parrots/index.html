@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An exploratory Causal Parrots follow-up: a model's preference persists after the cause is replaced. What does that tell us about the relation it uses?">
+  <title>Causal Parrots: causal facts or plausible wording?</title>
+  <link rel="icon" type="image/png" href="../assets/sapphire-bridge-mark.png">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="causal-parrots.css">
+  <script src="../config.js" defer></script>
+  <script src="../app.js" defer></script>
+</head>
+<body class="parrots-page">
+  <header class="nav-shell">
+    <nav class="nav" aria-label="Primary navigation">
+      <div class="nav-brand">
+        <a class="site-return" href="../../" aria-label="Back to Felix Borck’s homepage">← Felix Borck</a>
+        <a class="wordmark" href="../" aria-label="Sapphire Bridge causal decidability home"><img src="../assets/sapphire-bridge-mark.png" alt=""><span>Sapphire Bridge</span></a>
+      </div>
+      <div class="nav-links"><a href="../method/">Method</a><a href="../#evidence">Evidence</a><a href="../use-cases/">Use cases</a><a href="../#programme">Programme</a></div>
+      <a class="nav-cta" href="../">← Research programme</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="parrots-hero section-pad" aria-labelledby="page-title">
+      <p class="parrots-overline">Sapphire Bridge · Exploratory follow-up</p>
+      <h1 id="page-title">Causal Parrots:<br><span>causal facts or plausible wording?</span></h1>
+      <p class="parrots-hero-copy">Gemma-3-4B-IT still favours the originally plausible effect after the cause is replaced. What would show that its answer depends on the particular cause–effect relation?</p>
+      <a class="parrots-jump" href="#case-study">See the comparison <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section class="parrots-story section-pad" id="case-study" aria-labelledby="story-title">
+      <div class="parrots-heading">
+        <p class="section-label">The result in one picture</p>
+        <h2 id="story-title">The cause changed.<br>The preference remained.</h2>
+      </div>
+
+      <figure class="parrots-scene" aria-labelledby="story-title" aria-describedby="scene-caption">
+        <div class="parrots-drawing">
+          <div class="parrots-scene-top">
+            <p class="parrots-scene-label">Change the source event · keep the supplied graph structure</p>
+            <div class="parrots-sources">
+              <div class="parrots-event">
+                <img src="assets/boiler-switch.svg" alt="" width="180" height="150">
+                <div><small>Original source event A</small><strong>boiler switch<br>closing</strong></div>
+              </div>
+              <div class="parrots-swap"><span aria-hidden="true">→</span><small>replace<br>source event</small></div>
+              <div class="parrots-event parrots-event-replacement">
+                <img src="assets/garden-valve.svg" alt="" width="180" height="150">
+                <div><small>Source from another scenario</small><strong>garden valve<br>motor powered</strong></div>
+              </div>
+            </div>
+          </div>
+          <div class="parrots-targets">
+            <p class="parrots-scene-label">Keep both effect descriptions · ask about each separately</p>
+            <div class="parrots-target-grid">
+              <div class="parrots-target">
+                <img src="assets/boiler-warming.svg" alt="" width="140" height="160">
+                <div><small><span class="parrots-token">C</span> Plausible for the original cause</small><strong>boiler water<br>warming</strong></div>
+              </div>
+              <div class="parrots-target">
+                <img src="assets/boiler-cooling.svg" alt="" width="140" height="160">
+                <div><small><span class="parrots-token">C′</span> Opposite effect description</small><strong>boiler water<br>cooling</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <figcaption id="scene-caption">Illustrative example from the prompts. The arrow marks a source replacement, not a causal link. Both effect descriptions stay in the event list; A is replaced in the list, links and question. The task asks about the supplied links and instructs the model to ignore world knowledge.</figcaption>
+      </figure>
+
+      <div class="parrots-message">
+        <h3>What the picture means</h3>
+        <div>
+          <p><strong>The supplied graph gives both effect questions the same correct answer:</strong> Yes to both when A reaches them, No to both when it does not. We compare how strongly the model favours Yes for C over C′.</p>
+          <p>Across the tested scenarios, the preference for the originally plausible effect remains after the source is replaced. <strong>The extra contribution of the specific cause–effect relation remains uncertain.</strong> This does not show that wording alone explains the answer.</p>
+        </div>
+      </div>
+
+      <details class="parrots-graph">
+        <summary>See why the graph answer is the same for both effects</summary>
+        <p>In the disconnected example, <code>A → X → B</code> is separate from <code>D → {C, C′}</code>. A reaches neither effect, so the answer is No for both. The connected variant adds paths from B to both C and C′, making both answers Yes. Swapping the source event changes the wording of A while preserving these links.</p>
+      </details>
+    </section>
+
+    <section class="parrots-results section-pad" aria-labelledby="results-title">
+      <div class="parrots-heading">
+        <p class="section-label">The measured comparison</p>
+        <h2 id="results-title">A persistent preference.<br>An uncertain cause-dependent difference.</h2>
+      </div>
+      <p class="parrots-section-intro">Averages across 48 family-instances, both graph answers and both presentation orders. These are aggregate results, not scores for the single example above.</p>
+      <div class="parrots-table-wrap">
+        <table class="parrots-table">
+          <caption class="parrots-sr-only">Preference for the originally plausible effect before and after source replacement, with paired differences and 95% confidence intervals.</caption>
+          <colgroup><col><col><col><col></colgroup>
+          <thead><tr>
+            <th scope="col">Scenario background</th>
+            <th scope="col">Original cause<small>Preference for C over C′</small></th>
+            <th scope="col">Substituted cause<small>Preference for C over C′</small></th>
+            <th scope="col">What does the original cause add?<small>Original − substituted · 95% confidence interval</small></th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <th scope="row"><span class="parrots-mobile-label">Scenario background: </span>Included</th>
+              <td data-label="Original cause"><span class="parrots-number parrots-large" data-number="own_with">3.81</span></td>
+              <td data-label="Substituted cause"><span class="parrots-number parrots-large" data-number="foreign_with">3.33</span></td>
+              <td data-label="Difference · 95% CI"><span><span class="parrots-number parrots-difference" data-number="difference_with">+0.48</span><span class="parrots-number parrots-ci" data-number="ci_with">[−0.42, +1.46]</span></span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="parrots-mobile-label">Scenario background: </span>Removed</th>
+              <td data-label="Original cause"><span class="parrots-number parrots-large" data-number="own_without">3.29</span></td>
+              <td data-label="Substituted cause"><span class="parrots-number parrots-large" data-number="foreign_without">3.13</span></td>
+              <td data-label="Difference · 95% CI"><span><span class="parrots-number parrots-difference" data-number="difference_without">+0.16</span><span class="parrots-number parrots-ci" data-number="ci_without">[−0.62, +0.99]</span></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="parrots-metric"><strong>What the score means.</strong> Values are in nats: the Yes-versus-No log-odds for the question about C, minus the same score for C′. A positive value means a higher Yes-score for the originally plausible effect. It is not answer accuracy.</p>
+      <p class="parrots-uncertainty">Both difference intervals include zero. They leave the original cause’s additional contribution uncertain; they do not establish equal effects. Removing the scenario background leaves the instructions and worked examples in place.</p>
+    </section>
+
+    <section class="parrots-method section-pad" aria-labelledby="method-title">
+      <div class="parrots-heading">
+        <p class="section-label">The method behind the comparison</p>
+        <h2 id="method-title">Ask what the evidence can decide.</h2>
+      </div>
+      <ol class="parrots-flow" aria-label="From an observed preference to a proposed separating test">
+        <li>
+          <span class="parrots-step">01 / Observe the preference</span>
+          <h3>Start with the effect.</h3>
+          <p>The originally plausible effect gets a higher Yes-score. That preference alone does not show which relation the model used.</p>
+        </li>
+        <li>
+          <span class="parrots-step">02 / Name alternatives</span>
+          <h3>What might produce it?</h3>
+          <p>The specific cause, effect wording, context and presentation order may all contribute. These influences can coexist.</p>
+        </li>
+        <li class="parrots-flow-open">
+          <span class="parrots-step">03 / Test dependence</span>
+          <h3>Change what might matter.</h3>
+          <p>Swap the cause, reverse target and link order together, and remove the scenario background. On average, a preference remains; its source is still unresolved.</p>
+        </li>
+        <li>
+          <span class="parrots-step">04 / Separate explanations</span>
+          <h3>Cross causes and effects.</h3>
+          <p>Make each effect fit one cause but not another. Balance wording and order; agree in advance what difference would matter.</p>
+          <span class="parrots-proposal">Proposed next test · not yet run</span>
+        </li>
+      </ol>
+      <div class="parrots-verdict">
+        <h3>A preference that survives a cause swap still needs an explanation.</h3>
+        <p>This exploratory comparison does not identify a wording mechanism, establish the absence of causal knowledge, or decide the Correlation of Causal Facts conjecture. The next question is whether a balanced cause–effect comparison can distinguish relation-specific sensitivity from a more general preference for the effect description.</p>
+      </div>
+    </section>
+
+    <section class="parrots-sources-section section-pad" aria-label="Scope and sources">
+      <details>
+        <summary>Scope, uncertainty &amp; sources</summary>
+        <div class="parrots-source-grid">
+          <div>
+            <h3>Connection to Causal Parrots</h3>
+            <p>Zečević, Willig, Dhami &amp; Kersting’s Correlation of Causal Facts (CCF) conjecture connects correct causal answers to facts and query–answer correlations encountered during training. This follow-up asks a narrower behavioural question: does the preference depend on the queried cause? These are results from a different, smaller local model, not a replication of the paper’s GPT-3, GPT-4 or Luminous findings.</p>
+          </div>
+          <div>
+            <h3>What was measured</h3>
+            <p>Gemma-3-4B-IT, revision <code>093f9f388b31de276ce2de164bdc2081324b9767</code>, evaluated locally on MPS in bfloat16, without a chat template. The exploratory comparison uses 1,536 prompts from 48 familiar family-instances in 23 mechanism clusters, with model-assisted plausibility labels. It measures output log-odds; no mechanistic claim follows from this comparison.</p>
+          </div>
+          <div>
+            <h3>What the controls leave open</h3>
+            <p>Cause replacement also changes wording and, in 576 of 768 matched pairs, token length. The substituted cause–effect relations were not independently truth-annotated. Presentation order changes the event list and the corresponding target-ending link order together. These controls do not isolate a single semantic influence.</p>
+          </div>
+          <div>
+            <h3>Trace the evidence</h3>
+            <p>Intervals use 10,000 recipient-cluster bootstrap draws; dependence from reused donors is not separately captured. Local analysis version: <code>7b726a4</code>. <a href="https://arxiv.org/abs/2308.13067" target="_blank" rel="noreferrer">Causal Parrots · TMLR (2023), §§3–4 ↗</a><br><a href="evidence.json">Numerical evidence snapshot</a> · <a href="EVIDENCE.md">Provenance and interpretation notes</a>. No new model runs were performed for this page.</p>
+            <p>The downloadable snapshot contains aggregate results and provenance; it does not include the underlying 1,536 measurement records or reanalysis code.</p>
+          </div>
+        </div>
+      </details>
+      <div class="parrots-links"><a href="../#evidence">← Back to the evidence portfolio</a><a href="causal-parrots.png" target="_blank" rel="noopener">Open the original infographic PNG ↗</a></div>
+    </section>
+  </main>
+
+  <footer class="footer section-pad"><div class="footer-mark"><img src="../assets/sapphire-bridge-mark.png" alt=""><span>Sapphire Bridge</span></div><p>Testing what interpretability evidence establishes</p><p class="footer-right">A research programme by Felix Borck · 2026</p><nav class="footer-legal" aria-label="Rechtliches" lang="de"><a href="../../impressum.html">Impressum</a><span aria-hidden="true">·</span><a href="../../datenschutz.html">Datenschutz</a></nav>
+  </footer>
+</body>
+</html>
