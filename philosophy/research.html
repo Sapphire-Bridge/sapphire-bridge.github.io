@@ -305,7 +305,7 @@
  <h2>Context-Dependent Semantics in Large Language Models</h2>
  <div class="status">Conceptual paper - philosophical framing.</div>
  <p>Argues that decoder-only Transformer self-attention operationalizes a relational, context-dependent theory of meaning closer to Braun than to Kaplan. The empirical hook is that GPT-style embeddings exhibit low self-similarity and high anisotropy in deeper layers - the same token's representation shifts substantially with its context.</p>
- <p>This frames the move from a philosophical claim about meaning to causal tests inside transformer models, which is what the next three papers carry out.</p>
+ <p>This frames the move from a philosophical claim about meaning to causal tests inside transformer models. The later experiments test how context affects model behavior; they do not decide between semantic theories.</p>
  <div class="key-number">In GPT-2, upper-layer representations are more context-specific (Ethayarajh, 2019).</div>
  <div class="block-links">
  <a href="https://www.dropbox.com/scl/fi/upk7a19cl505qu2xbhfr4/Context-Dependent-Semantics-in-Large-Language-Models-A-Case-for-Transformer-Architectures.pdf?dl=1&amp;rlkey=ybphnqhh5feycd0oznrq223rk&amp;st=eiwddg6u" target="_blank" rel="noopener">Paper PDF (ESSLLI 2025)</a>
@@ -322,11 +322,11 @@
  <div class="block-tagline">Mathematics determines token, not meaning.</div>
  <div class="status">Under review at JoLLI (Journal of Logic, Language and Information).</div>
  <p>Identifies internal states in transformer LMs that causally control meaning-like preference margins under context-swap activation patching, validated with sham-controlled comparisons. Across GPT-2 and Qwen2.5 checkpoints, donor-directed effects are structured and depth-localized; matched sham interventions sit near zero.</p>
- <p>In the fixed-depth target-specificity test, all seven non-GPT-2 models had positive target-span contrast estimates; the 95% interval for Llama-3.2-1B included zero. These local comparisons do not establish global token-atomic exclusivity.</p>
+ <p>In the public preprint’s fixed-depth target-specificity test, all seven non-GPT-2 models had positive target-span contrast estimates; the 95% interval for Llama-3.2-1B included zero. These local comparisons do not establish global token-atomic exclusivity.</p>
  <div class="key-number">Structured, depth-localized donor-directed effects with near-zero sham baselines across GPT-2 and Qwen2.5.</div>
  <div class="block-links">
  <a href="https://zenodo.org/records/18907020" target="_blank" rel="noopener">Preprint (Zenodo)</a>
- <a href="https://github.com/Sapphire-Bridge/AoM_CPT" target="_blank" rel="noopener">Code</a>
+ <a href="https://github.com/Sapphire-Bridge/AoM_CPT/tree/5ac860e74798ee5dc97750c197f28886b1f3c83d" target="_blank" rel="noopener">Code</a>
  </div>
  </article>
 

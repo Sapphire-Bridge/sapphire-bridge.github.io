@@ -64,7 +64,13 @@ These illustrate additional methodological checks. They are **not independent co
 1. v0.5.3: current location readout switches to the donor in both directions for 16/16 known families; full two-move P_id functional qualification passes in 0/16. Source: `results/v053-development-20261013/development_summary.json` and the accompanying `ERGEBNIS_V053_DE.md`. A failed candidate channel does not establish absence of location use.
 2. h24 / single-position K/V diagnoses: full h24 residual donor swap has negligible mean follow-up transport. The all-layer single-position K/V swap gives D_ALL = 0.3093547, nominal development interval [0.1632334, 0.4611080], versus mean natural donor gap 1.4240471. The ratio of means is 21.72%, descriptive. Source: `results/kv-position-v011-20261014/summary.json` and `ERGEBNIS_KV_EINE_POSITION_V011_DE.md`; h24 report `ERGEBNIS_H24_DIAGNOSE_V02_FORTSETZUNG_DE.md`. Effects vary strongly, and jointly illegal successor-move mass rises by about 5.60 percentage points. These are different counterfactuals, not a matched content/dose or layer-isolation comparison, and not evidence of natural control.
 
-## Published reference
+## Published references
+
+Model and released checkpoint: Vafa, Chen, Rambachan, Kleinberg & Mullainathan, *Evaluating the World Model Implicit in a Generative Model*, NeurIPS 2024. https://proceedings.neurips.cc/paper_files/paper/2024/hash/2f6a6317bada76b26a4f61bb70a7db59-Abstract-Conference.html
+
+Original model/checkpoint repository: https://github.com/keyonvafa/world-model-evaluation
+
+Mechanistic study underlying the joint-edit follow-up:
 
 Beckmann, Queloz & Freitas, *World Modeling in Transformers*, arXiv:2609.21748v1, especially §2.2 and Appendix C.1: https://arxiv.org/html/2609.21748v1#A3.SS1
 

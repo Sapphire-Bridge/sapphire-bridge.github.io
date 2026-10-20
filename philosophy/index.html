@@ -550,12 +550,12 @@
  <p class="program-line">I use formal semantics to specify the target independently of the intervention result, then test how language models realize it internally.</p>
  <p class="approach">A changed answer shows causal leverage, not yet construct validity or a full account of the computation. Causal interventions do not by themselves establish that the tested contrast captures the claimed concept. My experiments therefore begin with theory-derived contrasts and falsification conditions, then ask which internal variables realize them.</p>
  <p class="approach-more"><a href="approach.html">Read the approach in full</a></p>
- <p class="results-line">In Gemma-3-4B, rank-5 layer-20 bases fitted on one size operationalization transferred causally to a held-out one and back, recovering 86% and 59% of the full-rank writeback effect against a no-op sham of 0.000. The two families share a prompt template, and the two fitted bases are not the same subspace. <a href="https://github.com/Sapphire-Bridge/gradable-manifold-geometry/blob/d5f7f07830f90259d1922691ba705d846c64f5f5/docs/GRADABLE_MANIFOLD_ONE_PAGER.md" target="_blank" rel="noopener">Public research note and aggregate results</a>, not yet peer-reviewed. The two primary raw-data CSVs are not included in the public repository.</p>
+ <p class="results-line">In <code>google/gemma-3-4b-pt</code>, rank-5 layer-20 bases fitted on one size operationalization transferred causally to a held-out one and back, recovering 86% (95% CI: 59.5–114.6%) and 59% (49.2–70.3%) of the full-rank writeback effect against a no-op sham of 0.000. The two families share a prompt template, and the two fitted bases are not the same subspace. <a href="https://github.com/Sapphire-Bridge/gradable-manifold-geometry/blob/d5f7f07830f90259d1922691ba705d846c64f5f5/docs/GRADABLE_MANIFOLD_ONE_PAGER.md" target="_blank" rel="noopener">Public research note and aggregate results</a>, not yet peer-reviewed. The two primary raw-data CSVs are not included in the public repository.</p>
 
  <div class="anchor">
  <p><strong>Same value, different standard.</strong> The same three-centimeter length counts as huge for an ant and tiny for a labrador.</p>
  <p>I investigate how linguistic context shapes the evaluation of a fixed value. I explicitly specify comparison standards and test whether interventions on internal states can transfer the resulting shifts in size judgments. In separate behavioral tests, I also use standards that conflict with everyday expectations.</p>
- <p>Matched control arms &mdash; directions for the value, the standard, their two-dimensional combination, norm-matched random directions, and a no-op sham &mdash; test whether the causal effect requires the standard-relative contrast rather than the absolute value.</p>
+ <p>Matched control arms &mdash; directions for the value, the standard, their two-dimensional combination, the log-ratio <code>rho = log(value/standard)</code>, norm-matched random directions, and a no-op sham &mdash; test whether the causal effect requires the standard-relative contrast rather than the absolute value. In the primary donor-conditioned patch test, the one-dimensional rho arm recovered about 1.7% of the full-rank effect, compared with 86% for the fitted rank-5 subspace.</p>
  <figure class="anchor-figure">
  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 250" role="img" aria-labelledby="anchor-fig-title anchor-fig-desc">
  <title id="anchor-fig-title">Same value, different standard</title>
@@ -671,7 +671,7 @@
  <p class="card-result">Identifies internal states in transformer LMs that causally control carefully defined meaning-like behavior, under sham-controlled activation patching.</p>
  <div class="card-links">
  <a href="https://zenodo.org/records/18907020" target="_blank" rel="noopener">Preprint</a>
- <a href="https://github.com/Sapphire-Bridge/AoM_CPT" target="_blank" rel="noopener">Code</a>
+ <a href="https://github.com/Sapphire-Bridge/AoM_CPT/tree/5ac860e74798ee5dc97750c197f28886b1f3c83d" target="_blank" rel="noopener">Code</a>
  </div>
  </article>
 

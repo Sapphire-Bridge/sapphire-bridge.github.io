@@ -65,7 +65,7 @@
         <a href="assets/research/makelov-profile-result.svg" target="_blank" rel="noopener" aria-label="Open the measured GPT-2 result at full size">
           <img src="assets/research/makelov-profile-result.svg" width="1240" height="800" loading="lazy" decoding="async" alt="Our GPT-2 Small follow-up to Makelov et al. Position-only invariance: 301 of 512 fresh families, simultaneous interval 53.20 to 64.22 percent. Name-assignment-only invariance: 0 of 512, interval 0 to 0.99 percent. Both upper bounds are below the required 80 percent coverage, so both profiles are excluded at the fixed plus or minus 0.25 nat tolerance.">
         </a>
-        <figcaption>In a separate GPT-2 Small study, we tested two simple accounts of a fixed patch. <strong>Both profiles were excluded:</strong> even their upper uncertainty bounds fell below the required 80% coverage. The underlying mechanism remains open.<span class="question-example-scope">Round 3A’s archived public GitHub push of the frozen manifest predates the locally recorded start. At frozen ±0.25 nat, both specified profiles are excluded—not Makelov et al.’s broader positional interpretation. Post hoc, position-only remains excluded through ±0.30, unresolved at ±0.35–0.40, and would meet the old adequacy criterion at ±0.50. <a href="https://github.com/Satori-1618/causal-decidability-method-case/blob/53b0366f743c46ce1a524b7851a6b238798b106f/docs/ROUND3A_CONFIRMATION.md">Protocol, results and limits ↗</a></span></figcaption>
+        <figcaption>In a separate GPT-2 Small study, we tested two simple accounts of a fixed patch. <strong>Both profiles were excluded:</strong> even their upper uncertainty bounds fell below the required 80% coverage. The underlying mechanism remains open.<span class="question-example-scope">Round 3A’s archived public GitHub push of the frozen manifest predates the locally recorded start. At frozen ±0.25 nat, both specified profiles are excluded—not Makelov et al.’s broader positional interpretation. Post-hoc position-only counts rose from 301/512 at ±0.25 nat to 352/512 at ±0.30, 431/512 at ±0.40 and 473/512 at ±0.50. Only ±0.25 nat was the frozen test. <a href="https://github.com/Satori-1618/causal-decidability-method-case/blob/ea4a3a52756210f7635a4962105d1633de91d54f/docs/ROUND3A_CONFIRMATION.md">Protocol, results and limits ↗</a></span></figcaption>
       </figure>
     </section>
 
@@ -105,20 +105,21 @@
       <div class="method-thesis">
         <p class="thesis-kicker">The contribution</p>
         <p class="thesis-text">Toward causal decidability: a practical procedure for determining which competing causal explanations an intervention experiment can distinguish, and testing those distinctions prospectively.</p>
+        <p class="thesis-scope">I apply established principles of experimental model comparison to activation-patching studies: make rival predictions explicit, check whether the available interventions separate them, and carry numerical and statistical uncertainty into the decision. See <a href="https://doi.org/10.1080/00401706.1967.10490441">Box &amp; Hill (1967)</a> and <a href="https://doi.org/10.1093/biomet/62.1.57">Atkinson &amp; Fedorov (1975)</a> on experimental model discrimination.</p>
         <p class="thesis-scope"><strong>Scope:</strong> “Decidable” is always relative to the declared explanations, interventions, population, and measurement resolution. It is not certainty about every possible mechanism.</p>
         <p class="thesis-scope thesis-relation"><strong>Relation to causal abstraction:</strong> <a href="https://www.jmlr.org/papers/v26/23-0058.html">Causal abstraction</a> tests whether an aligned high-level model is faithful under interchange interventions; interchange intervention accuracy measures output agreement. Causal decidability adds an experimental-design layer around that test: could these interventions tell the explanation apart from its rivals? If two candidates predict the same outputs throughout the tested conditions, a high agreement score does not select between them. It does not replace causal abstraction.</p>
       </div>
 
       <a class="method-story-link" href="method/"><span><small>THE METHOD IN ONE CASE</small><strong>Gemma: what does the patch actually rule out?</strong><em>A visual walkthrough, from competing explanations to a bounded result.</em></span><b aria-hidden="true">→</b></a>
 
-      <p class="scope-note">Measurement planning remains conditional on its assumptions. General forecasting reliability and advantages over strong alternative designs have not been established. The historical synthetic forecast check reached 88.47% and 88.20%, below its frozen 90% target. <a class="evidence-link" href="https://github.com/Satori-1618/causal-decidability-method-case/blob/53b0366f743c46ce1a524b7851a6b238798b106f/docs/validation.md">Read the validation report ↗</a></p>
+      <p class="scope-note">Measurement planning remains conditional on its assumptions. General forecasting reliability and advantages over strong alternative designs have not been established. The historical synthetic forecast check reached 88.47% and 88.20%, below its frozen 90% target. <a class="evidence-link" href="https://github.com/Satori-1618/causal-decidability-method-case/blob/ea4a3a52756210f7635a4962105d1633de91d54f/docs/validation.md">Read the validation report ↗</a></p>
 
       <article class="validation-story" id="tracr-validation" aria-labelledby="tracr-title">
-        <p class="section-label">Controlled validation · Tracr</p>
+        <p class="section-label">Controlled validation · <a href="https://arxiv.org/abs/2301.05062">Tracr — Lindner et al. (2023)</a></p>
         <h3 id="tracr-title">A known circuit provides<br>a controlled check.</h3>
         <figure class="portfolio-picture"><img src="assets/research/tracr-check.svg" width="500" height="240" alt="First frozen Tracr family, simplified: changing donor token D to E leaves measured output D. Copying predicts E; address transfer still selects recipient token D."></figure>
         <p class="story-explanation">Is the patch transferring an address or copying an answer? Changing the donor’s token separates those predictions. Across 128 fresh families in one compiled reversal model, the procedure reproduced the declared narrowing. The intervention site came from known compiler structure: a controlled check, not discovery of an unknown mechanism.</p>
-        <a class="evidence-link" href="https://github.com/Satori-1618/causal-decidability-method-case/blob/53b0366f743c46ce1a524b7851a6b238798b106f/applications/tracr/RESULTS.md">Result and limits ↗</a>
+        <a class="evidence-link" href="https://github.com/Satori-1618/causal-decidability-method-case/blob/ea4a3a52756210f7635a4962105d1633de91d54f/applications/tracr/RESULTS.md">Result and limits ↗</a>
       </article>
     </section>
 
@@ -166,26 +167,26 @@
       <h2 id="further-title">Three more boundaries<br>worth making explicit.</h2>
       <div class="application-grid">
         <article class="portfolio-story">
-          <p class="story-kicker">Mixing Mechanisms</p>
+          <p class="story-kicker"><a href="https://arxiv.org/abs/2510.06182">Mixing Mechanisms · Gur-Arieh, Geva &amp; Geiger</a></p>
           <h3>A mixed average can hide<br>sharper individual predictions.</h3>
           <figure class="portfolio-picture"><img src="assets/research/mixing-cases.svg" width="500" height="240" alt="Illustrative average and individual output distributions. Individual distributions can be more concentrated; the colors are answers, not identified mechanisms."></figure>
-          <p class="story-explanation">With an adapted answer readout, a frozen test excluded the claim that individual outputs usually resemble the average’s concentration. The aggregate mixture account remains intact; individual mechanisms were not identified.</p>
-          <p class="story-explanation">The concentration measure can make this contrast larger when the preferred answer changes across cases. The result excludes the stated concentration profile, not a mechanism.</p>
+          <p class="story-explanation">With an adapted answer readout, a frozen test excluded our operational concentration profile, under which individual outputs usually resemble the average’s concentration. The aggregate mixture account remains intact; individual mechanisms were not identified.</p>
+          <p class="story-explanation">The concentration measure is biased toward excluding the cell-average profile when the preferred answer changes across cases; the bias is largest in the selected cell. The result excludes the stated concentration profile, not a mechanism.</p>
           <a class="evidence-link" href="https://github.com/Satori-1618/causal-decidability-method-case/blob/ea4a3a52756210f7635a4962105d1633de91d54f/applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md">Read the study and its limits ↗</a>
         </article>
         <article class="portfolio-story">
-          <p class="story-kicker">Makelov · Lange · Nanda</p>
+          <p class="story-kicker"><a href="https://arxiv.org/abs/2311.17030">Makelov, Lange &amp; Nanda (2023)</a></p>
           <h3>A better prediction is not<br>yet an adequate explanation.</h3>
           <figure class="portfolio-picture"><img src="assets/research/makelov-read.svg" width="500" height="240" alt="Visible-read and null-read accounts compared: the null-read account predicts better, leaving the separate question of whether it predicts well enough."></figure>
           <p class="story-explanation">The null-read predictor performed better on 64 fresh pairs. Later tests excluded simple profiles and stopped an unqualified task. Its absolute adequacy and the model’s natural mechanism remain open.</p>
-          <a class="evidence-link" href="https://github.com/Satori-1618/causal-decidability-method-case/blob/53b0366f743c46ce1a524b7851a6b238798b106f/applications/makelov-2311.17030/OVERVIEW.md">Follow the four rounds ↗</a>
+          <a class="evidence-link" href="https://github.com/Satori-1618/causal-decidability-method-case/blob/ea4a3a52756210f7635a4962105d1633de91d54f/applications/makelov-2311.17030/OVERVIEW.md">Follow the four rounds ↗</a>
         </article>
         <article class="portfolio-story">
-          <p class="story-kicker">Goodfire · CausaLab</p>
+          <p class="story-kicker"><a href="https://github.com/goodfire-ai/causalab/blob/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/demos/papers/mcqa_pointer.md">Goodfire · CausaLab</a></p>
           <h3>Different designs expose<br>different remaining ties.</h3>
           <figure class="portfolio-picture"><img src="assets/research/goodfire-choices.svg" width="500" height="240" alt="Two published donor layouts for the same blue-shoe question: one moves options, the other changes letters. These are input conditions, not measured outputs."></figure>
-          <p class="story-explanation">Goodfire’s designs already distinguish their intended variables. Our input audit makes the remaining ties explicit and proposes a shared test of one fixed patch. No new model experiment or measurement-resolution test was performed.</p>
-          <a class="evidence-link" href="https://github.com/Satori-1618/causal-decidability-method-case/blob/53b0366f743c46ce1a524b7851a6b238798b106f/applications/goodfire-mcqa-preflight/README.md">Read the design audit ↗</a>
+          <p class="story-explanation">Goodfire’s designs already distinguish their intended variables. The CausaLab examples draw on <a href="https://arxiv.org/abs/2407.15018">Wiegreffe et al.’s MCQA work</a> and <a href="https://arxiv.org/abs/2303.02536">Geiger et al.’s distributed alignment search</a>. Our input audit makes the remaining ties explicit and proposes a shared test of one fixed patch. No new model experiment or measurement-resolution test was performed.</p>
+          <a class="evidence-link" href="https://github.com/Satori-1618/causal-decidability-method-case/blob/ea4a3a52756210f7635a4962105d1633de91d54f/applications/goodfire-mcqa-preflight/README.md">Read the design audit ↗</a>
         </article>
       </div>
       <p class="scope-note">These source-linked studies retain their original records and limitations. A design audit, a controlled validation and a fresh model intervention answer different questions.</p>
@@ -199,7 +200,7 @@
         <p>The long-term goal is AI systems whose internal reasons can be inspected, challenged, and revised. Causal decidability supplies a disciplined first layer: define rival explanations, test whether the intervention distinguishes them, and preserve uncertainty when it does not.</p>
         <p>The work connects causal abstraction, mechanistic interpretability, and philosophy of explanation. It treats language-level explanations as candidates in a space of interpretations—not as complete formal descriptions of a transformer.</p>
       </div>
-      <p class="scope-note">Implemented tools support prediction comparison and evidence evaluation. Automated rival generation and feedback-driven revision remain under evaluation.</p>
+      <p class="scope-note">Implemented tools support prediction comparison and evidence evaluation. AI-assisted rival generation has not been evaluated. Feedback-driven revision remains a research direction.</p>
       <div class="programme-actions">
         <a class="button button-dark" data-link="papers" href="#evidence">Research repository</a>
       </div>
